@@ -1,880 +1,1111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Kunnu & Bhagya — Our Story</title>
+    <title>Our Little Diary ♡</title>
 
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- =========================
-       ANIMATED BACKGROUND
-  ========================== -->
-  <div class="background">
-    <div class="moon"></div>
+<!-- =====================================================
+     SECRET ENTRY
+===================================================== -->
 
-    <div class="stars">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+<section class="screen secret-screen" id="secretScreen">
 
-    <div class="floating-heart heart-1">♥</div>
-    <div class="floating-heart heart-2">♥</div>
-    <div class="floating-heart heart-3">♥</div>
-    <div class="floating-heart heart-4">♥</div>
-  </div>
+    <div class="secret-stars"></div>
 
+    <div class="secret-card">
 
-  <!-- =========================
-       SECRET CODE SCREEN
-  ========================== -->
-  <section id="secretScreen" class="screen active">
+        <div class="secret-decoration">♡</div>
 
-    <div class="secret-content">
+        <p class="tiny-label">A LITTLE SECRET</p>
 
-      <div class="teddy">🧸</div>
+        <h1>Before our story begins...</h1>
 
-      <p class="tiny-label">A little secret between us</p>
+        <p class="secret-text">
+            There is one date only we would know.
+            <br>
+            Enter it to open our little diary.
+        </p>
 
-      <h1>Before you enter...</h1>
+        <form id="secretForm">
 
-      <p class="secret-text">
-        Some memories are meant to stay between two people.
-        <br>
-        If you're the right person, you already know the code.
-      </p>
+            <div class="code-box">
 
-      <form id="secretForm">
+                <input
+                    type="password"
+                    id="secretCode"
+                    maxlength="8"
+                    inputmode="numeric"
+                    autocomplete="off"
+                    placeholder="DDMMYYYY"
+                    aria-label="Secret date"
+                >
 
-        <div class="code-box">
+                <button
+                    type="button"
+                    id="eyeButton"
+                    class="eye-button"
+                    aria-label="Show secret code"
+                >
+                    Show
+                </button>
 
-          <input
-            type="password"
-            id="secretCode"
-            maxlength="8"
-            inputmode="numeric"
-            autocomplete="off"
-            placeholder="Enter our code"
-          >
+            </div>
 
-          <button
-            type="button"
-            id="eyeButton"
-            aria-label="Show or hide code"
-          >
-            <span class="eye-icon">◉</span>
-          </button>
+            <p
+                id="errorMessage"
+                class="error-message"
+                aria-live="polite"
+            ></p>
 
+            <button
+                type="submit"
+                class="main-button"
+            >
+                Unlock our story
+                <span>♡</span>
+            </button>
+
+        </form>
+
+        <div class="secret-bottom">
+            <span>some memories are worth keeping forever</span>
         </div>
 
-        <p id="errorMessage"></p>
+    </div>
 
-        <button type="submit" class="main-button">
-          Enter Our World
-          <span>→</span>
+</section>
+
+
+<!-- =====================================================
+     ANNIVERSARY OPENING
+===================================================== -->
+
+<section
+    class="screen anniversary-screen"
+    id="anniversaryScreen"
+>
+
+    <div class="opening-sky">
+
+        <div class="moon">☾</div>
+
+        <span class="star star-1">✦</span>
+        <span class="star star-2">✧</span>
+        <span class="star star-3">✦</span>
+        <span class="star star-4">·</span>
+        <span class="star star-5">✧</span>
+
+    </div>
+
+
+    <div class="opening-content">
+
+        <div class="opening-teddy">
+            🧸
+        </div>
+
+        <p class="tiny-label">
+            TWO YEARS OF US
+        </p>
+
+        <h1>
+            Our Little
+            <span>Universe</span>
+        </h1>
+
+        <div class="opening-line">
+            <span></span>
+            ♡
+            <span></span>
+        </div>
+
+        <p class="opening-text">
+            A collection of little moments,
+            <br>
+            unexpected meetings,
+            <br>
+            silly fights, quiet smiles
+            and a love that kept growing.
+        </p>
+
+        <button
+            id="openDiaryButton"
+            class="main-button open-button"
+        >
+            Open our diary
+            <span>→</span>
         </button>
 
-      </form>
-
-      <p class="secret-date">30 · 09 · 2024</p>
+        <p class="scroll-hint">
+            take your time · read everything
+        </p>
 
     </div>
 
-  </section>
 
-
-  <!-- =========================
-       ANNIVERSARY INTRO
-  ========================== -->
-  <section id="anniversaryScreen" class="screen hidden">
-
-    <div class="anniversary-scene">
-
-      <div class="scene-decoration teddy-decoration">
-        🧸
-      </div>
-
-      <div class="scene-decoration guitar-decoration">
+    <div class="opening-decor guitar">
         🎸
-      </div>
+    </div>
 
-      <div class="letter-decoration">
+    <div class="opening-decor letter">
         💌
-      </div>
+    </div>
 
-      <p class="tiny-label">A story that started with two people</p>
+    <div class="opening-decor bow">
+        🎀
+    </div>
 
-      <h1>
-        Happy Anniversary,
-        <br>
-        <span>Kunnu & Bhagya</span>
-      </h1>
+</section>
 
-      <p class="anniversary-subtitle">
-        Two years of memories, chaos, laughter,
-        <br>
-        love, fights, making up and choosing each other again.
-      </p>
 
-      <button id="openDiaryButton" class="main-button">
-        Open Our Diary
-        <span>♡</span>
-      </button>
+<!-- =====================================================
+     MAIN DIARY
+===================================================== -->
+
+<main id="diary" class="diary">
+
+    <!-- Floating background elements -->
+
+    <div class="background">
+
+        <span class="floating-heart heart-a">♡</span>
+        <span class="floating-heart heart-b">♡</span>
+        <span class="floating-heart heart-c">♡</span>
+
+        <span class="floating-star star-a">✦</span>
+        <span class="floating-star star-b">✧</span>
+        <span class="floating-star star-c">·</span>
+
+        <div class="background-moon">☾</div>
 
     </div>
 
-  </section>
 
-
-  <!-- =========================
-       MAIN DIARY
-  ========================== -->
-  <main id="diary" class="hidden">
-
-
-    <!-- =========================
+    <!-- =================================================
          DIARY COVER
-    ========================== -->
-    <section class="diary-cover diary-section">
+    ================================================= -->
 
-      <div class="cover-rings"></div>
+    <section class="diary-section cover-section">
 
-      <p class="tiny-label">Our little universe</p>
+        <div class="cover-decoration top-decoration">
+            ✦
+        </div>
 
-      <h1>
-        Kunnu
-        <span>&</span>
-        Bhagya
-      </h1>
+        <div class="diary-page cover-page">
 
-      <p class="cover-subtitle">
-        A diary of the moments that became us.
-      </p>
+            <p class="page-number">
+                OUR DIARY · 01
+            </p>
 
-      <div class="cover-heart">♥</div>
+            <p class="tiny-label">
+                September 2024 — September 2026
+            </p>
 
-      <p class="scroll-hint">
-        Scroll slowly...
-      </p>
+            <h1 class="cover-title">
+                Two Years,
+                <br>
+                <span>One Little Story</span>
+            </h1>
+
+            <div class="cover-divider">
+                <span></span>
+                ♡
+                <span></span>
+            </div>
+
+            <p class="cover-note">
+                “Some stories begin with a plan.
+                <br>
+                Ours began unexpectedly.”
+            </p>
+
+            <div class="cover-signature">
+                Kunnu <span>♡</span> Bhagya
+            </div>
+
+            <div class="cover-bottom">
+                <span>turn the page</span>
+                <span class="down-arrow">↓</span>
+            </div>
+
+        </div>
 
     </section>
 
 
-    <!-- =========================
-         CHAPTER 01
-         FIRST MEETING
-    ========================== -->
-    <section class="diary-section chapter first-meeting">
+    <!-- =================================================
+         FIRST DATE
+         30 SEPTEMBER 2024
+    ================================================= -->
 
-      <div class="chapter-number">01</div>
+    <section
+        class="diary-section first-date-section"
+        id="firstDate"
+    >
 
-      <p class="chapter-label">The beginning</p>
-
-      <h2>
-        The day we met
-      </h2>
-
-      <div class="date-card">
-
-        <div>
-          <span>Date</span>
-          <strong>30 September 2024</strong>
+        <div class="chapter-number">
+            01
         </div>
 
-        <div>
-          <span>Day</span>
-          <strong>Monday</strong>
+        <div class="chapter-label">
+            THE FIRST PAGE
         </div>
 
-        <div>
-          <span>Time</span>
-          <strong>12:00 PM</strong>
+        <div class="diary-page">
+
+            <div class="date-heading">
+
+                <p class="month">
+                    SEPTEMBER
+                </p>
+
+                <h2>
+                    30
+                </h2>
+
+                <p class="year">
+                    2024 · MONDAY
+                </p>
+
+            </div>
+
+
+            <div class="memory-heading">
+
+                <span class="little-icon">🌿</span>
+
+                <div>
+                    <p class="tiny-label">
+                        OUR FIRST DATE
+                    </p>
+
+                    <h3>
+                        The unexpected meet
+                    </h3>
+                </div>
+
+            </div>
+
+
+            <div class="story-card">
+
+                <p class="story-lead">
+                    12:00 PM · Lodhi Garden
+                </p>
+
+                <p>
+                    I still remember our first proper meeting.
+                    It was not some perfectly planned romantic
+                    beginning. It happened almost unexpectedly,
+                    and somehow that made it even more special.
+                </p>
+
+                <p>
+                    You wanted to hug me that day.
+                    I refused.
+                </p>
+
+                <p>
+                    You left with that disappointed little face
+                    and then went towards the airport.
+                    But somehow, that was not the end of the day.
+                </p>
+
+                <p>
+                    I kept talking to you.
+                    And as if things were slowly falling into
+                    their own place, our conversations became
+                    more and more fun.
+                </p>
+
+                <p>
+                    Somewhere between all those conversations,
+                    teasing and little moments, we developed
+                    this invisible but jolly bonding.
+                </p>
+
+                <div class="handwritten-note">
+                    <span>little note</span>
+
+                    Maybe neither of us knew it then,
+                    but this was the beginning of us.
+                </div>
+
+            </div>
+
+
+            <!--
+                📸 PHOTO WILL BE ADDED LATER.
+                FIRST DATE PHOTO SECTION WILL BE PLACED HERE.
+                NO PHOTO CODE FOR NOW.
+            -->
+
+            <div class="page-footer">
+                <span>30 · 09 · 2024</span>
+                <span>♡</span>
+            </div>
+
         </div>
-
-        <div>
-          <span>Place</span>
-          <strong>Lodhi Garden</strong>
-        </div>
-
-      </div>
-
-
-      <div class="memory-text">
-
-        <p>
-          I still remember that day because it was the first time
-          two people who had only known each other through conversations
-          finally stood in front of each other.
-        </p>
-
-        <p>
-          You wanted to hug me.
-          I refused.
-        </p>
-
-        <p>
-          You walked away with that disappointed face,
-          and somehow that little moment stayed in my mind.
-        </p>
-
-        <p>
-          You eventually left for the airport.
-          But our conversations didn't end there.
-        </p>
-
-        <p>
-          We kept talking through the night, and somewhere between
-          those random conversations, teasing and laughter,
-          something began to feel different.
-        </p>
-
-        <p>
-          Nothing was forced.
-          Nothing was planned.
-          We simply kept talking.
-        </p>
-
-        <p class="highlight-line">
-          And somehow, things started falling into place on their own.
-        </p>
-
-      </div>
 
     </section>
 
 
-    <!-- =========================
-         CHAPTER 02
-         14 SEPTEMBER
-    ========================== -->
-    <section class="diary-section chapter september-fourteen">
+    <!-- =================================================
+         14 SEPTEMBER 2025
+         DAY OUT — NO PHOTOS
+    ================================================= -->
 
-      <div class="chapter-number">02</div>
+    <section
+        class="diary-section september-14-section"
+        id="september14"
+    >
 
-      <p class="chapter-label">One year later</p>
-
-      <h2>
-        14 September 2025
-      </h2>
-
-      <div class="date-card">
-
-        <div>
-          <span>Date</span>
-          <strong>14 September 2025</strong>
+        <div class="chapter-number">
+            02
         </div>
 
-        <div>
-          <span>Day</span>
-          <strong>Sunday</strong>
+        <div class="chapter-label">
+            ONE YEAR LATER
         </div>
 
-        <div>
-          <span>Time</span>
-          <strong>3:00 PM</strong>
+        <div class="diary-page">
+
+            <div class="date-heading">
+
+                <p class="month">
+                    SEPTEMBER
+                </p>
+
+                <h2>
+                    14
+                </h2>
+
+                <p class="year">
+                    2025
+                </p>
+
+            </div>
+
+
+            <div class="memory-heading">
+
+                <span class="little-icon">🚇</span>
+
+                <div>
+                    <p class="tiny-label">
+                        OUR DAY OUT
+                    </p>
+
+                    <h3>
+                        Green Park → CP → You
+                    </h3>
+                </div>
+
+            </div>
+
+
+            <div class="story-card">
+
+                <p class="story-lead">
+                    Green Park Metro · Connaught Place · Room
+                </p>
+
+                <p>
+                    That day started with me being busy with my
+                    planshow and already feeling tired and late.
+                    I had my own plans, but your teasing somehow
+                    convinced me to come and meet you.
+                </p>
+
+                <p>
+                    We met at Green Park Metro.
+                    I was nervous when I saw you, but you slowly
+                    made me comfortable.
+                </p>
+
+                <p>
+                    Then came the metro ride — and yes,
+                    I punched you while we were travelling.
+                    People actually looked at us.
+                </p>
+
+                <p>
+                    Before we reached CP, you held my hand.
+                    It was such a small thing, but I remember it.
+                </p>
+
+                <p>
+                    We went to a café and had food, but I did not
+                    really like it. So I simply said,
+                    “Let's leave.”
+                </p>
+
+                <p>
+                    You picked up my bag, booked an auto,
+                    and we sat together and left.
+                </p>
+
+                <div class="memory-strip">
+
+                    <div class="mini-memory">
+                        <span>01</span>
+                        Green Park
+                    </div>
+
+                    <div class="mini-memory">
+                        <span>02</span>
+                        Metro ride
+                    </div>
+
+                    <div class="mini-memory">
+                        <span>03</span>
+                        Connaught Place
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- NO PHOTO ON 14 SEPTEMBER -->
+
+            <div class="no-photo-note">
+
+                <span class="note-symbol">♡</span>
+
+                <p>
+                    Some days don't need photographs.
+                </p>
+
+                <small>
+                    The memory itself is enough.
+                </small>
+
+            </div>
+
+
+            <div class="page-footer">
+                <span>14 · 09 · 2025</span>
+                <span>♡</span>
+            </div>
+
         </div>
-
-        <div>
-          <span>First stop</span>
-          <strong>Green Park Metro Station</strong>
-        </div>
-
-      </div>
-
-
-      <!-- NO PHOTOS HERE -->
-      <div class="memory-text">
-
-        <p>
-          I was busy with my planshow.
-          I was already tired from everything,
-          and your teasing finally made me come to meet you.
-        </p>
-
-        <p>
-          I was exhausted, but you were there...
-          so I knew you'd take care of me.
-        </p>
-
-        <p>
-          I reached Green Park Metro Station,
-          and even though I was nervous,
-          you somehow made everything feel comfortable.
-        </p>
-
-        <p>
-          We got into the metro together.
-          At some point I punched you,
-          and of course people around us started looking.
-        </p>
-
-        <p>
-          Before we reached CP,
-          you held my hand.
-        </p>
-
-        <p>
-          We walked around and eventually stopped at a café.
-          The food wasn't really what I liked,
-          so I simply told you that we should leave.
-        </p>
-
-        <p>
-          You picked up my bag,
-          booked an auto,
-          and we sat together.
-        </p>
-
-        <p>
-          You kept teasing me.
-          You kissed my cheek,
-          and I immediately became shy.
-        </p>
-
-        <p>
-          You put your arm around my waist,
-          and obviously I told you not to.
-        </p>
-
-        <p class="highlight-line">
-          And then we finally reached the room.
-        </p>
-
-      </div>
 
     </section>
 
 
-    <!-- =========================
-         14 SEPTEMBER — ROOM
-         MEMORY ONLY / NO PHOTOS
-    ========================== -->
-    <section class="diary-section chapter room-fourteen">
+    <!-- =================================================
+         14 SEPTEMBER — ROOM MEMORY
+         NO PHOTOS
+    ================================================= -->
 
-      <div class="room-card">
+    <section
+        class="diary-section room-memory-section"
+        id="roomMemory"
+    >
 
-        <div class="room-icon">♡</div>
+        <div class="diary-page">
 
-        <p class="chapter-label">Later that evening</p>
+            <div class="small-chapter">
+                LATER THAT DAY
+            </div>
 
-        <h2>
-          Just us, finally.
-        </h2>
+            <h2 class="section-title">
+                A quieter part
+                <br>
+                of the day
+            </h2>
 
-        <div class="memory-text">
+            <div class="story-card intimate-card">
 
-          <p>
-            You showed me the video of your Ganesh Chaturthi performance.
-            We watched it together and talked about everything and nothing.
-          </p>
+                <p>
+                    When we reached the room, you showed me
+                    the video of your Ganesh Chaturthi performance.
+                    We watched it together and talked about it.
+                </p>
 
-          <p>
-            I told you to stop using your phone,
-            because I wanted your attention.
-          </p>
+                <p>
+                    At some point I told you to stop looking at
+                    your phone and actually spend time with me.
+                </p>
 
-          <p>
-            Then came the hugs, kisses, teasing,
-            little fights and those private moments
-            that belonged only to us.
-          </p>
+                <p>
+                    The rest of the evening became our own little
+                    world — hugs, kisses, talking, teasing,
+                    playful fights and those small moments that
+                    only make sense when it is just the two of us.
+                </p>
 
-          <p>
-            You eventually came downstairs with me,
-            arranged an auto for me,
-            and made sure I got home safely.
-          </p>
+                <p>
+                    Later, you dropped me downstairs and arranged
+                    an auto for me.
+                </p>
 
-          <p>
-            Even after I reached home,
-            we continued talking on the phone.
-          </p>
+                <p>
+                    Even after I reached home, we kept talking
+                    on the phone.
+                </p>
 
-          <p>
-            You had bought a new shirt and showed it to me,
-            and naturally our usual teasing started again.
-          </p>
+                <div class="handwritten-note">
+
+                    <span>one tiny memory</span>
+
+                    You had bought a new shirt and showed it to me.
+                    Somehow even our silly little teasing and
+                    playful hitting around the “bump” became
+                    another memory to keep.
+
+                </div>
+
+            </div>
+
+
+            <div class="page-footer">
+                <span>14 · 09 · 2025</span>
+                <span>♡</span>
+            </div>
 
         </div>
-
-        <div class="little-note">
-          Some days don't need photographs.
-          <br>
-          The memory itself is enough.
-        </div>
-
-      </div>
 
     </section>
 
 
-    <!-- =========================
-         CHAPTER 03
-         15 SEPTEMBER
-    ========================== -->
-    <section class="diary-section chapter september-fifteen">
+    <!-- =================================================
+         15 SEPTEMBER 2025
+         LAST EVENING
+    ================================================= -->
 
-      <div class="chapter-number">03</div>
+    <section
+        class="diary-section september-15-section"
+        id="september15"
+    >
 
-      <p class="chapter-label">The next morning</p>
-
-      <h2>
-        15 September 2025
-      </h2>
-
-      <div class="date-card">
-
-        <div>
-          <span>Date</span>
-          <strong>15 September 2025</strong>
+        <div class="chapter-number">
+            03
         </div>
 
-        <div>
-          <span>Day</span>
-          <strong>Monday</strong>
+        <div class="chapter-label">
+            OUR LAST EVENING
         </div>
 
-        <div>
-          <span>Place</span>
-          <strong>His Room</strong>
+        <div class="diary-page">
+
+            <div class="date-heading">
+
+                <p class="month">
+                    SEPTEMBER
+                </p>
+
+                <h2>
+                    15
+                </h2>
+
+                <p class="year">
+                    2025
+                </p>
+
+            </div>
+
+
+            <div class="memory-heading">
+
+                <span class="little-icon">🏠</span>
+
+                <div>
+                    <p class="tiny-label">
+                        THE NEXT DAY
+                    </p>
+
+                    <h3>
+                        No journey this time
+                    </h3>
+                </div>
+
+            </div>
+
+
+            <div class="story-card">
+
+                <p class="story-lead">
+                    Directly to your room · Our last evening
+                </p>
+
+                <p>
+                    The next day was different.
+                    There was no long journey before meeting you.
+                    I went directly to your room.
+                </p>
+
+                <p>
+                    We had our own little time together there,
+                    knowing that the evening would eventually
+                    come to an end.
+                </p>
+
+                <p>
+                    It was one of those days where even ordinary
+                    things felt special because we knew our time
+                    together was running out.
+                </p>
+
+            </div>
+
+
+            <!--
+                📸 PHOTO SECTION — 3 PHOTOS WILL BE ADDED LATER.
+                THESE PHOTOS BELONG TO THE EVENING OF 15 SEPTEMBER.
+            -->
+
+            <div class="photo-placeholder-area">
+
+                <div class="placeholder-label">
+                    OUR LAST EVENING
+                </div>
+
+                <p>
+                    Three little memories from this evening
+                    will live here.
+                </p>
+
+            </div>
+
+
+            <div class="page-footer">
+                <span>15 · 09 · 2025</span>
+                <span>♡</span>
+            </div>
+
         </div>
-
-      </div>
-
-
-      <div class="memory-text">
-
-        <p>
-          The next day was different.
-          There was no long journey before meeting you.
-          I went directly to your room.
-        </p>
-
-        <p>
-          We made Maggi and chai together,
-          watched videos,
-          talked and simply enjoyed being around each other.
-        </p>
-
-        <p>
-          You told me about how you got your job,
-          and somewhere in that conversation,
-          things became emotional.
-        </p>
-
-        <p>
-          I saw you cry.
-          I hugged you.
-        </p>
-
-        <p>
-          Later, we had our misunderstanding too.
-          I told you that you didn't love me,
-          because sometimes my emotions become bigger than my words.
-        </p>
-
-        <p>
-          I cried.
-          You became emotional too.
-          And eventually we just held each other.
-        </p>
-
-        <p>
-          There were more conversations,
-          more hugs, more little fights,
-          and more moments that belonged only to us.
-        </p>
-
-      </div>
 
     </section>
 
 
-    <!-- =========================
-         15 SEPTEMBER — PHOTOS
-    ========================== -->
-    <section class="diary-section photo-chapter">
+    <!-- =================================================
+         CHAI MEMORY
+    ================================================= -->
 
-      <p class="chapter-label">That evening</p>
+    <section
+        class="diary-section chai-section"
+        id="chaiMoment"
+    >
 
-      <h2>
-        Before our time ran out
-      </h2>
+        <div class="diary-page special-page">
 
-      <p class="photo-intro">
-        Three photographs from our last evening together.
-      </p>
+            <div class="special-icon">
+                ☕
+            </div>
 
+            <p class="tiny-label">
+                ONE SMALL MOMENT
+            </p>
 
-      <div class="photo-gallery">
+            <h2 class="section-title">
+                The chai
+                <br>
+                before goodbye
+            </h2>
 
-        <!-- PHOTO 1 -->
-        <figure class="memory-photo photo-one">
-          <img
-            src="images/15-sep-1.jpg"
-            alt="Kunnu and Bhagya — 15 September 2025"
-          >
-        </figure>
+            <div class="story-card">
 
+                <p>
+                    We were making chai in the room that evening,
+                    knowing that our time together was almost over.
+                </p>
 
-        <!-- PHOTO 2 — FAVOURITE -->
-        <figure class="memory-photo photo-favourite">
+                <p>
+                    I was about to go home and you were about
+                    to leave for the airport.
+                </p>
 
-          <div class="favourite-tag">
-            My favourite
-          </div>
+                <p>
+                    I went into the bathroom to fix my hair,
+                    and you were outside watching me.
+                </p>
 
-          <img
-            src="images/15-sep-2.jpg"
-            alt="Favourite memory — 15 September 2025"
-          >
+                <p>
+                    It was such a small moment.
+                    Nothing dramatic.
+                    But I liked it.
+                </p>
 
-        </figure>
+                <div class="chai-visual">
+                    ☕
+                    <span class="steam steam-1">﹏</span>
+                    <span class="steam steam-2">﹏</span>
+                    <span class="steam steam-3">﹏</span>
+                </div>
 
-
-        <!-- PHOTO 3 -->
-        <figure class="memory-photo photo-three">
-          <img
-            src="images/15-sep-3.jpg"
-            alt="Kunnu and Bhagya — 15 September 2025"
-          >
-        </figure>
-
-      </div>
-
-
-      <!-- CHAI MEMORY -->
-      <div class="chai-memory">
-
-        <div class="chai-cup">☕</div>
-
-        <div>
-
-          <p class="chapter-label">One tiny moment</p>
-
-          <h3>
-            Chai, hair, and a little more time.
-          </h3>
-
-          <p>
-            We were making chai in the room that evening,
-            knowing that our time together was almost over.
-          </p>
-
-          <p>
-            I went into the bathroom to fix my hair,
-            and you were outside watching me.
-          </p>
-
-          <p class="highlight-line">
-            It was such a small moment, but I liked it.
-          </p>
+            </div>
 
         </div>
-
-      </div>
 
     </section>
 
 
-    <!-- =========================
+    <!-- =================================================
          GOODBYE
-    ========================== -->
-    <section class="diary-section goodbye-section">
+    ================================================= -->
 
-      <div class="airplane">✈</div>
+    <section
+        class="diary-section goodbye-section"
+        id="goodbye"
+    >
 
-      <p class="chapter-label">And then...</p>
+        <div class="chapter-number">
+            04
+        </div>
 
-      <h2>
-        Goodbye, again.
-      </h2>
+        <div class="chapter-label">
+            UNTIL NEXT TIME
+        </div>
 
-      <div class="memory-text">
+        <div class="diary-page">
 
-        <p>
-          Eventually, I had to go home.
-          You had to leave for the airport.
-        </p>
+            <div class="goodbye-icon">
+                ✈
+            </div>
 
-        <p>
-          Neither of us really wanted that moment to arrive,
-          but time doesn't stop just because two people wish it would.
-        </p>
+            <p class="tiny-label">
+                DELHI ↔ PUNE
+            </p>
 
-        <p>
-          I left with a heavy heart.
-          You left for Pune.
-        </p>
+            <h2 class="section-title">
+                And then
+                <br>
+                came goodbye.
+            </h2>
 
-        <p>
-          And just like that,
-          we were back to missing each other.
-        </p>
+            <div class="story-card">
 
-      </div>
+                <p>
+                    Eventually the moment came when we had to
+                    leave each other again.
+                </p>
 
-      <div class="goodbye-photo">
+                <p>
+                    You were leaving for the airport,
+                    and I was going home.
+                </p>
 
-        <img
-          src="images/goodbye.jpg"
-          alt="Goodbye memory"
-        >
+                <p>
+                    Distance was waiting for us again,
+                    but so were all the memories we had just made.
+                </p>
 
-      </div>
+                <p class="story-ending">
+                    Goodbye was never really goodbye.
+                    It was always just...
+                    <span>until next time.</span>
+                </p>
 
-      <p class="goodbye-line">
-        Until the next time.
-      </p>
+            </div>
+
+
+            <!--
+                📸 GOODBYE PHOTO WILL BE DECIDED LATER.
+            -->
+
+            <div class="goodbye-photo-placeholder">
+                <span>♡</span>
+            </div>
+
+
+            <div class="page-footer">
+                <span>UNTIL NEXT TIME</span>
+                <span>✈</span>
+            </div>
+
+        </div>
 
     </section>
 
 
-    <!-- =========================
+    <!-- =================================================
          TWO YEARS
-    ========================== -->
-    <section class="diary-section two-years">
+    ================================================= -->
 
-      <div class="big-number">
-        2
-      </div>
+    <section
+        class="diary-section two-years-section"
+        id="twoYears"
+    >
 
-      <p class="chapter-label">
-        30 September 2026
-      </p>
+        <div class="diary-page anniversary-page">
 
-      <h2>
-        Two years.
-      </h2>
+            <div class="number-ring">
 
-      <div class="memory-text">
+                <span>2</span>
 
-        <p>
-          Two years since that first meeting.
-        </p>
+                <small>
+                    YEARS
+                </small>
 
-        <p>
-          Two years of talking,
-          teasing,
-          fighting,
-          making up,
-          laughing,
-          missing each other,
-          and finding our way back to each other.
-        </p>
+            </div>
 
-        <p>
-          Two years of becoming a little more us.
-        </p>
+            <p class="tiny-label">
+                SEPTEMBER 2026
+            </p>
 
-        <p class="highlight-line">
-          And this isn't the end of our story.
-        </p>
+            <h2 class="section-title">
+                Two years
+                <br>
+                of becoming us.
+            </h2>
 
-      </div>
+            <div class="story-card centered-card">
+
+                <p>
+                    Two years of conversations,
+                    teasing, little fights, laughter,
+                    missing each other and finding our way
+                    back to the same place.
+                </p>
+
+                <p>
+                    We have changed.
+                    Life has changed.
+                    But somehow, there is still this little
+                    world that belongs only to us.
+                </p>
+
+                <div class="big-heart">
+                    ♡
+                </div>
+
+                <p class="final-small-line">
+                    And this diary is only a tiny piece of it.
+                </p>
+
+            </div>
+
+        </div>
 
     </section>
 
 
-    <!-- =========================
+    <!-- =================================================
          FUTURE
-    ========================== -->
-    <section class="diary-section future-section">
+    ================================================= -->
 
-      <div class="future-decoration">
-        ♡
-      </div>
+    <section
+        class="diary-section future-section"
+        id="future"
+    >
 
-      <p class="chapter-label">What comes next</p>
+        <div class="diary-page future-page">
 
-      <h2>
-        Still us.
-      </h2>
+            <div class="future-moon">
+                ☾
+            </div>
 
-      <div class="future-grid">
+            <p class="tiny-label">
+                NEXT CHAPTER
+            </p>
 
-        <div class="future-card">
-          <span>01</span>
-          <p>More chai.</p>
+            <h2 class="section-title">
+                What comes
+                <br>
+                after this page?
+            </h2>
+
+            <div class="future-note">
+
+                <p>
+                    More cities.
+                </p>
+
+                <p>
+                    More random plans.
+                </p>
+
+                <p>
+                    More chai.
+                </p>
+
+                <p>
+                    More silly fights.
+                </p>
+
+                <p>
+                    More photographs.
+                </p>
+
+                <p>
+                    More memories.
+                </p>
+
+                <div class="future-divider">
+                    ♡
+                </div>
+
+                <p class="future-last">
+                    And hopefully,
+                    a lot more pages together.
+                </p>
+
+            </div>
+
         </div>
-
-        <div class="future-card">
-          <span>02</span>
-          <p>More Maggi.</p>
-        </div>
-
-        <div class="future-card">
-          <span>03</span>
-          <p>More teasing.</p>
-        </div>
-
-        <div class="future-card">
-          <span>04</span>
-          <p>More hugs.</p>
-        </div>
-
-        <div class="future-card">
-          <span>05</span>
-          <p>More silly fights.</p>
-        </div>
-
-        <div class="future-card">
-          <span>06</span>
-          <p>More making up.</p>
-        </div>
-
-      </div>
-
-      <p class="future-line">
-        Whatever comes next,
-        I hope it still has you and me in it.
-      </p>
 
     </section>
 
 
-    <!-- =========================
+    <!-- =================================================
          FINAL LETTER
-    ========================== -->
-    <section class="diary-section final-letter-section">
+    ================================================= -->
 
-      <div class="envelope">
+    <section
+        class="diary-section final-letter-section"
+        id="finalLetter"
+    >
 
-        <div class="envelope-top"></div>
+        <div class="diary-page letter-page">
 
-        <div class="letter-paper">
-
-          <p class="letter-small">
-            For Kunnu
-          </p>
-
-          <h2>
-            A letter I wanted
-            <br>
-            you to keep.
-          </h2>
-
-          <div class="letter-body">
-
-            <p>
-              Kunnu,
+            <p class="tiny-label">
+                LAST PAGE
             </p>
 
-            <p>
-              If someone asked me when our story really began,
-              I don't think I could give them only one answer.
-            </p>
+            <div class="envelope-wrap">
 
-            <p>
-              Maybe it started on 30 September 2024.
-              Maybe it started during one of those endless conversations.
-              Maybe it started somewhere between all our teasing,
-              fights and laughter.
-            </p>
+                <div class="envelope">
 
-            <p>
-              Whatever the exact moment was,
-              I'm just glad it became us.
-            </p>
+                    <div class="envelope-back"></div>
 
-            <p>
-              We have had beautiful days,
-              difficult days,
-              emotional days,
-              and completely silly days.
-            </p>
+                    <div class="letter-paper">
 
-            <p>
-              But every memory has one thing in common.
-              You were there.
-            </p>
+                        <p>
+                            Dear Kunnu,
+                        </p>
 
-            <p>
-              And I hope when we look back at this little diary years from now,
-              we'll laugh at how much we have changed
-              and still recognise the two people who started it all.
-            </p>
+                        <p>
+                            If someone had told me on 30 September
+                            2024 that an unexpected meeting would
+                            turn into two years of memories,
+                            I probably would not have believed them.
+                        </p>
 
-            <p>
-              Happy two years, Kunnu.
-            </p>
+                        <p>
+                            But here we are.
+                        </p>
 
-            <p>
-              Here's to everything we've already lived,
-              and everything still waiting for us.
-            </p>
+                        <p>
+                            With every little memory, every silly
+                            conversation and every goodbye,
+                            we somehow kept writing our story.
+                        </p>
 
-            <p class="letter-signature">
-              — Bhagya
-            </p>
+                        <p>
+                            This diary cannot hold everything.
+                            It can only keep a few moments safe.
+                        </p>
 
-          </div>
+                        <p>
+                            The rest of them will have to stay
+                            somewhere between our conversations,
+                            our memories and the little world
+                            that belongs to us.
+                        </p>
+
+                        <p class="letter-signature">
+                            Always,
+                            <br>
+                            Bhagya ♡
+                        </p>
+
+                    </div>
+
+                    <div class="envelope-front"></div>
+
+                </div>
+
+            </div>
+
+            <p class="letter-hint">
+                a little letter, just for you
+            </p>
 
         </div>
 
-      </div>
-
     </section>
 
 
-    <!-- =========================
+    <!-- =================================================
          FINAL MESSAGE
-    ========================== -->
-    <section class="diary-section final-message">
+    ================================================= -->
 
-      <div class="final-heart">
-        ♥
-      </div>
+    <section
+        class="diary-section final-section"
+        id="finalMessage"
+    >
 
-      <h2>
-        Our story is still being written.
-      </h2>
+        <div class="final-content">
 
-      <p>
-        And I wouldn't want to write it with anyone else.
-      </p>
+            <div class="final-stars">
+                ✦　♡　✦
+            </div>
 
-      <div class="final-names">
-        Kunnu
-        <span>♡</span>
-        Bhagya
-      </div>
+            <p class="tiny-label">
+                THE END OF THIS DIARY
+            </p>
 
-      <p class="final-date">
-        30 · 09 · 2026
-      </p>
+            <h2>
+                But not the end
+                <br>
+                of <span>us.</span>
+            </h2>
+
+            <div class="final-line">
+                <span></span>
+                ♡
+                <span></span>
+            </div>
+
+            <p>
+                Two years down.
+                <br>
+                Hopefully many, many more pages to go.
+            </p>
+
+            <div class="final-signature">
+                Kunnu ♡ Bhagya
+            </div>
+
+            <p class="forever-note">
+                until our next page...
+            </p>
+
+        </div>
 
     </section>
 
 
-    <!-- =========================
+    <!-- =================================================
          FOOTER
-    ========================== -->
-    <footer>
-      Kunnu ♡ Bhagya
+    ================================================= -->
+
+    <footer class="diary-footer">
+
+        <p>
+            Made with a little love, a lot of memories
+            and countless thoughts of you.
+        </p>
+
+        <div>
+            Kunnu ♡ Bhagya
+        </div>
+
     </footer>
 
-  </main>
+</main>
 
 
-  <!-- =========================
-       SCRIPT
-  ========================== -->
-  <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
