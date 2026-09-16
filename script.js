@@ -1,30 +1,40 @@
-/* =========================================
-   SECRET CODE
-========================================= */
+/* =========================
+   OUR SECRET
+========================= */
 
 const SECRET_CODE = "30092024";
 
 
-/* =========================================
-   UNLOCK STORY
-========================================= */
+/* =========================
+   ELEMENTS
+========================= */
 
-function unlockStory() {
+const secretScreen = document.getElementById("secretScreen");
+const anniversaryScreen = document.getElementById("anniversaryScreen");
+const diary = document.getElementById("diary");
 
-    const input = document.getElementById("secretCode");
-    const error = document.getElementById("errorMessage");
+const secretForm = document.getElementById("secretForm");
+const secretInput = document.getElementById("secretCode");
+const errorMessage = document.getElementById("errorMessage");
 
-    const enteredCode = input.value.trim();
+const openDiaryButton = document.getElementById("openDiaryButton");
+
+
+/* =========================
+   SECRET CODE
+========================= */
+
+secretForm.addEventListener("submit", function (event) {
+
+    event.preventDefault();
+
+    const enteredCode = secretInput.value.trim();
+
+    /* CORRECT CODE */
 
     if (enteredCode === SECRET_CODE) {
 
-        error.classList.remove("show");
-
-        const secretScreen =
-            document.getElementById("secretScreen");
-
-        const anniversaryScreen =
-            document.getElementById("anniversaryScreen");
+        errorMessage.classList.remove("show");
 
         secretScreen.classList.add("hidden");
 
@@ -35,54 +45,28 @@ function unlockStory() {
             behavior: "smooth"
         });
 
-    } else {
-
-        error.classList.add("show");
-
-        input.value = "";
-
-        input.focus();
-
     }
-}
 
+    /* WRONG CODE */
 
-/* =========================================
-   ENTER KEY ALSO WORKS
-========================================= */
+    else {
 
-document.addEventListener("DOMContentLoaded", function () {
+        errorMessage.classList.add("show");
 
-    const input = document.getElementById("secretCode");
+        secretInput.value = "";
 
-    if (input) {
-
-        input.addEventListener("keydown", function (event) {
-
-            if (event.key === "Enter") {
-
-                unlockStory();
-
-            }
-
-        });
+        secretInput.focus();
 
     }
 
 });
 
 
-/* =========================================
+/* =========================
    OPEN DIARY
-========================================= */
+========================= */
 
-function openDiary() {
-
-    const anniversaryScreen =
-        document.getElementById("anniversaryScreen");
-
-    const diary =
-        document.getElementById("diary");
+openDiaryButton.addEventListener("click", function () {
 
     anniversaryScreen.classList.add("hidden");
 
@@ -93,56 +77,32 @@ function openDiary() {
         behavior: "smooth"
     });
 
-}
+});
 
 
-/* =========================================
-   PHOTO FADE-IN EFFECT
-========================================= */
+/* =========================
+   REMOVE ERROR WHILE TYPING
+========================= */
 
-const observer =
-    new IntersectionObserver(
+secretInput.addEventListener("input", function () {
 
-        function (entries) {
+    errorMessage.classList.remove("show");
 
-            entries.forEach(function (entry) {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add("visible");
-
-                }
-
-            });
-
-        },
-
-        {
-            threshold: 0.15
-        }
-
-    );
+});
 
 
-/* =========================================
-   OBSERVE DIARY SECTIONS
-========================================= */
+/* =========================
+   START WITH SECRET SCREEN
+========================= */
 
-document.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("load", function () {
 
-    const sections =
-        document.querySelectorAll(
-            ".memory-section, " +
-            ".goodbye-section, " +
-            ".two-years-section, " +
-            ".future-section, " +
-            ".final-letter"
-        );
+    secretScreen.classList.remove("hidden");
 
-    sections.forEach(function (section) {
+    anniversaryScreen.classList.add("hidden");
 
-        observer.observe(section);
+    diary.classList.add("hidden");
 
-    });
+    secretInput.focus();
 
 });
