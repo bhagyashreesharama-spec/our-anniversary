@@ -1,12 +1,12 @@
 /* =========================
-   OUR SECRET
+   SECRET CODE
 ========================= */
 
 const SECRET_CODE = "30092024";
 
 
 /* =========================
-   ELEMENTS
+   GET ELEMENTS
 ========================= */
 
 const secretScreen = document.getElementById("secretScreen");
@@ -15,13 +15,48 @@ const diary = document.getElementById("diary");
 
 const secretForm = document.getElementById("secretForm");
 const secretInput = document.getElementById("secretCode");
+
+const eyeButton = document.getElementById("eyeButton");
 const errorMessage = document.getElementById("errorMessage");
 
 const openDiaryButton = document.getElementById("openDiaryButton");
 
 
 /* =========================
-   SECRET CODE
+   SHOW / HIDE SECRET CODE
+========================= */
+
+eyeButton.addEventListener("click", function () {
+
+    if (secretInput.type === "password") {
+
+        secretInput.type = "text";
+
+        eyeButton.textContent = "🙈";
+
+        eyeButton.setAttribute(
+            "aria-label",
+            "Hide password"
+        );
+
+    } else {
+
+        secretInput.type = "password";
+
+        eyeButton.textContent = "👁";
+
+        eyeButton.setAttribute(
+            "aria-label",
+            "Show password"
+        );
+
+    }
+
+});
+
+
+/* =========================
+   CHECK SECRET CODE
 ========================= */
 
 secretForm.addEventListener("submit", function (event) {
@@ -30,7 +65,8 @@ secretForm.addEventListener("submit", function (event) {
 
     const enteredCode = secretInput.value.trim();
 
-    /* CORRECT CODE */
+
+    /* CORRECT */
 
     if (enteredCode === SECRET_CODE) {
 
@@ -47,7 +83,8 @@ secretForm.addEventListener("submit", function (event) {
 
     }
 
-    /* WRONG CODE */
+
+    /* WRONG */
 
     else {
 
@@ -58,6 +95,17 @@ secretForm.addEventListener("submit", function (event) {
         secretInput.focus();
 
     }
+
+});
+
+
+/* =========================
+   REMOVE ERROR WHILE TYPING
+========================= */
+
+secretInput.addEventListener("input", function () {
+
+    errorMessage.classList.remove("show");
 
 });
 
@@ -81,18 +129,7 @@ openDiaryButton.addEventListener("click", function () {
 
 
 /* =========================
-   REMOVE ERROR WHILE TYPING
-========================= */
-
-secretInput.addEventListener("input", function () {
-
-    errorMessage.classList.remove("show");
-
-});
-
-
-/* =========================
-   START WITH SECRET SCREEN
+   INITIAL STATE
 ========================= */
 
 window.addEventListener("load", function () {
