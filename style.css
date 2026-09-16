@@ -1,377 +1,746 @@
+/* =========================================
+   RESET
+========================================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html,
-body {
-    width: 100%;
-    min-height: 100%;
+html {
+    scroll-behavior: smooth;
 }
 
 body {
+    background: #0b0a0d;
+    color: #f5eee8;
     font-family: Georgia, "Times New Roman", serif;
-    background: #09080f;
-    color: #f8edf2;
     overflow-x: hidden;
 }
 
-button {
+button,
+input {
     font-family: inherit;
 }
 
-/* =========================
-   MAIN WEBSITE
-========================= */
 
-.website {
-    width: 100%;
-    min-height: 100vh;
-}
-
-/* =========================
+/* =========================================
    COMMON
-========================= */
+========================================= */
 
 .hidden {
     display: none !important;
 }
 
 button {
-    margin-top: 35px;
-    padding: 14px 28px;
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
     background: rgba(255, 255, 255, 0.08);
-    color: white;
-    font-size: 15px;
-    letter-spacing: 0.5px;
+    color: #ffffff;
+    padding: 14px 28px;
+    border-radius: 50px;
     cursor: pointer;
-    transition: 0.35s ease;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: 0.4s ease;
     backdrop-filter: blur(10px);
 }
 
 button:hover {
-    background: rgba(255, 255, 255, 0.18);
-    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.16);
+    transform: translateY(-2px);
 }
 
-/* =========================
-   OPENING
-========================= */
+.tiny-label {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    opacity: 0.55;
+    text-transform: uppercase;
+}
 
-.opening-screen {
-    position: relative;
+.chapter-number {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    opacity: 0.5;
+    text-transform: uppercase;
+}
+
+
+/* =========================================
+   SECRET SCREEN
+========================================= */
+
+.secret-screen {
     min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    position: relative;
     overflow: hidden;
-
     background:
-        radial-gradient(circle at 50% 35%, rgba(126, 70, 105, 0.25), transparent 35%),
-        linear-gradient(145deg, #09080f, #17101b, #08070d);
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(126, 91, 103, 0.18),
+            transparent 35%
+        ),
+        #0b0a0d;
 }
 
-.opening-screen::before,
-.opening-screen::after {
-    content: "";
+.secret-glow {
     position: absolute;
+    width: 500px;
+    height: 500px;
     border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.25;
+    background: rgba(168, 112, 132, 0.08);
+    filter: blur(100px);
+    animation: breathe 5s ease-in-out infinite;
 }
 
-.opening-screen::before {
-    width: 250px;
-    height: 250px;
-    background: #8e4c72;
-    top: 10%;
-    left: -80px;
-}
-
-.opening-screen::after {
-    width: 300px;
-    height: 300px;
-    background: #513c83;
-    bottom: -120px;
-    right: -100px;
-}
-
-.opening-content {
+.secret-content {
     position: relative;
     z-index: 2;
-    width: min(90%, 600px);
-    animation: appear 1.5s ease forwards;
+    width: min(90%, 500px);
+    animation: fadeUp 1.5s ease forwards;
 }
 
-.small-text {
-    font-size: 13px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    opacity: 0.55;
-    margin-bottom: 25px;
+.secret-content h1 {
+    font-size: clamp(34px, 8vw, 58px);
+    font-weight: normal;
+    margin: 25px 0 18px;
 }
 
-.opening-content h1 {
-    font-size: clamp(42px, 9vw, 78px);
-    line-height: 1.05;
-    font-weight: 400;
-    letter-spacing: -2px;
+.secret-text {
+    max-width: 330px;
+    margin: 0 auto 35px;
+    line-height: 1.8;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.68);
 }
 
-.opening-content h1 span {
-    font-style: italic;
-    color: #e8a9c3;
-}
-
-.date {
-    margin-top: 28px;
-    font-size: 14px;
-    letter-spacing: 6px;
-    opacity: 0.6;
-}
-
-/* =========================
-   STORY
-========================= */
-
-.story-screen,
-.chapter-screen,
-.final-screen {
-    min-height: 100vh;
-    padding: 80px 25px;
+.code-box {
     display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: min(100%, 310px);
+    margin: auto;
+}
+
+.code-box input {
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    outline: none;
+    background: rgba(255, 255, 255, 0.06);
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 2px;
+    backdrop-filter: blur(10px);
+}
+
+.code-box input::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.error-message {
+    display: none;
+    margin-top: 18px;
+    font-size: 12px;
+    color: rgba(255, 180, 180, 0.8);
+}
+
+.error-message.show {
+    display: block;
+}
+
+
+/* =========================================
+   ANNIVERSARY OPENING
+========================================= */
+
+.anniversary-screen {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(148, 88, 113, 0.22),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(92, 79, 108, 0.12),
+            transparent 30%
+        ),
+        #09080b;
+}
+
+.anniversary-content {
+    width: min(90%, 600px);
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 1.8s ease forwards;
+}
+
+.anniversary-content h1 {
+    font-size: clamp(55px, 13vw, 110px);
+    line-height: 0.9;
+    font-weight: normal;
+    margin: 25px 0;
+    letter-spacing: -4px;
+}
+
+.anniversary-content h1 span {
+    font-style: italic;
+    opacity: 0.85;
+}
+
+.anniversary-subtitle {
+    max-width: 350px;
+    margin: 0 auto 30px;
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.date-line {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    opacity: 0.6;
+    margin-bottom: 35px;
+}
+
+.date-line span {
+    margin: 0 12px;
+    opacity: 0.4;
+}
+
+
+/* =========================================
+   STARS
+========================================= */
+
+.stars::before,
+.stars::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,0.7) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px);
+    background-size: 130px 130px, 190px 190px;
+    background-position: 20px 40px, 90px 10px;
+    opacity: 0.2;
+    animation: starsMove 18s linear infinite;
+}
+
+.stars::after {
+    animation-direction: reverse;
+    opacity: 0.1;
+}
+
+
+/* =========================================
+   DIARY
+========================================= */
+
+.diary {
+    width: 100%;
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(137, 91, 107, 0.08),
+            transparent 30%
+        ),
+        #0b0a0d;
+}
+
+
+/* =========================================
+   DIARY INTRO
+========================================= */
+
+.diary-intro {
+    min-height: 90vh;
+    min-height: 90svh;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 80px 25px;
 }
 
-.story-screen {
-    background:
-        radial-gradient(circle at 30% 30%, rgba(113, 72, 104, 0.2), transparent 35%),
-        #0d0b12;
-}
-
-.story-content {
-    max-width: 650px;
-    animation: slideUp 1s ease forwards;
-}
-
-.chapter {
-    font-size: 12px;
-    letter-spacing: 5px;
-    opacity: 0.5;
-    margin-bottom: 25px;
-}
-
-.story-content h2,
-.chapter-screen h2,
-.final-content h2 {
-    font-size: clamp(42px, 8vw, 70px);
-    font-weight: 400;
+.diary-intro h2 {
+    font-size: clamp(40px, 9vw, 80px);
+    font-weight: normal;
     line-height: 1.05;
-    margin-bottom: 30px;
+    margin: 25px 0;
 }
 
-.story-text {
-    max-width: 520px;
-    margin: auto;
-    font-size: 18px;
+.intro-text {
+    max-width: 450px;
+    font-size: 15px;
     line-height: 1.9;
-    color: rgba(255, 255, 255, 0.72);
+    color: rgba(255,255,255,0.58);
 }
 
-/* =========================
-   MEMORIES
-========================= */
-
-.chapter-screen {
-    flex-direction: column;
-    background:
-        linear-gradient(rgba(10, 8, 14, 0.94), rgba(10, 8, 14, 0.94)),
-        radial-gradient(circle at center, #51354b, #09080f);
+.quote {
+    max-width: 500px;
+    margin-top: 55px;
+    padding: 25px;
+    border-left: 1px solid rgba(255,255,255,0.25);
+    border-right: 1px solid rgba(255,255,255,0.25);
+    font-style: italic;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.7);
 }
 
-.memory-grid {
+
+/* =========================================
+   MEMORY SECTIONS
+========================================= */
+
+.memory-section,
+.goodbye-section,
+.two-years-section,
+.future-section,
+.final-letter {
     width: min(100%, 950px);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-    margin-top: 15px;
+    margin: auto;
+    padding: 120px 30px;
 }
 
-.memory-card {
-    min-height: 230px;
-    padding: 30px 25px;
+.memory-heading {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.memory-heading h2,
+.goodbye-section h2,
+.two-years-section h2,
+.future-section h2,
+.final-letter h2 {
+    font-size: clamp(42px, 8vw, 78px);
+    font-weight: normal;
+    line-height: 1;
+    margin: 20px 0;
+}
+
+.memory-date {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-top: 25px;
+    opacity: 0.75;
+}
+
+.memory-details {
+    margin-top: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    opacity: 0.4;
+}
+
+
+/* =========================================
+   PHOTO FRAME
+========================================= */
+
+.photo-frame {
+    width: min(100%, 650px);
+    margin: 0 auto 70px;
+    padding: 12px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+.photo-placeholder {
+    min-height: 450px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    text-align: left;
-
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 20px;
-
-    background: rgba(255, 255, 255, 0.045);
-    backdrop-filter: blur(12px);
-
-    transition: 0.4s ease;
-}
-
-.memory-card:hover {
-    transform: translateY(-8px);
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(232, 169, 195, 0.45);
-}
-
-.memory-card span {
-    font-size: 12px;
-    opacity: 0.4;
-    margin-bottom: auto;
-}
-
-.memory-card h3 {
-    font-size: 24px;
-    font-weight: 400;
-    margin-bottom: 10px;
-}
-
-.memory-card p {
-    color: rgba(255, 255, 255, 0.55);
-    line-height: 1.6;
-}
-
-/* =========================
-   FINAL
-========================= */
-
-.final-screen {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     background:
-        radial-gradient(circle at center, rgba(126, 63, 98, 0.3), transparent 45%),
-        #09080f;
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.05),
+            rgba(255,255,255,0.01)
+        );
+    color: rgba(255,255,255,0.3);
 }
 
-.final-content {
-    max-width: 650px;
-    animation: appear 1.2s ease forwards;
+.photo-placeholder span {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
 }
 
-.final-content h2 span {
-    color: #e8a9c3;
-    font-style: italic;
+.photo-placeholder small {
+    margin-top: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    opacity: 0.5;
 }
 
-.final-content > p:not(.chapter):not(.ending) {
-    max-width: 520px;
-    margin: 0 auto;
-    color: rgba(255, 255, 255, 0.65);
-    line-height: 1.9;
+
+/* =========================================
+   STORY TEXT
+========================================= */
+
+.memory-story {
+    width: min(100%, 650px);
+    margin: auto;
+}
+
+.memory-story > p,
+.sub-memory p,
+.goodbye-text,
+.future-section > p,
+.final-letter > p {
     font-size: 17px;
+    line-height: 2;
+    color: rgba(255,255,255,0.72);
+    margin-bottom: 28px;
 }
 
-.heart {
-    margin: 35px 0;
-    font-size: 70px;
-    color: #e8a9c3;
-    animation: heartbeat 2s infinite;
+.memory-story > p:first-child {
+    font-size: 23px;
+    color: rgba(255,255,255,0.92);
 }
 
-.ending {
-    font-size: 14px;
+
+/* =========================================
+   EMOTION NOTE
+========================================= */
+
+.emotion-note {
+    margin: 60px 0;
+    padding: 30px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.emotion-note span,
+.memory-time {
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    opacity: 0.45;
+}
+
+.emotion-note p {
+    margin-top: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+    color: rgba(255,255,255,0.65);
+}
+
+
+/* =========================================
+   QUOTE CARDS
+========================================= */
+
+.quote-card {
+    width: min(100%, 650px);
+    margin: 80px auto;
+    padding: 45px 25px;
+    text-align: center;
+    font-size: 20px;
     line-height: 1.8;
-    letter-spacing: 1px;
+    font-style: italic;
+    color: rgba(255,255,255,0.72);
+    border-top: 1px solid rgba(255,255,255,0.12);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+
+/* =========================================
+   SUB MEMORIES
+========================================= */
+
+.sub-memory {
+    width: min(100%, 650px);
+    margin: 100px auto;
+    padding-left: 25px;
+    border-left: 1px solid rgba(255,255,255,0.16);
+}
+
+.sub-memory h3 {
+    font-size: 30px;
+    font-weight: normal;
+    margin: 15px 0 25px;
+}
+
+.sub-memory .memory-time {
+    margin-bottom: 15px;
+}
+
+.highlight-line {
+    font-size: 30px;
+    font-style: italic;
+    text-align: center;
+    padding: 35px 10px;
+    margin: 50px 0;
+}
+
+
+/* =========================================
+   GOODBYE
+========================================= */
+
+.goodbye-section {
+    text-align: center;
+}
+
+.goodbye-section .photo-frame {
+    margin-top: 60px;
+}
+
+.goodbye-text {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================================
+   TWO YEARS
+========================================= */
+
+.two-years-section {
+    min-height: 90vh;
+    min-height: 90svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.two-years-section h2 {
+    font-size: clamp(65px, 15vw, 150px);
+}
+
+.two-year-text {
+    max-width: 550px;
+    margin: 20px auto 50px;
+    font-size: 17px;
+    line-height: 2;
+    color: rgba(255,255,255,0.65);
+}
+
+.big-date {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 3px;
     opacity: 0.55;
 }
 
-/* =========================
+.big-date span {
+    margin: 0 15px;
+}
+
+
+/* =========================================
+   FUTURE
+========================================= */
+
+.future-section {
+    text-align: center;
+}
+
+.future-section > p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.final-quote {
+    margin: 80px auto 0;
+    max-width: 650px;
+    font-size: clamp(25px, 5vw, 42px);
+    line-height: 1.5;
+    font-style: italic;
+}
+
+
+/* =========================================
+   FINAL LETTER
+========================================= */
+
+.final-letter {
+    min-height: 100vh;
+    min-height: 100svh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.final-letter h2 {
+    margin-bottom: 45px;
+}
+
+.final-letter > p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.final-message {
+    margin-top: 60px;
+    font-size: 25px;
+    line-height: 1.8;
+    font-style: italic;
+}
+
+
+/* =========================================
    ANIMATIONS
-========================= */
+========================================= */
 
-@keyframes appear {
+@keyframes fadeUp {
+
     from {
         opacity: 0;
-        transform: translateY(25px);
+        transform: translateY(35px);
     }
 
     to {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
 
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(45px);
-    }
+@keyframes breathe {
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes heartbeat {
     0%,
     100% {
-        transform: scale(1);
+        transform: scale(0.9);
+        opacity: 0.5;
     }
 
     50% {
-        transform: scale(1.12);
+        transform: scale(1.1);
+        opacity: 1;
     }
+
 }
 
-/* =========================
+@keyframes starsMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-80px);
+    }
+
+}
+
+
+/* =========================================
    MOBILE
-========================= */
+========================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
 
-    .opening-screen,
-    .story-screen,
-    .chapter-screen,
-    .final-screen {
-        min-height: 100svh;
-        padding: 50px 20px;
+    .anniversary-content h1 {
+        letter-spacing: -2px;
     }
 
-    .opening-content h1 {
-        font-size: clamp(38px, 12vw, 55px);
+    .diary-intro {
+        min-height: 80vh;
     }
 
-    .small-text {
-        letter-spacing: 3px;
+    .memory-section,
+    .goodbye-section,
+    .two-years-section,
+    .future-section,
+    .final-letter {
+        padding: 90px 20px;
     }
 
-    .date {
-        letter-spacing: 4px;
+    .memory-heading {
+        margin-bottom: 50px;
     }
 
-    .story-content h2,
-    .chapter-screen h2,
-    .final-content h2 {
-        font-size: 46px;
+    .photo-frame {
+        padding: 8px;
+        margin-bottom: 50px;
     }
 
-    .story-text {
+    .photo-placeholder {
+        min-height: 380px;
+    }
+
+    .memory-story > p,
+    .sub-memory p,
+    .goodbye-text,
+    .future-section > p,
+    .final-letter > p {
         font-size: 16px;
-        line-height: 1.8;
+        line-height: 1.9;
     }
 
-    .memory-grid {
-        grid-template-columns: 1fr;
-        width: 100%;
-        max-width: 420px;
+    .sub-memory {
+        margin: 75px auto;
+        padding-left: 18px;
     }
 
-    .memory-card {
-        min-height: 180px;
+    .sub-memory h3 {
+        font-size: 27px;
     }
 
-    button {
-        padding: 13px 24px;
+    .quote-card {
+        margin: 65px auto;
+        font-size: 18px;
+        padding: 35px 18px;
     }
+
+    .highlight-line {
+        font-size: 25px;
+    }
+
+    .final-message {
+        font-size: 21px;
+    }
+
+}
+
+
+/* =========================================
+   VERY SMALL SCREENS
+========================================= */
+
+@media (max-width: 380px) {
+
+    .anniversary-content h1 {
+        font-size: 50px;
+    }
+
+    .diary-intro h2 {
+        font-size: 38px;
+    }
+
+    .photo-placeholder {
+        min-height: 320px;
+    }
+
 }
