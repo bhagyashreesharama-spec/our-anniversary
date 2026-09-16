@@ -1,34 +1,3 @@
-/* =========================================================
-   OUR LITTLE DIARY — STYLE
-   ========================================================= */
-
-/* ---------- FONTS ---------- */
-
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Parisienne&display=swap');
-
-
-/* ---------- ROOT ---------- */
-
-:root {
-    --black: #050505;
-    --black-soft: #0b0a0c;
-    --paper: #f4eee5;
-    --paper-soft: #e9dfd2;
-    --ink: #211c1c;
-    --white: #fffaf4;
-    --muted: #aaa1a1;
-    --pink: #e9a8ba;
-    --pink-soft: #f4c7d3;
-    --lavender: #c9b9dc;
-
-    --serif: "Cormorant Garamond", serif;
-    --sans: "DM Sans", sans-serif;
-    --script: "Parisienne", cursive;
-}
-
-
-/* ---------- RESET ---------- */
-
 * {
     margin: 0;
     padding: 0;
@@ -40,9 +9,9 @@ html {
 }
 
 body {
-    background: var(--black);
-    color: var(--white);
-    font-family: var(--sans);
+    background: #050505;
+    color: #f5eee8;
+    font-family: "DM Sans", sans-serif;
     overflow-x: hidden;
 }
 
@@ -55,1945 +24,1466 @@ button {
     cursor: pointer;
 }
 
-::selection {
-    background: var(--pink);
-    color: var(--black);
+img {
+    max-width: 100%;
+    display: block;
 }
 
 
 /* =========================================================
-   GENERAL SCREEN
-   ========================================================= */
+   VARIABLES
+========================================================= */
+
+:root {
+    --black: #050505;
+    --black-soft: #0b090a;
+    --paper: #f7eee7;
+    --paper-soft: #eee2d9;
+    --text-dark: #241c1d;
+    --cream: #f5eee8;
+    --muted: #b8a9a7;
+    --pink: #d99aaa;
+    --pink-soft: #edb9c5;
+    --lavender: #c5b4d9;
+    --gold: #d8bc8a;
+    --line: rgba(245, 238, 232, 0.14);
+}
+
+
+/* =========================================================
+   COMMON
+========================================================= */
 
 .screen {
     min-height: 100vh;
     width: 100%;
     position: relative;
-    overflow: hidden;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-size: 0.68rem;
+    color: var(--pink-soft);
+    font-weight: 500;
+}
+
+.main-button {
+    border: 1px solid rgba(237, 185, 197, 0.55);
+    background: rgba(255, 255, 255, 0.045);
+    color: var(--cream);
+    padding: 14px 24px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: 0.35s ease;
+    backdrop-filter: blur(10px);
+}
+
+.main-button:hover {
+    transform: translateY(-4px) scale(1.03);
+    background: rgba(237, 185, 197, 0.12);
+    box-shadow: 0 12px 35px rgba(217, 154, 170, 0.18);
+}
+
+.main-button span {
+    color: var(--pink-soft);
+    animation: heartbeat 1.5s infinite;
+}
+
+.diary-page {
+    width: min(1000px, calc(100% - 36px));
+    margin: auto;
+    position: relative;
+    z-index: 5;
 }
 
 
 /* =========================================================
    SECRET SCREEN
-   ========================================================= */
+========================================================= */
 
 .secret-screen {
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-
     background:
-        radial-gradient(
-            circle at 50% 35%,
-            rgba(190, 130, 155, 0.10),
-            transparent 35%
-        ),
+        radial-gradient(circle at 50% 40%, rgba(217, 154, 170, 0.08), transparent 32%),
         #050505;
+    overflow: hidden;
 }
 
-
-/* tiny stars */
-
-.secret-stars::before,
-.secret-stars::after {
-    content: "✦   ·   ✧       ·      ✦       ·   ✧";
+.secret-background span {
     position: absolute;
-    width: 100%;
-    color: rgba(255,255,255,0.25);
-    font-size: 13px;
-    letter-spacing: 18px;
-    animation: starDrift 14s linear infinite;
+    color: rgba(237, 185, 197, 0.25);
+    animation: starTwinkle 3s infinite ease-in-out;
 }
 
-.secret-stars::before {
-    top: 15%;
-    left: -10%;
+.secret-background span:nth-child(1) {
+    left: 15%;
+    top: 20%;
+    font-size: 22px;
 }
 
-.secret-stars::after {
-    bottom: 18%;
-    left: -25%;
-    animation-delay: -7s;
+.secret-background span:nth-child(2) {
+    right: 17%;
+    top: 17%;
+    animation-delay: 0.5s;
 }
 
+.secret-background span:nth-child(3) {
+    left: 25%;
+    bottom: 22%;
+    animation-delay: 1s;
+}
 
-.secret-card {
-    width: min(92%, 470px);
-    padding: 55px 42px 38px;
+.secret-background span:nth-child(4) {
+    right: 25%;
+    bottom: 25%;
+    animation-delay: 1.5s;
+}
 
+.secret-background span:nth-child(5) {
+    left: 75%;
+    top: 50%;
+    animation-delay: 2s;
+}
+
+.secret-box {
+    width: min(430px, calc(100% - 36px));
     text-align: center;
-
-    position: relative;
-    z-index: 5;
-
-    border: 1px solid rgba(255,255,255,0.10);
-    border-radius: 4px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.045),
-            rgba(255,255,255,0.015)
-        );
-
-    box-shadow:
-        0 30px 100px rgba(0,0,0,0.65),
-        inset 0 0 40px rgba(255,255,255,0.015);
-
-    animation: cardFloat 5s ease-in-out infinite;
+    padding: 50px 35px;
+    border: 1px solid rgba(245, 238, 232, 0.12);
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.035);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.45);
+    animation: anniversaryAppear 1.2s ease forwards;
 }
 
-
-.secret-decoration {
-    width: 48px;
-    height: 48px;
-
-    margin: 0 auto 22px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: 1px solid rgba(233,168,186,0.35);
-    border-radius: 50%;
-
-    color: var(--pink);
-    font-size: 24px;
-
-    animation: heartbeat 2.2s ease-in-out infinite;
+.secret-tiny-heart {
+    color: var(--pink-soft);
+    font-size: 30px;
+    margin-bottom: 15px;
+    animation: heartbeat 1.8s infinite;
 }
 
-
-.tiny-label {
-    font-family: var(--sans);
-    font-size: 10px;
+.secret-box h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(2.8rem, 7vw, 4.5rem);
     font-weight: 500;
-    letter-spacing: 4px;
-    text-transform: uppercase;
+    margin: 12px 0;
+}
+
+.secret-text {
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 0.92rem;
+    margin: 0 auto 28px;
+    max-width: 330px;
+}
+
+.code-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.code-wrapper input {
+    width: 100%;
+    height: 52px;
+    padding: 0 52px 0 18px;
+    background: rgba(255, 255, 255, 0.055);
+    border: 1px solid rgba(245, 238, 232, 0.15);
+    border-radius: 14px;
+    outline: none;
+    color: white;
+    text-align: center;
+    letter-spacing: 0.28em;
+}
+
+.code-wrapper input:focus {
+    border-color: rgba(237, 185, 197, 0.65);
+}
+
+.eye-button {
+    position: absolute;
+    right: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 0;
+    background: transparent;
     color: var(--muted);
 }
 
-
-.secret-card h1 {
-    margin-top: 14px;
-
-    font-family: var(--serif);
-    font-size: clamp(38px, 7vw, 54px);
-    line-height: 0.95;
-    font-weight: 500;
-}
-
-
-.secret-text {
-    margin: 24px auto 30px;
-
-    max-width: 340px;
-
-    color: #aaa4a4;
-    font-size: 14px;
-    line-height: 1.9;
-    font-weight: 300;
-}
-
-
-.code-box {
-    display: flex;
-    align-items: center;
-
-    width: 100%;
-
-    border-bottom: 1px solid rgba(255,255,255,0.25);
-
-    transition: border-color 0.3s ease;
-}
-
-.code-box:focus-within {
-    border-color: var(--pink);
-}
-
-
-.code-box input {
-    flex: 1;
-
-    width: 100%;
-    padding: 15px 4px;
-
-    border: 0;
-    outline: none;
-
-    background: transparent;
-
-    color: var(--white);
-
-    text-align: center;
-
-    font-family: var(--sans);
-    font-size: 15px;
-    letter-spacing: 5px;
-}
-
-
-.code-box input::placeholder {
-    color: #656060;
-    letter-spacing: 3px;
-}
-
-
-.eye-button {
-    padding: 8px 4px;
-
-    border: 0;
-    background: transparent;
-
-    color: #8d8787;
-
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-
-    transition: color 0.25s ease;
-}
-
-.eye-button:hover {
-    color: var(--pink);
-}
-
-
 .error-message {
-    min-height: 18px;
-    margin-top: 12px;
-
-    color: #e6a5b6;
-
-    font-size: 11px;
-    letter-spacing: 0.5px;
-
-    opacity: 0;
-    transition: opacity 0.25s ease;
-}
-
-.error-message.show {
-    opacity: 1;
-}
-
-
-.main-button {
-    position: relative;
-    overflow: hidden;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-
-    margin-top: 10px;
-    padding: 14px 25px;
-
-    border: 1px solid rgba(255,255,255,0.22);
-    border-radius: 50px;
-
-    background: rgba(255,255,255,0.06);
-
-    color: var(--white);
-
-    font-size: 11px;
-    letter-spacing: 1.5px;
-
-    transition:
-        transform 0.3s ease,
-        background 0.3s ease,
-        border-color 0.3s ease;
-}
-
-.main-button::before {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    background: linear-gradient(
-        100deg,
-        transparent,
-        rgba(255,255,255,0.13),
-        transparent
-    );
-
-    transform: translateX(-120%);
-    animation: buttonShine 4s ease-in-out infinite;
-}
-
-.main-button span {
-    color: var(--pink);
-    font-size: 17px;
-}
-
-.main-button:hover {
-    transform: translateY(-3px);
-    background: rgba(255,255,255,0.11);
-    border-color: rgba(233,168,186,0.5);
-}
-
-
-.secret-bottom {
-    margin-top: 35px;
-
-    color: #595454;
-
-    font-family: var(--serif);
-    font-size: 13px;
-    font-style: italic;
+    min-height: 20px;
+    color: #e89aa8;
+    font-size: 0.8rem;
+    margin-bottom: 8px;
 }
 
 
 /* =========================================================
-   ANNIVERSARY OPENING
-   ========================================================= */
+   ANNIVERSARY INTRO
+========================================================= */
 
 .anniversary-screen {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
-
-    background:
-        radial-gradient(
-            circle at 50% 42%,
-            rgba(100, 75, 105, 0.18),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 15% 80%,
-            rgba(190, 120, 150, 0.08),
-            transparent 25%
-        ),
-        #050505;
-}
-
-
-.opening-sky {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-}
-
-
-.moon,
-.background-moon {
-    position: absolute;
-
-    color: rgba(255,255,255,0.88);
-
-    font-family: var(--serif);
-    font-size: 90px;
-
-    text-shadow:
-        0 0 25px rgba(255,255,255,0.15);
-
-    animation: moonFloat 6s ease-in-out infinite;
-}
-
-.moon {
-    top: 8%;
-    right: 12%;
-}
-
-
-.star {
-    position: absolute;
-
-    color: rgba(255,255,255,0.65);
-
-    animation:
-        starTwinkle 2.8s ease-in-out infinite,
-        starFloat 7s ease-in-out infinite;
-}
-
-.star-1 {
-    top: 17%;
-    left: 19%;
-    font-size: 14px;
-}
-
-.star-2 {
-    top: 31%;
-    right: 22%;
-    font-size: 11px;
-    animation-delay: -1s;
-}
-
-.star-3 {
-    bottom: 25%;
-    left: 13%;
-    font-size: 16px;
-    animation-delay: -2s;
-}
-
-.star-4 {
-    bottom: 16%;
-    right: 18%;
-    font-size: 22px;
-    animation-delay: -0.7s;
-}
-
-.star-5 {
-    top: 52%;
-    left: 8%;
-    font-size: 12px;
-    animation-delay: -1.5s;
-}
-
-
-.opening-content {
-    position: relative;
-    z-index: 4;
-
-    width: min(90%, 650px);
-
     text-align: center;
-
-    animation: openingContentFloat 5s ease-in-out infinite;
+    background:
+        radial-gradient(circle at center, rgba(190, 135, 155, 0.12), transparent 38%),
+        #050505;
+    overflow: hidden;
 }
 
+.anniversary-screen.active {
+    display: flex;
+    animation: diaryEnter 1s ease forwards;
+}
 
-.opening-teddy {
-    display: inline-block;
+.intro-content {
+    position: relative;
+    z-index: 10;
+    width: min(760px, calc(100% - 35px));
+}
 
-    margin-bottom: 25px;
+.intro-content h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 500;
+    font-size: clamp(4rem, 10vw, 8rem);
+    line-height: 0.9;
+    margin: 20px 0;
+}
 
-    font-size: 68px;
+.intro-content h1 span {
+    display: block;
+    font-family: "Parisienne", cursive;
+    color: var(--pink-soft);
+    font-size: 0.7em;
+    margin-top: 15px;
+}
 
-    filter:
-        drop-shadow(0 10px 18px rgba(0,0,0,0.45));
+.intro-content > p:not(.eyebrow) {
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 500px;
+    margin: 0 auto 30px;
+}
 
+.intro-moon {
+    position: absolute;
+    top: 11%;
+    right: 12%;
+    font-size: 90px;
+    color: rgba(245, 238, 232, 0.75);
+    animation: moonFloat 5s ease-in-out infinite;
+}
+
+.intro-teddy {
+    position: absolute;
+    left: 12%;
+    bottom: 16%;
+    font-size: 75px;
     animation: teddyDance 3s ease-in-out infinite;
 }
 
-
-.opening-content h1 {
-    margin-top: 15px;
-
-    font-family: var(--serif);
-    font-size: clamp(58px, 10vw, 105px);
-    font-weight: 400;
-    line-height: 0.82;
-    letter-spacing: -3px;
-}
-
-
-.opening-content h1 span {
-    display: block;
-
-    margin-top: 10px;
-
-    color: var(--pink-soft);
-
-    font-family: var(--script);
-    font-size: 0.72em;
-    letter-spacing: 0;
-}
-
-
-.opening-line,
-.final-line {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 13px;
-
-    margin: 28px auto;
-}
-
-.opening-line span,
-.final-line span {
-    display: block;
-
-    width: 55px;
-    height: 1px;
-
-    background: rgba(255,255,255,0.2);
-}
-
-.opening-line {
-    color: var(--pink);
-}
-
-
-.opening-text {
-    color: #a8a1a1;
-
-    font-family: var(--serif);
-    font-size: 17px;
-    line-height: 1.65;
-}
-
-
-.open-button {
-    margin-top: 30px;
-
-    padding-left: 28px;
-    padding-right: 28px;
-}
-
-
-.scroll-hint {
-    margin-top: 25px;
-
-    color: #5e5959;
-
-    font-size: 9px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-
-    animation: hintPulse 2.5s ease-in-out infinite;
-}
-
-
-.opening-decor {
+.intro-stars span {
     position: absolute;
-
-    z-index: 2;
-
-    opacity: 0.8;
-
-    filter: grayscale(0.2);
-
-    pointer-events: none;
+    color: rgba(245, 238, 232, 0.6);
+    animation: starTwinkle 2.5s infinite;
 }
 
-.guitar {
-    left: 8%;
-    bottom: 12%;
-
-    font-size: 62px;
-
-    transform: rotate(-12deg);
-
-    animation: guitarSwing 4s ease-in-out infinite;
+.intro-stars span:nth-child(1) {
+    left: 10%;
+    top: 20%;
 }
 
-.letter {
+.intro-stars span:nth-child(2) {
+    left: 25%;
+    top: 13%;
+    animation-delay: 0.4s;
+}
+
+.intro-stars span:nth-child(3) {
+    right: 25%;
+    top: 27%;
+    animation-delay: 0.9s;
+}
+
+.intro-stars span:nth-child(4) {
+    right: 15%;
+    bottom: 30%;
+    animation-delay: 1.3s;
+}
+
+.intro-stars span:nth-child(5) {
+    left: 18%;
+    bottom: 33%;
+    animation-delay: 1.8s;
+}
+
+.intro-stars span:nth-child(6) {
     right: 8%;
-    bottom: 16%;
-
-    font-size: 46px;
-
-    animation: letterBob 4.5s ease-in-out infinite;
-}
-
-.bow {
-    top: 16%;
-    left: 9%;
-
-    font-size: 35px;
-
-    animation: sideFloat 5s ease-in-out infinite;
+    top: 50%;
+    animation-delay: 2.2s;
 }
 
 
 /* =========================================================
    DIARY
-   ========================================================= */
+========================================================= */
 
 .diary {
+    display: none;
     position: relative;
-
-    min-height: 100vh;
-
-    background:
-        radial-gradient(
-            circle at 50% 10%,
-            rgba(180,130,150,0.07),
-            transparent 24%
-        ),
-        #050505;
-
+    background: #050505;
     overflow: hidden;
 }
 
+.diary.active {
+    display: block;
+    animation: diaryEnter 1.2s ease forwards;
+}
 
 .background {
     position: fixed;
     inset: 0;
-
-    z-index: 0;
-
     pointer-events: none;
-
+    z-index: 0;
     overflow: hidden;
 }
 
-
-.background-moon {
-    top: 7%;
-    right: 4%;
-
-    font-size: 75px;
-
-    opacity: 0.18;
-}
-
-
-.floating-heart,
-.floating-star {
+.moon {
     position: absolute;
-
-    color: rgba(233,168,186,0.25);
-
-    animation: backgroundFloat 12s linear infinite;
+    top: 7%;
+    right: 8%;
+    font-size: 100px;
+    opacity: 0.18;
+    animation: moonFloat 6s ease-in-out infinite;
 }
 
-.heart-a {
-    left: 7%;
-    top: 25%;
-    font-size: 18px;
+.stars span {
+    position: absolute;
+    color: rgba(245, 238, 232, 0.28);
+    animation: starTwinkle 3s ease-in-out infinite;
 }
 
-.heart-b {
+.stars span:nth-child(1) {
+    top: 15%;
+    left: 8%;
+}
+
+.stars span:nth-child(2) {
+    top: 30%;
+    right: 15%;
+    animation-delay: 0.6s;
+}
+
+.stars span:nth-child(3) {
+    top: 48%;
+    left: 17%;
+    animation-delay: 1.1s;
+}
+
+.stars span:nth-child(4) {
+    top: 60%;
+    right: 8%;
+    animation-delay: 1.7s;
+}
+
+.stars span:nth-child(5) {
+    top: 73%;
+    left: 8%;
+    animation-delay: 2.2s;
+}
+
+.stars span:nth-child(6) {
+    top: 84%;
+    right: 19%;
+    animation-delay: 2.7s;
+}
+
+.stars span:nth-child(7) {
+    top: 40%;
+    right: 42%;
+    animation-delay: 1.3s;
+}
+
+.stars span:nth-child(8) {
+    top: 90%;
+    left: 45%;
+    animation-delay: 2.9s;
+}
+
+.floating-hearts span {
+    position: absolute;
+    bottom: -50px;
+    color: rgba(217, 154, 170, 0.25);
+    animation: heartRise 9s linear infinite;
+}
+
+.floating-hearts span:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.floating-hearts span:nth-child(2) {
+    left: 30%;
+    animation-delay: 2s;
+}
+
+.floating-hearts span:nth-child(3) {
+    left: 52%;
+    animation-delay: 4s;
+}
+
+.floating-hearts span:nth-child(4) {
+    left: 75%;
+    animation-delay: 1s;
+}
+
+.floating-hearts span:nth-child(5) {
     left: 90%;
-    top: 45%;
-    font-size: 12px;
-    animation-delay: -5s;
-}
-
-.heart-c {
-    left: 15%;
-    top: 75%;
-    font-size: 14px;
-    animation-delay: -8s;
-}
-
-.star-a {
-    left: 82%;
-    top: 18%;
-    font-size: 15px;
-    animation-delay: -2s;
-}
-
-.star-b {
-    left: 5%;
-    top: 55%;
-    font-size: 10px;
-    animation-delay: -6s;
-}
-
-.star-c {
-    left: 92%;
-    top: 82%;
-    font-size: 18px;
-    animation-delay: -9s;
+    animation-delay: 5s;
 }
 
 
 /* =========================================================
-   DIARY SECTION
-   ========================================================= */
+   SECTIONS
+========================================================= */
 
 .diary-section {
-    position: relative;
-    z-index: 2;
-
-    width: min(100%, 1100px);
-
     min-height: 100vh;
-
-    margin: 0 auto;
-
-    padding:
-        120px 25px
-        130px;
-
-    opacity: 0;
-
-    transform: translateY(45px);
-
-    transition:
-        opacity 1s ease,
-        transform 1.1s cubic-bezier(.2,.8,.2,1);
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 110px 0;
+    overflow: hidden;
 }
 
-.diary-section.visible {
+.diary-section::before {
+    content: "";
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(217, 154, 170, 0.07),
+        transparent 70%
+    );
+    left: -250px;
+    top: 20%;
+    animation: sideFloat 10s ease-in-out infinite;
+}
+
+.diary-section:nth-child(even)::before {
+    left: auto;
+    right: -250px;
+    animation-delay: 2s;
+}
+
+.diary-page {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.diary-page.revealed {
     opacity: 1;
     transform: translateY(0);
 }
 
 
 /* =========================================================
-   DIARY PAGE / PAPER
-   ========================================================= */
-
-.diary-page {
-    position: relative;
-
-    width: min(100%, 780px);
-
-    margin: 0 auto;
-
-    padding: 75px 80px;
-
-    color: var(--ink);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.97),
-            rgba(241,232,220,0.98)
-        );
-
-    border-radius: 3px;
-
-    box-shadow:
-        0 35px 100px rgba(0,0,0,0.55),
-        0 2px 4px rgba(255,255,255,0.05);
-
-    overflow: hidden;
-}
-
-
-/* paper texture */
-
-.diary-page::before {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    opacity: 0.20;
-
-    background-image:
-        radial-gradient(
-            rgba(80,60,50,0.16) 0.6px,
-            transparent 0.6px
-        );
-
-    background-size: 5px 5px;
-
-    pointer-events: none;
-}
-
-
-/* paper side line */
-
-.diary-page::after {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    bottom: 0;
-    left: 35px;
-
-    width: 1px;
-
-    background: rgba(160,110,120,0.15);
-
-    pointer-events: none;
-}
-
-
-.page-number {
-    position: absolute;
-
-    top: 25px;
-    right: 35px;
-
-    color: rgba(40,30,30,0.4);
-
-    font-size: 8px;
-    letter-spacing: 3px;
-}
-
-
-.cover-page {
-    min-height: 720px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-}
-
+   COVER
+========================================================= */
 
 .cover-section {
+    min-height: 100vh;
+}
+
+.cover-page {
+    text-align: center;
+    padding: 80px 30px;
+}
+
+.cover-page h1 {
+    font-family: "Parisienne", cursive;
+    font-size: clamp(4rem, 11vw, 8.5rem);
+    font-weight: 400;
+    line-height: 1;
+    margin: 25px 0;
+}
+
+.cover-page h1 span {
+    color: var(--pink-soft);
+    animation: heartbeat 1.8s infinite;
+}
+
+.cover-subtitle {
+    max-width: 530px;
+    margin: 0 auto;
+    color: var(--muted);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.35rem;
+    line-height: 1.7;
+}
+
+.date-line {
     display: flex;
+    justify-content: center;
     align-items: center;
+    gap: 16px;
+    margin: 35px 0;
+    color: var(--pink-soft);
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
 }
-
-
-.top-decoration {
-    position: absolute;
-
-    top: 70px;
-    left: 50%;
-
-    color: var(--pink);
-
-    animation: heartbeat 2.5s infinite;
-}
-
-
-.cover-title {
-    position: relative;
-    z-index: 2;
-
-    margin-top: 25px;
-
-    font-family: var(--serif);
-    font-size: clamp(58px, 8vw, 92px);
-    line-height: 0.82;
-    font-weight: 500;
-    letter-spacing: -2px;
-}
-
-
-.cover-title span {
-    color: #9b6878;
-
-    font-family: var(--script);
-    font-size: 0.75em;
-    letter-spacing: 0;
-}
-
-
-.cover-divider {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
-    margin: 30px 0;
-
-    color: #a87384;
-}
-
-.cover-divider span {
-    width: 70px;
-    height: 1px;
-
-    background: rgba(100,70,70,0.25);
-}
-
 
 .cover-note {
-    color: #655b5b;
-
-    font-family: var(--serif);
-    font-size: 18px;
-    line-height: 1.6;
-    font-style: italic;
+    display: inline-block;
+    padding: 13px 20px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--muted);
+    font-size: 0.78rem;
+    animation: letterBob 3s ease-in-out infinite;
 }
 
-
-.cover-signature {
-    margin-top: 35px;
-
-    color: #7d5965;
-
-    font-family: var(--script);
-    font-size: 29px;
-}
-
-
-.cover-signature span {
-    color: #ba7c91;
-}
-
-
-.cover-bottom {
-    position: absolute;
-
-    bottom: 35px;
-
+.scroll-hint {
+    margin-top: 70px;
+    color: rgba(245, 238, 232, 0.5);
     display: flex;
     flex-direction: column;
-    gap: 6px;
-
-    color: rgba(60,50,50,0.45);
-
-    font-size: 8px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+    gap: 10px;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
 }
 
+.scroll-hint .arrow {
+    color: var(--pink-soft);
+    font-size: 20px;
+    animation: hintPulse 1.5s infinite;
+}
 
-.down-arrow {
-    font-size: 15px;
+.cover-decoration {
+    position: absolute;
+    z-index: 3;
+    user-select: none;
+    pointer-events: none;
+}
 
-    animation: arrowDown 1.7s ease-in-out infinite;
+.teddy-decoration {
+    left: 7%;
+    top: 19%;
+    font-size: 72px;
+    animation: teddyDance 3s ease-in-out infinite;
+}
+
+.guitar-decoration {
+    right: 7%;
+    top: 28%;
+    font-size: 65px;
+    transform-origin: top center;
+    animation: guitarSwing 4s ease-in-out infinite;
+}
+
+.letter-decoration {
+    left: 12%;
+    bottom: 19%;
+    font-size: 50px;
+    animation: letterBob 3s ease-in-out infinite;
+}
+
+.bow-decoration {
+    right: 13%;
+    bottom: 20%;
+    font-size: 42px;
+    animation: sideFloat 4s ease-in-out infinite;
 }
 
 
 /* =========================================================
-   CHAPTER LABELS
-   ========================================================= */
+   KUNNU LETTER CARD
+========================================================= */
+
+.kunnus-card-section {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(217, 154, 170, 0.055),
+            transparent 48%
+        );
+}
+
+.letter-page {
+    text-align: center;
+}
+
+.letter-top-decoration {
+    color: var(--pink-soft);
+    letter-spacing: 0.5em;
+    margin-bottom: 18px;
+    animation: starTwinkle 3s infinite;
+}
+
+.letter-page h2,
+.diary-page h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    line-height: 1;
+    font-weight: 500;
+    margin: 20px 0 35px;
+}
+
+.letter-page h2 span,
+.diary-page h2 span {
+    color: var(--pink-soft);
+    font-family: "Parisienne", cursive;
+    font-weight: 400;
+}
+
+.love-letter {
+    width: min(700px, 100%);
+    margin: 0 auto;
+    perspective: 1200px;
+}
+
+.letter-paper {
+    position: relative;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.98),
+            rgba(242,230,224,0.98)
+        );
+    color: var(--text-dark);
+    padding: 55px clamp(28px, 7vw, 75px);
+    border-radius: 5px;
+    box-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255,255,255,0.15);
+    text-align: left;
+    transform-origin: top center;
+    animation: letterBob 5s ease-in-out infinite;
+}
+
+.letter-paper::before {
+    content: "";
+    position: absolute;
+    inset: 13px;
+    border: 1px solid rgba(105, 70, 70, 0.18);
+    pointer-events: none;
+}
+
+.letter-paper p {
+    position: relative;
+    z-index: 2;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.18rem;
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+.letter-greeting {
+    font-family: "Parisienne", cursive !important;
+    font-size: 2.1rem !important;
+    color: #80515f;
+}
+
+.letter-ending {
+    font-family: "Parisienne", cursive !important;
+    font-size: 1.8rem !important;
+    color: #80515f;
+    margin-top: 30px;
+}
+
+.letter-signature {
+    text-align: right;
+    font-family: "Parisienne", cursive !important;
+    font-size: 1.8rem !important;
+    color: #80515f;
+}
+
+.letter-corner {
+    position: absolute;
+    z-index: 3;
+    color: #a66b79;
+    font-size: 22px;
+}
+
+.letter-corner.top-left {
+    left: 28px;
+    top: 22px;
+}
+
+.letter-corner.top-right {
+    right: 28px;
+    top: 22px;
+}
+
+.letter-corner.bottom-left {
+    left: 28px;
+    bottom: 22px;
+}
+
+.letter-corner.bottom-right {
+    right: 28px;
+    bottom: 22px;
+}
+
+
+/* =========================================================
+   CHAPTER NUMBERS
+========================================================= */
 
 .chapter-number {
     position: absolute;
-
-    top: 55px;
-    left: 5px;
-
-    color: rgba(233,168,186,0.35);
-
-    font-family: var(--serif);
-    font-size: 100px;
+    top: 8%;
+    right: 7%;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 9rem;
+    color: rgba(245, 238, 232, 0.035);
     line-height: 1;
-}
-
-
-.chapter-label {
-    position: absolute;
-
-    top: 70px;
-    right: 5px;
-
-    color: rgba(255,255,255,0.25);
-
-    font-size: 8px;
-    letter-spacing: 4px;
-
-    writing-mode: vertical-rl;
+    pointer-events: none;
 }
 
 
 /* =========================================================
-   DATE
-   ========================================================= */
+   DATE HEADINGS / MEMORY
+========================================================= */
 
 .date-heading {
-    text-align: center;
-
-    position: relative;
-    z-index: 2;
-
-    margin-bottom: 55px;
-}
-
-
-.date-heading .month {
-    color: #8d6872;
-
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 5px;
-}
-
-
-.date-heading h2 {
-    margin: 3px 0;
-
-    color: #282020;
-
-    font-family: var(--serif);
-    font-size: 110px;
-    line-height: 0.8;
-    font-weight: 500;
-}
-
-
-.date-heading .year {
-    color: #8e8585;
-
-    font-size: 9px;
-    letter-spacing: 4px;
-}
-
-
-.memory-heading {
-    position: relative;
-    z-index: 2;
-
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 15px;
+    gap: 12px 25px;
+    padding: 18px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 40px;
+}
 
-    margin-bottom: 28px;
+.date-heading strong {
+    color: var(--pink-soft);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.3rem;
+}
+
+.date-heading span {
+    color: var(--muted);
+    font-size: 0.78rem;
+}
+
+.memory-content {
+    max-width: 730px;
+    margin: auto;
+}
+
+.memory-content p {
+    color: #d3c7c4;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.35rem;
+    line-height: 1.85;
+    margin-bottom: 24px;
+}
+
+.memory-quote {
+    max-width: 650px;
+    margin: 50px auto 0;
+    text-align: center;
+    color: var(--pink-soft);
+    font-family: "Parisienne", cursive;
+    font-size: 2rem;
+    line-height: 1.5;
+    animation: letterBob 4s ease-in-out infinite;
+}
+
+.memory-quote span {
+    font-size: 3rem;
 }
 
 
-.little-icon {
-    width: 43px;
-    height: 43px;
+/* =========================================================
+   PHOTO GALLERIES
+========================================================= */
 
+.section-intro {
+    text-align: center;
+    color: var(--muted);
+    max-width: 600px;
+    margin: -15px auto 45px;
+    line-height: 1.8;
+}
+
+.photo-gallery {
+    position: relative;
+    width: min(900px, 100%);
+    min-height: 510px;
+    margin: 20px auto;
+}
+
+.polaroid {
+    position: absolute;
+    width: 285px;
+    background: #f7f0eb;
+    padding: 12px 12px 24px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+    color: #2d2526;
+    transition: transform 0.45s ease, box-shadow 0.45s ease;
+    cursor: pointer;
+}
+
+.polaroid:hover {
+    z-index: 20;
+    transform: rotate(0deg) scale(1.06) translateY(-10px) !important;
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.6);
+}
+
+.photo-frame {
+    width: 100%;
+    aspect-ratio: 1 / 1.05;
+    background: #d9cdca;
+    overflow: hidden;
+    position: relative;
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.polaroid:hover img {
+    transform: scale(1.05);
+}
+
+.polaroid p {
+    font-family: "Parisienne", cursive;
+    text-align: center;
+    font-size: 1.35rem;
+    margin-top: 12px;
+}
+
+.photo-one {
+    left: 4%;
+    top: 45px;
+    transform: rotate(-7deg);
+    animation: photoFloatOne 5s ease-in-out infinite;
+}
+
+.photo-two {
+    left: 50%;
+    top: 0;
+    margin-left: -142px;
+    transform: rotate(2deg);
+    animation: photoFloatTwo 5.5s ease-in-out infinite;
+    z-index: 4;
+}
+
+.photo-three {
+    right: 4%;
+    top: 55px;
+    transform: rotate(7deg);
+    animation: photoFloatThree 5.2s ease-in-out infinite;
+}
+
+.first-date-gallery .photo-one {
+    animation-delay: 0s;
+}
+
+.first-date-gallery .photo-two {
+    animation-delay: 0.7s;
+}
+
+.first-date-gallery .photo-three {
+    animation-delay: 1.2s;
+}
+
+.first-date-photos-section h2,
+.sep-fifteen-photos-section h2 {
+    text-align: center;
+}
+
+.photo-note {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+    color: var(--muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+}
+
+.photo-note span:nth-child(2) {
+    color: var(--pink-soft);
+}
+
+
+/* =========================================================
+   MISSING PHOTO PLACEHOLDER
+========================================================= */
+
+.photo-frame img:not([src]),
+.photo-frame img[src=""] {
+    display: none;
+}
+
+.photo-frame::after {
+    content: "Your photo will live here ♡";
+    position: absolute;
+    inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    border: 1px solid rgba(120,80,90,0.2);
-    border-radius: 50%;
-
-    font-size: 18px;
-
-    animation: iconFloat 3.5s ease-in-out infinite;
-}
-
-
-.memory-heading h3 {
-    margin-top: 3px;
-
-    color: #2b2223;
-
-    font-family: var(--serif);
-    font-size: 32px;
-    font-weight: 600;
-}
-
-
-/* =========================================================
-   STORY
-   ========================================================= */
-
-.story-card {
-    position: relative;
-    z-index: 2;
-
-    padding: 30px 35px;
-
-    border-left: 1px solid rgba(130,90,100,0.28);
-
-    background: rgba(255,255,255,0.22);
-}
-
-
-.story-card p {
-    margin-bottom: 19px;
-
-    color: #534a4a;
-
-    font-family: var(--serif);
-    font-size: 17px;
-    line-height: 1.75;
-}
-
-
-.story-card p:last-child {
-    margin-bottom: 0;
-}
-
-
-.story-lead {
-    margin-bottom: 27px !important;
-
-    color: #956777 !important;
-
-    font-family: var(--sans) !important;
-    font-size: 9px !important;
-    font-weight: 600;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-}
-
-
-.handwritten-note {
-    position: relative;
-
-    margin-top: 35px;
-    padding: 23px 25px;
-
-    color: #6c515a;
-
-    background: rgba(232,196,205,0.22);
-
-    font-family: var(--script);
-    font-size: 23px;
-    line-height: 1.4;
-
-    transform: rotate(-1deg);
-
-    animation: noteFloat 5s ease-in-out infinite;
-}
-
-
-.handwritten-note span {
-    display: block;
-
-    margin-bottom: 6px;
-
-    color: #9b7480;
-
-    font-family: var(--sans);
-    font-size: 8px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-}
-
-
-/* =========================================================
-   MEMORY STRIP
-   ========================================================= */
-
-.memory-strip {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 10px;
-
-    margin-top: 32px;
-}
-
-
-.mini-memory {
-    padding: 18px 10px;
-
-    border: 1px solid rgba(120,90,90,0.14);
-
-    color: #6d5c5c;
-
     text-align: center;
-
-    font-size: 9px;
-    letter-spacing: 1px;
-
-    transition:
-        transform 0.3s ease,
-        background 0.3s ease;
+    padding: 30px;
+    color: rgba(65, 51, 53, 0.65);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.2rem;
+    background: linear-gradient(
+        135deg,
+        #e6dad5,
+        #d8cbc7
+    );
 }
 
-
-.mini-memory:hover {
-    transform: translateY(-5px);
-    background: rgba(255,255,255,0.4);
-}
-
-
-.mini-memory span {
-    display: block;
-
-    margin-bottom: 5px;
-
-    color: #b27b8b;
-
-    font-family: var(--serif);
-    font-size: 20px;
+.photo-frame:has(img[src]:not([src=""]))::after {
+    display: none;
 }
 
 
 /* =========================================================
-   NO PHOTO NOTE
-   ========================================================= */
+   14 SEPTEMBER — NO PHOTO
+========================================================= */
+
+.memory-only-page {
+    text-align: center;
+}
+
+.memory-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    animation: letterBob 3s ease-in-out infinite;
+}
 
 .no-photo-note {
-    position: relative;
-    z-index: 2;
-
-    margin: 38px auto 0;
-    padding: 24px;
-
-    width: min(100%, 390px);
-
-    text-align: center;
-
-    border-top: 1px solid rgba(100,80,80,0.13);
-    border-bottom: 1px solid rgba(100,80,80,0.13);
+    width: min(620px, 100%);
+    margin: 45px auto 0;
+    padding: 25px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
-
-
-.note-symbol {
-    display: block;
-
-    margin-bottom: 7px;
-
-    color: #bd8193;
-
-    font-size: 21px;
-
-    animation: heartbeat 2.5s infinite;
-}
-
 
 .no-photo-note p {
-    color: #766666;
-
-    font-family: var(--serif);
-    font-size: 17px;
-    font-style: italic;
+    color: var(--pink-soft);
+    font-family: "Parisienne", cursive;
+    font-size: 1.7rem;
+    line-height: 1.5;
 }
 
-
-.no-photo-note small {
-    color: #a09797;
-
-    font-size: 9px;
-    letter-spacing: 2px;
+.note-symbol {
+    color: var(--pink-soft);
+    animation: heartbeat 1.8s infinite;
 }
 
 
 /* =========================================================
-   ROOM MEMORY
-   ========================================================= */
+   JOURNEY ROUTE
+========================================================= */
 
-.room-memory-section {
-    padding-top: 70px;
-    padding-bottom: 70px;
+.journey-route {
+    margin-top: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
 }
 
-
-.intimate-card {
-    border-left-color: rgba(180,120,145,0.32);
+.route-stop {
+    text-align: center;
+    min-width: 125px;
 }
 
-
-.small-chapter {
-    position: relative;
-    z-index: 2;
-
-    margin-bottom: 12px;
-
-    color: #9b7180;
-
-    font-size: 9px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
+.route-stop span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    margin: auto auto 10px;
+    border-radius: 50%;
+    border: 1px solid rgba(237, 185, 197, 0.45);
+    color: var(--pink-soft);
+    font-size: 0.72rem;
 }
 
-
-.section-title {
-    position: relative;
-    z-index: 2;
-
-    margin-bottom: 35px;
-
-    color: #2a2222;
-
-    font-family: var(--serif);
-    font-size: clamp(47px, 7vw, 70px);
-    line-height: 0.88;
+.route-stop strong {
+    display: block;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.2rem;
     font-weight: 500;
 }
 
+.route-stop small {
+    display: block;
+    color: var(--muted);
+    font-size: 0.65rem;
+    margin-top: 4px;
+}
+
+.route-line {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(237, 185, 197, 0.5),
+        transparent
+    );
+    animation: linePulse 2s infinite;
+}
+
 
 /* =========================================================
-   15 SEPTEMBER PHOTO PLACEHOLDER
-   ========================================================= */
+   15 SEPTEMBER PHOTOS
+========================================================= */
 
-.photo-placeholder-area {
-    position: relative;
-    z-index: 2;
-
-    margin-top: 40px;
-    padding: 45px 25px;
-
-    text-align: center;
-
-    border: 1px dashed rgba(120,90,100,0.25);
-
-    background: rgba(255,255,255,0.13);
+.fifteen-gallery .photo-two {
+    z-index: 6;
 }
 
-
-.placeholder-label {
-    color: #9b6878;
-
-    font-size: 9px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-}
-
-
-.photo-placeholder-area p {
-    margin-top: 10px;
-
-    color: #9b9191;
-
-    font-family: var(--serif);
-    font-size: 15px;
-    font-style: italic;
+.favourite-tag {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    z-index: 10;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: #252025;
+    color: var(--pink-soft);
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    animation: heartbeat 2s infinite;
 }
 
 
 /* =========================================================
    CHAI
-   ========================================================= */
+========================================================= */
 
-.special-page {
+.chai-section {
     text-align: center;
-
-    min-height: 700px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
+.chai-decoration {
+    position: absolute;
+    right: 10%;
+    top: 13%;
+    font-size: 60px;
+    animation: chaiFloat 3.5s ease-in-out infinite;
+}
 
-.special-icon {
-    font-size: 52px;
+.chai-scene {
+    position: relative;
+    width: 160px;
+    height: 150px;
+    margin: 20px auto 35px;
+}
 
-    margin-bottom: 18px;
-
+.chai-cup {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    font-size: 75px;
     animation: chaiFloat 3s ease-in-out infinite;
 }
 
-
-.special-page .section-title {
-    text-align: center;
-}
-
-
-.special-page .story-card {
-    width: 100%;
-    max-width: 610px;
-
-    text-align: left;
-}
-
-
-.chai-visual {
-    position: relative;
-
-    width: 100px;
-    height: 100px;
-
-    margin: 35px auto 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 48px;
-
-    animation: cupFloat 4s ease-in-out infinite;
-}
-
-
 .steam {
     position: absolute;
-
-    top: 3px;
-
-    color: rgba(100,80,80,0.35);
-
-    font-size: 25px;
-
-    animation: steamRise 2.5s ease-in-out infinite;
+    bottom: 70px;
+    width: 4px;
+    height: 35px;
+    border-radius: 50%;
+    background: rgba(245, 238, 232, 0.3);
+    filter: blur(3px);
 }
 
-.steam-1 {
-    left: 25px;
+.steam-one {
+    left: 58px;
+    animation: steamRise 2s infinite;
 }
 
-.steam-2 {
-    left: 43px;
-    animation-delay: -0.8s;
+.steam-two {
+    left: 80px;
+    animation: steamRise 2s 0.6s infinite;
 }
 
-.steam-3 {
-    left: 59px;
-    animation-delay: -1.4s;
+.steam-three {
+    left: 100px;
+    animation: steamRise 2s 1.1s infinite;
 }
 
 
 /* =========================================================
    GOODBYE
-   ========================================================= */
+========================================================= */
 
 .goodbye-section {
-    padding-top: 100px;
+    text-align: center;
 }
 
+.goodbye-section .diary-page {
+    width: min(800px, calc(100% - 36px));
+}
 
-.goodbye-icon {
-    position: relative;
-    z-index: 2;
+.goodbye-photo-wrapper {
+    width: min(450px, 100%);
+    margin: 30px auto 45px;
+}
 
-    margin-bottom: 25px;
+.goodbye-photo {
+    padding: 12px 12px 16px;
+    background: #f7f0eb;
+    transform: rotate(-3deg);
+    box-shadow: 0 30px 70px rgba(0,0,0,0.5);
+    animation: goodbyePhoto 5s ease-in-out infinite;
+}
 
-    color: #966a78;
+.goodbye-photo img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    background: #ddd;
+}
 
+.plane {
+    position: absolute;
+    top: 17%;
+    left: -80px;
     font-size: 45px;
-
-    animation: planeTravel 5s ease-in-out infinite;
+    opacity: 0.5;
+    animation: planeTravel 12s linear infinite;
 }
 
-
-.goodbye-section .section-title {
-    margin-top: 15px;
-}
-
-
-.story-ending {
-    margin-top: 30px;
-    padding-top: 25px;
-
-    border-top: 1px solid rgba(120,90,90,0.13);
-
-    font-family: var(--script) !important;
-    font-size: 29px !important;
-    color: #765963 !important;
-}
-
-
-.story-ending span {
-    color: #a36c7d;
-}
-
-
-.goodbye-photo-placeholder {
-    width: min(100%, 300px);
-    height: 180px;
-
-    margin: 45px auto 0;
-
+.distance-line {
+    margin-top: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    border: 1px dashed rgba(120,90,100,0.25);
-
-    color: #b17c8d;
-
-    font-size: 27px;
-
-    animation: photoFloat 5s ease-in-out infinite;
+    gap: 25px;
+    color: var(--pink-soft);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
 }
 
-
-/* =========================================================
-   PAGE FOOTER
-   ========================================================= */
-
-.page-footer {
+.flight-line {
+    width: 150px;
+    height: 1px;
+    background: rgba(237, 185, 197, 0.3);
     position: relative;
-    z-index: 2;
+}
 
-    display: flex;
-    justify-content: space-between;
-
-    margin-top: 50px;
-    padding-top: 18px;
-
-    border-top: 1px solid rgba(90,70,70,0.12);
-
-    color: rgba(70,60,60,0.45);
-
-    font-size: 8px;
-    letter-spacing: 3px;
+.flight-line span {
+    position: absolute;
+    left: 50%;
+    top: -17px;
+    transform: translateX(-50%);
+    font-size: 28px;
+    animation: planeTravelSmall 3s linear infinite;
 }
 
 
 /* =========================================================
    TWO YEARS
-   ========================================================= */
+========================================================= */
 
-.anniversary-page {
-    text-align: center;
-
-    min-height: 730px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.number-ring {
-    width: 150px;
-    height: 150px;
-
-    margin-bottom: 35px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    border: 1px solid rgba(150,100,120,0.3);
-    border-radius: 50%;
-
-    position: relative;
-
-    animation: ringsRotate 12s linear infinite;
-}
-
-
-.number-ring::before,
-.number-ring::after {
-    content: "";
-
-    position: absolute;
-
-    border: 1px solid rgba(150,100,120,0.12);
-    border-radius: 50%;
-}
-
-.number-ring::before {
-    inset: 9px;
-}
-
-.number-ring::after {
-    inset: -8px;
-}
-
-
-.number-ring span {
-    color: #7e5361;
-
-    font-family: var(--serif);
-    font-size: 78px;
-    line-height: 0.8;
-}
-
-
-.number-ring small {
-    color: #a28b91;
-
-    font-size: 8px;
-    letter-spacing: 3px;
-}
-
-
-.centered-card {
-    width: 100%;
-    max-width: 610px;
-
-    border-left: 0;
-
+.two-years-section {
     text-align: center;
 }
 
-
-.big-heart {
-    margin: 30px 0 20px;
-
-    color: #b8798c;
-
-    font-size: 48px;
-
-    animation: heartbeat 2.2s ease-in-out infinite;
+.big-number {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(10rem, 30vw, 20rem);
+    line-height: 0.75;
+    color: rgba(237, 185, 197, 0.08);
+    margin: 30px 0;
+    animation: numberFloat 5s ease-in-out infinite;
 }
 
+.years-text {
+    font-family: "Cormorant Garamond", serif;
+    color: var(--muted);
+    font-size: 1.4rem;
+    line-height: 2;
+}
 
-.final-small-line {
-    color: #907c81 !important;
+.rings {
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+}
 
-    font-size: 14px !important;
-    font-style: italic;
+.rings span {
+    font-size: 30px;
+    color: var(--pink-soft);
+    animation: ringsRotate 3s infinite;
+}
+
+.rings span:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.rings span:nth-child(3) {
+    animation-delay: 0.6s;
 }
 
 
 /* =========================================================
    FUTURE
-   ========================================================= */
+========================================================= */
 
-.future-page {
-    min-height: 730px;
-
+.future-section {
     text-align: center;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
-
-.future-moon {
-    margin-bottom: 22px;
-
-    color: #9a7883;
-
-    font-family: var(--serif);
-    font-size: 58px;
-
-    animation: moonFloat 5s ease-in-out infinite;
+.future-grid {
+    width: min(850px, 100%);
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
 }
 
-
-.future-note {
-    width: min(100%, 500px);
-
+.future-card {
+    text-align: left;
     padding: 28px;
-
-    text-align: center;
-
-    border-left: 1px solid rgba(130,90,100,0.18);
-    border-right: 1px solid rgba(130,90,100,0.18);
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.025);
+    border-radius: 20px;
+    transition: 0.4s ease;
 }
 
-
-.future-note p {
-    margin: 11px 0;
-
-    color: #6c5d5d;
-
-    font-family: var(--script);
-    font-size: 27px;
+.future-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(237, 185, 197, 0.35);
+    background: rgba(255, 255, 255, 0.045);
 }
 
-
-.future-divider {
-    margin: 20px 0;
-
-    color: #b47c8d;
+.future-icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+    animation: sideFloat 3s ease-in-out infinite;
 }
 
+.future-card h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.45rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
 
-.future-note .future-last {
-    color: #8d6874;
+.future-card p {
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 0.85rem;
+}
 
-    font-family: var(--serif);
-    font-size: 18px;
-    font-style: italic;
+.future-quote {
+    font-family: "Parisienne", cursive;
+    color: var(--pink-soft);
+    font-size: 2rem;
+    max-width: 600px;
+    margin: 50px auto 0;
 }
 
 
 /* =========================================================
-   FINAL LETTER
-   ========================================================= */
+   FINAL LETTER / ENVELOPE
+========================================================= */
 
-.letter-page {
-    min-height: 760px;
-
+.final-letter-section {
     text-align: center;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
-
-.envelope-wrap {
-    width: min(100%, 440px);
-
-    margin-top: 20px;
-
-    perspective: 1000px;
-}
-
-
-.envelope {
-    position: relative;
-
-    width: 100%;
-    height: 270px;
-
+.final-envelope {
+    width: min(760px, 100%);
     margin: auto;
-
-    background: #d9a9b7;
-
-    box-shadow:
-        0 30px 50px rgba(70,40,45,0.22);
-
-    transform-style: preserve-3d;
-
-    animation: envelopeFloat 5s ease-in-out infinite;
-
-    cursor: pointer;
+    position: relative;
+    perspective: 1400px;
 }
-
 
 .envelope-back {
+    height: 130px;
+    background: #241a1d;
+    border: 1px solid rgba(237,185,197,0.2);
+    border-radius: 8px;
     position: absolute;
-    inset: 0;
-
-    background: #d6a2b1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(30px);
 }
 
-
-.letter-paper {
-    position: absolute;
-
-    left: 8%;
-    right: 8%;
-    bottom: 8%;
-
-    height: 235px;
-
-    padding: 25px;
-
-    background: #fffaf2;
-
-    color: #4d4141;
-
+.envelope-paper {
+    position: relative;
+    z-index: 3;
+    background: var(--paper);
+    color: var(--text-dark);
+    padding: 60px clamp(28px, 7vw, 75px);
     text-align: left;
-
-    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
-
-    transition:
-        transform 1s ease,
-        bottom 1s ease;
-
-    z-index: 2;
-
-    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 35px 100px rgba(0,0,0,0.5);
+    animation: envelopeOpen 5s ease-in-out infinite;
 }
 
-
-.letter-paper p {
-    margin-bottom: 10px;
-
-    font-family: var(--serif);
-    font-size: 13px;
-    line-height: 1.35;
+.envelope-paper h2 {
+    color: var(--text-dark);
 }
 
-
-.letter-signature {
-    margin-top: 12px;
-
-    color: #956272;
-
-    font-family: var(--script) !important;
-    font-size: 22px !important;
+.envelope-paper h2 span {
+    color: #a96376;
 }
 
-
-.envelope-front {
-    position: absolute;
-
-    inset: 0;
-
-    z-index: 4;
-
-    background:
-        linear-gradient(
-            145deg,
-            transparent 49%,
-            rgba(160,100,115,0.4) 50%,
-            transparent 51%
-        );
-
-    clip-path: polygon(
-        0 0,
-        50% 55%,
-        100% 0,
-        100% 100%,
-        0 100%
-    );
-
-    background-color: #d29cad;
+.final-letter-text p {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
 }
 
-
-.envelope:hover .letter-paper,
-.envelope.opened .letter-paper {
-    bottom: 38%;
-
-    transform: translateY(-30px);
-}
-
-
-.letter-hint {
-    margin-top: 30px;
-
-    color: #958383;
-
-    font-size: 9px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-
-    animation: hintPulse 2.5s infinite;
+.final-love-line {
+    font-family: "Parisienne", cursive !important;
+    font-size: 2rem !important;
+    color: #a96376;
+    margin-top: 35px;
 }
 
 
 /* =========================================================
-   FINAL SECTION
-   ========================================================= */
+   FINAL MESSAGE
+========================================================= */
 
-.final-section {
-    min-height: 90vh;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+.final-message-section {
     text-align: center;
+    min-height: 90vh;
 }
-
-
-.final-content {
-    width: min(100%, 650px);
-}
-
 
 .final-stars {
-    margin-bottom: 25px;
-
-    color: #b47d8e;
-
-    font-size: 16px;
-
+    color: var(--pink-soft);
+    letter-spacing: 0.2em;
+    margin-bottom: 30px;
     animation: starTwinkle 3s infinite;
 }
 
-
 .final-content h2 {
-    margin-top: 18px;
-
-    font-family: var(--serif);
-    font-size: clamp(60px, 10vw, 100px);
-    line-height: 0.85;
-    font-weight: 400;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1;
+    font-weight: 500;
 }
-
 
 .final-content h2 span {
+    display: block;
+    font-family: "Parisienne", cursive;
     color: var(--pink-soft);
-
-    font-family: var(--script);
+    font-weight: 400;
+    margin-top: 10px;
 }
 
-
-.final-line {
-    color: var(--pink);
+.final-message {
+    color: var(--muted);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.4rem;
+    line-height: 1.8;
+    margin: 35px auto;
 }
 
-
-.final-content > p:not(.tiny-label) {
-    color: #888080;
-
-    font-family: var(--serif);
-    font-size: 18px;
-    line-height: 1.7;
+.heartbeat-heart {
+    font-size: 55px;
+    color: var(--pink-soft);
+    animation: heartbeat 1.5s infinite;
 }
-
 
 .final-signature {
-    margin-top: 35px;
-
-    color: #c38a9c;
-
-    font-family: var(--script);
-    font-size: 32px;
+    margin-top: 30px;
+    font-family: "Parisienne", cursive;
+    font-size: 2.4rem;
+    color: var(--pink-soft);
 }
 
-
-.forever-note {
-    margin-top: 25px;
-
-    color: #5e5757 !important;
-
-    font-family: var(--script) !important;
-    font-size: 22px !important;
+.final-date {
+    margin-top: 15px;
+    color: var(--muted);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
 }
 
 
 /* =========================================================
    FOOTER
-   ========================================================= */
+========================================================= */
 
 .diary-footer {
-    position: relative;
-    z-index: 3;
-
-    padding: 55px 20px 70px;
-
     text-align: center;
-
-    background: #030303;
-
-    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 70px 25px 45px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
 }
-
 
 .diary-footer p {
-    max-width: 380px;
-
-    margin: 0 auto 15px;
-
-    color: #625c5c;
-
-    font-family: var(--serif);
-    font-size: 15px;
-    font-style: italic;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1rem;
+    margin-bottom: 15px;
 }
 
-
-.diary-footer div {
-    color: #9a707d;
-
-    font-family: var(--script);
-    font-size: 25px;
+.diary-footer strong {
+    display: block;
+    color: var(--pink-soft);
+    font-family: "Parisienne", cursive;
+    font-size: 2rem;
+    font-weight: 400;
 }
 
-
-/* =========================================================
-   JS PARTICLES
-   ========================================================= */
-
-.js-heart,
-.js-sparkle,
-.js-petal,
-.js-steam {
-    position: absolute;
-
-    pointer-events: none;
-
-    z-index: 8;
-}
-
-
-.js-heart {
-    bottom: -30px;
-
-    color: rgba(233,168,186,0.45);
-
-    animation: jsHeartRise 12s linear forwards;
-}
-
-
-.js-sparkle {
-    bottom: -20px;
-
-    color: rgba(255,255,255,0.5);
-
-    animation: jsHeartRise 10s linear forwards;
-}
-
-
-.js-petal {
-    top: -30px;
-
-    color: rgba(224,157,176,0.35);
-
-    animation: petalFall 12s linear forwards;
+.diary-footer span {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
 }
 
 
 /* =========================================================
    ANIMATIONS
-   ========================================================= */
-
-@keyframes cardFloat {
-
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-7px);
-    }
-}
-
-
-@keyframes openingContentFloat {
-
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-6px);
-    }
-}
-
+========================================================= */
 
 @keyframes moonFloat {
-
     0%, 100% {
-        transform: translateY(0) rotate(0deg);
+        transform: translateY(0) rotate(-3deg);
     }
 
     50% {
-        transform: translateY(-12px) rotate(3deg);
+        transform: translateY(-18px) rotate(3deg);
     }
 }
 
-
 @keyframes starTwinkle {
-
     0%, 100% {
         opacity: 0.25;
         transform: scale(0.8);
@@ -2005,233 +1495,75 @@ button {
     }
 }
 
-
-@keyframes starFloat {
-
-    0%, 100% {
-        margin-top: 0;
-    }
-
-    50% {
-        margin-top: -12px;
-    }
-}
-
-
-@keyframes teddyDance {
-
-    0%, 100% {
+@keyframes heartRise {
+    0% {
         transform: translateY(0) rotate(0deg);
-    }
-
-    25% {
-        transform: translateY(-8px) rotate(-4deg);
-    }
-
-    50% {
-        transform: translateY(0) rotate(4deg);
-    }
-
-    75% {
-        transform: translateY(-5px) rotate(-2deg);
-    }
-}
-
-
-@keyframes guitarSwing {
-
-    0%, 100% {
-        transform: rotate(-12deg) translateY(0);
-    }
-
-    50% {
-        transform: rotate(5deg) translateY(-10px);
-    }
-}
-
-
-@keyframes letterBob {
-
-    0%, 100% {
-        transform: translateY(0) rotate(0deg);
-    }
-
-    50% {
-        transform: translateY(-13px) rotate(5deg);
-    }
-}
-
-
-@keyframes sideFloat {
-
-    0%, 100% {
-        transform: translateY(0) rotate(0deg);
-    }
-
-    50% {
-        transform: translateY(-10px) rotate(5deg);
-    }
-}
-
-
-@keyframes heartbeat {
-
-    0%, 100% {
-        transform: scale(1);
+        opacity: 0;
     }
 
     15% {
-        transform: scale(1.1);
-    }
-
-    30% {
-        transform: scale(1);
-    }
-
-    45% {
-        transform: scale(1.07);
-    }
-
-    60% {
-        transform: scale(1);
-    }
-}
-
-
-@keyframes hintPulse {
-
-    0%, 100% {
-        opacity: 0.35;
-    }
-
-    50% {
-        opacity: 0.8;
-    }
-}
-
-
-@keyframes buttonShine {
-
-    0% {
-        transform: translateX(-120%);
-    }
-
-    35%, 100% {
-        transform: translateX(120%);
-    }
-}
-
-
-@keyframes starDrift {
-
-    0% {
-        transform: translateX(0);
-    }
-
-    50% {
-        transform: translateX(8%);
+        opacity: 0.45;
     }
 
     100% {
-        transform: translateX(0);
+        transform: translateY(-110vh) rotate(25deg);
+        opacity: 0;
     }
 }
 
-
-@keyframes iconFloat {
-
+@keyframes teddyDance {
     0%, 100% {
-        transform: translateY(0);
+        transform: translateY(0) rotate(-4deg);
+    }
+
+    25% {
+        transform: translateY(-12px) rotate(5deg);
     }
 
     50% {
-        transform: translateY(-6px);
-    }
-}
-
-
-@keyframes noteFloat {
-
-    0%, 100% {
-        transform: rotate(-1deg) translateY(0);
-    }
-
-    50% {
-        transform: rotate(1deg) translateY(-4px);
-    }
-}
-
-
-@keyframes arrowDown {
-
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(6px);
-    }
-}
-
-
-@keyframes chaiFloat {
-
-    0%, 100% {
         transform: translateY(0) rotate(-2deg);
     }
 
-    50% {
-        transform: translateY(-9px) rotate(2deg);
+    75% {
+        transform: translateY(-7px) rotate(4deg);
     }
 }
 
-
-@keyframes cupFloat {
-
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-6px);
-    }
-}
-
-
-@keyframes steamRise {
-
-    0% {
+@keyframes anniversaryAppear {
+    from {
         opacity: 0;
-        transform: translateY(12px) scale(0.8);
+        transform: translateY(25px) scale(0.96);
     }
 
-    30% {
-        opacity: 0.5;
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateY(-30px) scale(1.2);
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
     }
 }
 
-
-@keyframes planeTravel {
-
+@keyframes sideFloat {
     0%, 100% {
-        transform: translateX(-8px) rotate(-3deg);
+        transform: translate(0, 0);
     }
 
     50% {
-        transform: translateX(10px) rotate(3deg);
+        transform: translate(12px, -18px);
     }
 }
 
-
-@keyframes photoFloat {
-
+@keyframes guitarSwing {
     0%, 100% {
-        transform: translateY(0) rotate(-1deg);
+        transform: rotate(-7deg);
+    }
+
+    50% {
+        transform: rotate(8deg);
+    }
+}
+
+@keyframes letterBob {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
     }
 
     50% {
@@ -2239,419 +1571,415 @@ button {
     }
 }
 
-
 @keyframes ringsRotate {
-
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-
-@keyframes envelopeFloat {
-
     0%, 100% {
         transform: translateY(0) rotate(0deg);
     }
 
     50% {
-        transform: translateY(-8px) rotate(0.7deg);
+        transform: translateY(-7px) rotate(8deg);
     }
 }
 
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
 
-@keyframes backgroundFloat {
+    15% {
+        transform: scale(1.15);
+    }
 
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.12);
+    }
+
+    60% {
+        transform: scale(1);
+    }
+}
+
+@keyframes hintPulse {
+    0%, 100% {
+        opacity: 0.4;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(7px);
+    }
+}
+
+@keyframes chaiFloat {
     0%, 100% {
         transform: translateY(0);
     }
 
     50% {
-        transform: translateY(-20px);
+        transform: translateY(-10px);
     }
 }
 
-
-@keyframes jsHeartRise {
-
+@keyframes steamRise {
     0% {
         opacity: 0;
-        transform: translateY(0) scale(0.6) rotate(0deg);
-    }
-
-    10% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-        transform:
-            translateY(-110vh)
-            translateX(80px)
-            scale(1.2)
-            rotate(25deg);
-    }
-}
-
-
-@keyframes petalFall {
-
-    0% {
-        opacity: 0;
-        transform: translateY(-20px) rotate(0deg);
-    }
-
-    10% {
-        opacity: 0.7;
-    }
-
-    100% {
-        opacity: 0;
-        transform:
-            translateY(110vh)
-            translateX(100px)
-            rotate(360deg);
-    }
-}
-
-
-@keyframes screenExit {
-
-    to {
-        opacity: 0;
-        transform: scale(1.03);
-    }
-}
-
-
-@keyframes diaryEnter {
-
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-/* =========================================================
-   STATES
-   ========================================================= */
-
-.screen-exit {
-    animation: screenExit 0.85s ease forwards;
-}
-
-
-.anniversary-appear {
-    animation: diaryEnter 1.2s ease forwards;
-}
-
-
-.diary-enter {
-    animation: diaryEnter 1.1s ease forwards;
-}
-
-
-.shake {
-    animation: shake 0.45s ease;
-}
-
-
-@keyframes shake {
-
-    0%, 100% {
-        transform: translateX(0);
-    }
-
-    20% {
-        transform: translateX(-8px);
+        transform: translateY(10px) scaleX(0.8);
     }
 
     40% {
-        transform: translateX(8px);
+        opacity: 0.5;
     }
 
-    60% {
-        transform: translateX(-6px);
-    }
-
-    80% {
-        transform: translateX(5px);
+    100% {
+        opacity: 0;
+        transform: translateY(-45px) scaleX(1.5);
     }
 }
 
+@keyframes planeTravel {
+    0% {
+        left: -80px;
+        transform: translateY(0) rotate(4deg);
+    }
 
-.heart-burst {
-    position: absolute;
+    45% {
+        transform: translateY(-45px) rotate(-4deg);
+    }
 
-    top: 50%;
-    left: 50%;
-
-    width: 1px;
-    height: 1px;
-
-    z-index: 50;
-
-    pointer-events: none;
+    100% {
+        left: calc(100% + 80px);
+        transform: translateY(-5px) rotate(4deg);
+    }
 }
 
+@keyframes planeTravelSmall {
+    0% {
+        transform: translateX(-80px);
+    }
 
-.heart-burst span {
-    position: absolute;
-
-    left: 0;
-    top: 0;
-
-    color: var(--pink);
-
-    font-size: 17px;
-
-    animation: burstHeart 1s ease-out forwards;
+    100% {
+        transform: translateX(80px);
+    }
 }
 
+@keyframes goodbyePhoto {
+    0%, 100% {
+        transform: rotate(-3deg) translateY(0);
+    }
 
-@keyframes burstHeart {
+    50% {
+        transform: rotate(2deg) translateY(-10px);
+    }
+}
 
+@keyframes numberFloat {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-12px) scale(1.02);
+    }
+}
+
+@keyframes envelopeOpen {
+    0%, 100% {
+        transform: rotateX(0deg) translateY(0);
+    }
+
+    50% {
+        transform: rotateX(1deg) translateY(-6px);
+    }
+}
+
+@keyframes diaryEnter {
     from {
-        opacity: 1;
-        transform: translate(0,0) scale(0.5);
+        opacity: 0;
     }
 
     to {
-        opacity: 0;
-        transform:
-            translate(var(--x),var(--y))
-            scale(1.3);
+        opacity: 1;
     }
 }
 
+@keyframes photoFloatOne {
+    0%, 100% {
+        transform: rotate(-7deg) translateY(0);
+    }
 
-.page-paused * {
-    animation-play-state: paused !important;
+    50% {
+        transform: rotate(-4deg) translateY(-13px);
+    }
+}
+
+@keyframes photoFloatTwo {
+    0%, 100% {
+        transform: rotate(2deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(5deg) translateY(-16px);
+    }
+}
+
+@keyframes photoFloatThree {
+    0%, 100% {
+        transform: rotate(7deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(4deg) translateY(-11px);
+    }
+}
+
+@keyframes linePulse {
+    0%, 100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
 }
 
 
 /* =========================================================
-   RESPONSIVE
-   ========================================================= */
+   MOBILE
+========================================================= */
 
-@media (max-width: 800px) {
-
-    .secret-card {
-        padding: 45px 27px 32px;
-    }
-
-    .moon {
-        top: 7%;
-        right: 5%;
-        font-size: 65px;
-    }
-
-    .guitar {
-        left: 3%;
-        bottom: 8%;
-        font-size: 45px;
-    }
-
-    .letter {
-        right: 3%;
-        bottom: 12%;
-        font-size: 34px;
-    }
-
-    .bow {
-        left: 5%;
-        top: 13%;
-        font-size: 27px;
-    }
+@media (max-width: 700px) {
 
     .diary-section {
-        padding:
-            85px 15px
-            90px;
+        min-height: auto;
+        padding: 90px 0;
     }
 
     .diary-page {
-        padding: 60px 35px;
-
-        width: 100%;
+        width: min(100% - 28px, 620px);
     }
 
-    .diary-page::after {
-        left: 18px;
+    .secret-box {
+        padding: 40px 23px;
     }
 
-    .chapter-number {
-        left: -3px;
-        top: 40px;
-
-        font-size: 70px;
+    .intro-moon {
+        top: 8%;
+        right: 8%;
+        font-size: 55px;
     }
 
-    .chapter-label {
-        right: -2px;
-        top: 55px;
+    .intro-teddy {
+        left: 7%;
+        bottom: 9%;
+        font-size: 48px;
     }
 
-    .story-card {
-        padding: 25px 22px;
-    }
-
-    .memory-strip {
-        grid-template-columns: 1fr;
-    }
-
-    .date-heading h2 {
-        font-size: 90px;
+    .intro-content h1 {
+        font-size: clamp(3.5rem, 17vw, 6rem);
     }
 
     .cover-page {
-        min-height: 600px;
+        padding: 50px 15px;
     }
 
-    .cover-title {
-        font-size: clamp(50px, 13vw, 75px);
+    .cover-page h1 {
+        font-size: clamp(3.5rem, 18vw, 6rem);
     }
 
-    .section-title {
-        font-size: 52px;
+    .cover-decoration {
+        opacity: 0.75;
     }
 
-    .letter-page,
-    .future-page,
-    .anniversary-page,
-    .special-page {
-        min-height: 650px;
+    .teddy-decoration {
+        left: 2%;
+        top: 10%;
+        font-size: 45px;
     }
 
-}
-
-
-@media (max-width: 520px) {
-
-    .secret-card {
-        width: 92%;
-        padding: 40px 20px 30px;
-    }
-
-    .secret-card h1 {
+    .guitar-decoration {
+        right: 2%;
+        top: 15%;
         font-size: 40px;
     }
 
-    .opening-teddy {
-        font-size: 52px;
+    .letter-decoration {
+        left: 4%;
+        bottom: 10%;
+        font-size: 35px;
     }
 
-    .opening-content h1 {
-        font-size: 59px;
-        letter-spacing: -2px;
+    .bow-decoration {
+        right: 5%;
+        bottom: 11%;
+        font-size: 32px;
     }
 
-    .opening-text {
-        font-size: 15px;
-    }
-
-    .opening-line span {
-        width: 35px;
-    }
-
-    .diary-section {
-        padding:
-            65px 10px
-            70px;
-    }
-
-    .diary-page {
-        padding: 55px 24px;
-    }
-
-    .diary-page::after {
-        display: none;
-    }
-
-    .page-number {
-        right: 20px;
-        top: 20px;
-    }
-
-    .chapter-number {
-        display: none;
-    }
-
-    .chapter-label {
-        display: none;
-    }
-
-    .date-heading {
-        margin-bottom: 38px;
-    }
-
-    .date-heading h2 {
-        font-size: 82px;
-    }
-
-    .memory-heading {
-        align-items: flex-start;
-    }
-
-    .memory-heading h3 {
-        font-size: 27px;
-    }
-
-    .story-card p {
-        font-size: 16px;
-        line-height: 1.65;
-    }
-
-    .handwritten-note {
-        font-size: 21px;
-    }
-
-    .section-title {
-        font-size: 47px;
-    }
-
-    .number-ring {
-        width: 125px;
-        height: 125px;
-    }
-
-    .number-ring span {
-        font-size: 65px;
-    }
-
-    .envelope {
-        height: 225px;
+    .date-line {
+        gap: 8px;
+        font-size: 0.65rem;
     }
 
     .letter-paper {
-        height: 200px;
-        padding: 18px;
+        padding: 45px 25px;
     }
 
     .letter-paper p {
-        font-size: 11px;
+        font-size: 1.08rem;
     }
 
-    .goodbye-photo-placeholder {
-        height: 150px;
+    .letter-page h2,
+    .diary-page h2 {
+        font-size: clamp(2.6rem, 13vw, 4.3rem);
     }
 
+    .memory-content p {
+        font-size: 1.18rem;
+        line-height: 1.75;
+    }
+
+    .memory-quote {
+        font-size: 1.65rem;
+    }
+
+    .chapter-number {
+        font-size: 6rem;
+        top: 3%;
+        right: 4%;
+    }
+
+    .date-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .journey-route {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .route-line {
+        width: 1px;
+        height: 40px;
+    }
+
+    .no-photo-note {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .no-photo-note p {
+        font-size: 1.45rem;
+    }
+
+    .photo-gallery {
+        min-height: 1080px;
+        width: 100%;
+    }
+
+    .polaroid {
+        width: min(78vw, 300px);
+        left: 50% !important;
+        right: auto !important;
+        margin-left: min(-39vw, -150px);
+    }
+
+    .photo-one {
+        top: 25px;
+        transform: rotate(-5deg);
+        animation: mobilePhotoFloatOne 5s ease-in-out infinite;
+    }
+
+    .photo-two {
+        top: 350px;
+        transform: rotate(3deg);
+        animation: mobilePhotoFloatTwo 5.5s ease-in-out infinite;
+    }
+
+    .photo-three {
+        top: 675px;
+        transform: rotate(-4deg);
+        animation: mobilePhotoFloatThree 5.2s ease-in-out infinite;
+    }
+
+    .chai-decoration {
+        right: 4%;
+        top: 5%;
+        font-size: 42px;
+    }
+
+    .goodbye-photo-wrapper {
+        width: min(330px, 90%);
+    }
+
+    .distance-line {
+        gap: 10px;
+    }
+
+    .flight-line {
+        width: 85px;
+    }
+
+    .future-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .future-card {
+        text-align: center;
+    }
+
+    .envelope-paper {
+        padding: 45px 25px;
+    }
+
+    .final-letter-text p {
+        font-size: 1.08rem;
+    }
+
+    .final-signature {
+        font-size: 2rem;
+    }
+}
+
+@keyframes mobilePhotoFloatOne {
+    0%, 100% {
+        transform: rotate(-5deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(-2deg) translateY(-10px);
+    }
+}
+
+@keyframes mobilePhotoFloatTwo {
+    0%, 100% {
+        transform: rotate(3deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(5deg) translateY(-12px);
+    }
+}
+
+@keyframes mobilePhotoFloatThree {
+    0%, 100% {
+        transform: rotate(-4deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(-1deg) translateY(-9px);
+    }
 }
 
 
 /* =========================================================
    REDUCED MOTION
-   ========================================================= */
+========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -2663,5 +1991,4 @@ button {
         scroll-behavior: auto !important;
         transition-duration: 0.01ms !important;
     }
-
 }
