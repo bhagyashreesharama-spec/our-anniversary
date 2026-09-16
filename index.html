@@ -12,41 +12,66 @@
 
 <body>
 
-    <!-- =========================
-         SECRET ENTRY
-    ========================== -->
+    <!-- SECRET SCREEN -->
 
-    <section id="secretScreen" class="screen secret-screen">
+    <section id="secretScreen" class="screen">
 
-        <div class="secret-card">
+        <div class="secret-box">
 
-            <p class="small-title">A PRIVATE LITTLE WORLD</p>
+            <p class="label">
+                A PRIVATE LITTLE WORLD
+            </p>
 
-            <h1>Before you enter...</h1>
+            <h1>
+                Before you enter...
+            </h1>
 
-            <p class="secret-description">
+            <p class="description">
                 Some memories are meant to stay
                 between two people.
             </p>
 
+
+            <!-- CODE AREA -->
+
             <form id="secretForm">
 
-                <input
-                    type="password"
-                    id="secretCode"
-                    placeholder="Enter our secret"
-                    autocomplete="off"
-                    inputmode="numeric"
-                    maxlength="8"
-                >
+                <div class="password-wrapper">
 
-                <button type="submit">
+                    <input
+                        id="secretCode"
+                        type="password"
+                        placeholder="Enter our secret"
+                        maxlength="8"
+                        autocomplete="off"
+                    >
+
+                    <button
+                        type="button"
+                        id="eyeButton"
+                        class="eye-button"
+                        aria-label="Show password"
+                    >
+                        👁
+                    </button>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="enter-button"
+                >
                     Enter
                 </button>
 
             </form>
 
-            <p id="errorMessage" class="error-message">
+
+            <p
+                id="errorMessage"
+                class="error-message"
+            >
                 That's not our secret.
             </p>
 
@@ -55,20 +80,22 @@
     </section>
 
 
-    <!-- =========================
-         ANNIVERSARY SCREEN
-    ========================== -->
+    <!-- ANNIVERSARY SCREEN -->
 
-    <section id="anniversaryScreen" class="screen anniversary-screen hidden">
+    <section
+        id="anniversaryScreen"
+        class="screen anniversary-screen hidden"
+    >
 
-        <div class="anniversary-content">
+        <div class="anniversary-box">
 
-            <p class="small-title">
+            <p class="label">
                 30 SEPTEMBER 2026
             </p>
 
             <h1>
                 Happy
+                <br>
                 <span>Anniversary.</span>
             </h1>
 
@@ -78,13 +105,16 @@
                 love and us.
             </p>
 
-            <div class="date-range">
+            <div class="dates">
                 30.09.2024
                 <span>→</span>
                 30.09.2026
             </div>
 
-            <button id="openDiaryButton">
+            <button
+                id="openDiaryButton"
+                class="enter-button"
+            >
                 Open Our Diary
             </button>
 
@@ -93,18 +123,16 @@
     </section>
 
 
-    <!-- =========================
-         DIARY
-    ========================== -->
+    <!-- DIARY -->
 
-    <main id="diary" class="diary hidden">
-
-
-        <!-- INTRO -->
+    <main
+        id="diary"
+        class="diary hidden"
+    >
 
         <section class="diary-intro">
 
-            <p class="chapter">
+            <p class="label">
                 OUR STORY
             </p>
 
@@ -120,37 +148,31 @@
                 inside those two years.
             </p>
 
-            <div class="quote">
-                “Some memories become special only
-                because of the person we shared them with.”
-            </div>
-
         </section>
 
 
-        <!-- =========================
-             CHAPTER 01
-        ========================== -->
+        <!-- CHAPTER 1 -->
 
-        <section class="memory-section">
+        <section class="memory">
 
-            <p class="chapter">
+            <p class="label">
                 CHAPTER 01
             </p>
 
-            <h2>The Beginning</h2>
+            <h2>
+                The Beginning
+            </h2>
 
-            <div class="date">
+            <p class="date">
                 30 September 2024
-            </div>
+            </p>
 
-            <div class="details">
+            <p class="details">
                 Monday · 12:00 PM · Lodhi Garden
-            </div>
+            </p>
 
-            <div class="photo-box">
-                <span>YOUR PHOTO</span>
-                <small>first-date.jpg</small>
+            <div class="photo">
+                YOUR PHOTO
             </div>
 
             <div class="story">
@@ -166,20 +188,14 @@
                 </p>
 
                 <p>
-                    I still remember that day and the
-                    little moments that slowly made our
-                    conversations feel different.
-                </p>
-
-                <p>
                     You wanted to hug me.
                     I said no.
                 </p>
 
                 <p>
                     And then you left with that little
-                    disappointed face before going to
-                    the airport.
+                    disappointed face before going
+                    to the airport.
                 </p>
 
                 <p>
@@ -188,44 +204,37 @@
                 </p>
 
                 <p>
-                    We kept talking.
-                    For hours.
-                    Into the night.
+                    We kept talking for hours,
+                    into the night.
                 </p>
 
-            </div>
-
-            <div class="quote">
-                “Maybe some beginnings don't announce
-                themselves. They simply happen.”
             </div>
 
         </section>
 
 
-        <!-- =========================
-             CHAPTER 02
-        ========================== -->
+        <!-- CHAPTER 2 -->
 
-        <section class="memory-section">
+        <section class="memory">
 
-            <p class="chapter">
+            <p class="label">
                 CHAPTER 02
             </p>
 
-            <h2>The Second Date</h2>
+            <h2>
+                The Second Date
+            </h2>
 
-            <div class="date">
+            <p class="date">
                 14 September 2025
-            </div>
+            </p>
 
-            <div class="details">
+            <p class="details">
                 Sunday · 3:00 PM · Green Park Metro Station
-            </div>
+            </p>
 
-            <div class="photo-box">
-                <span>YOUR PHOTO</span>
-                <small>second-date.jpg</small>
+            <div class="photo">
+                YOUR PHOTO
             </div>
 
             <div class="story">
@@ -237,18 +246,19 @@
                 </p>
 
                 <p>
-                    Then I finally met you at Green Park
-                    Metro Station.
+                    Then I finally met you at
+                    Green Park Metro Station.
                 </p>
 
                 <p>
-                    I was nervous, but somehow you made
-                    me feel comfortable.
+                    I was nervous, but somehow
+                    you made me comfortable.
                 </p>
 
                 <p>
-                    In the metro, I punched you and people
-                    around us started looking at us.
+                    In the metro, I punched you and
+                    people around us started looking
+                    at us.
                 </p>
 
                 <p>
@@ -257,91 +267,8 @@
 
                 <p>
                     Before we even reached there,
-                    you had already taken my hand into yours.
-                </p>
-
-            </div>
-
-
-            <div class="mini-memory">
-
-                <p class="mini-title">
-                    CP & THE CAFÉ
-                </p>
-
-                <p>
-                    We went to a café and talked,
-                    but I didn't really like the food.
-                </p>
-
-                <p>
-                    So I simply said,
-                    “Let's leave.”
-                </p>
-
-                <p>
-                    You picked up my bag, booked an auto,
-                    and we left together.
-                </p>
-
-            </div>
-
-
-            <div class="mini-memory">
-
-                <p class="mini-title">
-                    THE AUTO RIDE
-                </p>
-
-                <p>
-                    You kept teasing me.
-                </p>
-
-                <p>
-                    Somewhere between all the teasing,
-                    you kissed my cheek and I got shy.
-                </p>
-
-            </div>
-
-
-            <div class="mini-memory">
-
-                <p class="mini-title">
-                    LATER THAT NIGHT
-                </p>
-
-                <p>
-                    When we reached the room, you showed
-                    me the video of your Ganesh Chaturthi
-                    performance.
-                </p>
-
-                <p>
-                    We watched it together.
-                </p>
-
-                <p>
-                    Then I told you to stop the phone
-                    and just be with me.
-                </p>
-
-                <p>
-                    We hugged.
-                    We kissed.
-                    We talked.
-                    We laughed.
-                </p>
-
-                <p>
-                    There were also our little fights
-                    and endless teasing.
-                </p>
-
-                <p>
-                    Eventually, you walked me downstairs,
-                    arranged an auto for me,
-                    and I went home.
+                    you had already taken my hand
+                    into yours.
                 </p>
 
             </div>
@@ -349,29 +276,28 @@
         </section>
 
 
-        <!-- =========================
-             CHAPTER 03
-        ========================== -->
+        <!-- CHAPTER 3 -->
 
-        <section class="memory-section">
+        <section class="memory">
 
-            <p class="chapter">
+            <p class="label">
                 CHAPTER 03
             </p>
 
-            <h2>One More Day</h2>
+            <h2>
+                One More Day
+            </h2>
 
-            <div class="date">
+            <p class="date">
                 15 September 2025
-            </div>
+            </p>
 
-            <div class="details">
+            <p class="details">
                 Monday · His Room
-            </div>
+            </p>
 
-            <div class="photo-box">
-                <span>YOUR PHOTO</span>
-                <small>second-day.jpg</small>
+            <div class="photo">
+                YOUR PHOTO
             </div>
 
             <div class="story">
@@ -399,100 +325,8 @@
 
                 <p>
                     Nothing extraordinary.
-                </p>
-
-                <p>
                     And yet, somehow,
                     it felt like everything.
-                </p>
-
-            </div>
-
-
-            <div class="mini-memory">
-
-                <p class="mini-title">
-                    ONE CONVERSATION
-                </p>
-
-                <p>
-                    You told me about how you got your job.
-                </p>
-
-                <p>
-                    While telling me everything,
-                    you became emotional.
-                </p>
-
-                <p>
-                    I hugged you.
-                </p>
-
-                <p>
-                    Sometimes words aren't enough,
-                    so I just stayed close.
-                </p>
-
-            </div>
-
-
-            <div class="mini-memory">
-
-                <p class="mini-title">
-                    LATER
-                </p>
-
-                <p>
-                    We misunderstood each other.
-                </p>
-
-                <p>
-                    I felt like you didn't love me
-                    the way I wanted to be loved.
-                </p>
-
-                <p>
-                    We fought.
-                    I cried.
-                    You became emotional too.
-                </p>
-
-                <p>
-                    But somehow, even in the middle
-                    of the fight, we found our way
-                    back to each other's arms.
-                </p>
-
-            </div>
-
-
-            <div class="mini-memory">
-
-                <p class="mini-title">
-                    THAT NIGHT
-                </p>
-
-                <p>
-                    We had Maggi.
-                </p>
-
-                <p>
-                    We cuddled.
-                </p>
-
-                <p>
-                    I fell asleep.
-                </p>
-
-                <p>
-                    When I woke up,
-                    you made chai for me.
-                </p>
-
-                <p>
-                    More talking.
-                    More hugs.
-                    More little moments.
                 </p>
 
             </div>
@@ -500,13 +334,11 @@
         </section>
 
 
-        <!-- =========================
-             GOODBYE
-        ========================== -->
+        <!-- GOODBYE -->
 
-        <section class="goodbye-section">
+        <section class="memory goodbye">
 
-            <p class="chapter">
+            <p class="label">
                 THE GOODBYE
             </p>
 
@@ -514,52 +346,43 @@
                 And then it was time to leave.
             </h2>
 
-            <div class="date">
+            <p class="date">
                 15 September 2025
+            </p>
+
+            <div class="photo">
+                YOUR PHOTO
             </div>
 
-            <div class="photo-box">
-                <span>YOUR PHOTO</span>
-                <small>goodbye.jpg</small>
-            </div>
+            <div class="story">
 
-            <p>
-                I went home.
-            </p>
+                <p>
+                    I went home.
+                </p>
 
-            <p>
-                You had to go to the airport.
-            </p>
+                <p>
+                    You had to go to the airport.
+                </p>
 
-            <p>
-                Pune was waiting.
-            </p>
+                <p>
+                    Pune was waiting.
+                </p>
 
-            <p>
-                I remember your face and that expression
-                that made it obvious you didn't really
-                want to leave.
-            </p>
+                <p>
+                    That night, I cried because
+                    I missed you.
+                </p>
 
-            <p>
-                That night, I cried because I missed you.
-            </p>
-
-            <div class="quote">
-                “Some goodbyes hurt because the person
-                leaving has become a place you feel at home.”
             </div>
 
         </section>
 
 
-        <!-- =========================
-             TWO YEARS
-        ========================== -->
+        <!-- TWO YEARS -->
 
         <section class="two-years">
 
-            <p class="chapter">
+            <p class="label">
                 30 SEPTEMBER 2026
             </p>
 
@@ -568,13 +391,11 @@
             </h2>
 
             <p>
-                Two years since the beginning.
-            </p>
-
-            <p>
                 Two years of conversations,
-                memories, laughter, misunderstandings,
-                fights, making up, distance and love.
+                memories, laughter,
+                misunderstandings,
+                fights, making up,
+                distance and love.
             </p>
 
             <div class="big-date">
@@ -586,13 +407,11 @@
         </section>
 
 
-        <!-- =========================
-             FUTURE
-        ========================== -->
+        <!-- FUTURE -->
 
-        <section class="future-section">
+        <section class="memory">
 
-            <p class="chapter">
+            <p class="label">
                 THE NEXT CHAPTER
             </p>
 
@@ -601,47 +420,39 @@
                 of our story.
             </h2>
 
-            <p>
-                Two years are complete.
-                But I don't want the diary to end here.
-            </p>
+            <div class="story">
 
-            <p>
-                I want more silly fights.
-                More teasing.
-                More conversations.
-                More chai.
-                More Maggi.
-                More hugs.
-                More memories.
-            </p>
+                <p>
+                    Two years are complete.
+                    But I don't want the diary
+                    to end here.
+                </p>
 
-            <p>
-                We may fight.
-                We may misunderstand each other.
-                We may annoy each other.
-            </p>
+                <p>
+                    I want more silly fights.
+                    More teasing.
+                    More conversations.
+                    More chai.
+                    More Maggi.
+                    More hugs.
+                    More memories.
+                </p>
 
-            <p>
-                But I hope that after every little storm,
-                we still find our way back to each other.
-            </p>
+                <p>
+                    Two years are complete,
+                    but our story is still being written.
+                </p>
 
-            <div class="final-quote">
-                “Two years are complete,
-                but our story is still being written.”
             </div>
 
         </section>
 
 
-        <!-- =========================
-             FINAL LETTER
-        ========================== -->
+        <!-- FINAL LETTER -->
 
         <section class="final-letter">
 
-            <p class="chapter">
+            <p class="label">
                 FOR YOU
             </p>
 
@@ -649,43 +460,38 @@
                 Dear Kunnu,
             </h2>
 
-            <p>
-                If someone had told us on
-                30 September 2024 that these
-                little moments would become
-                two years of our lives,
-                maybe we wouldn't have believed them.
-            </p>
+            <div class="story">
 
-            <p>
-                But here we are.
-            </p>
+                <p>
+                    If someone had told us on
+                    30 September 2024 that these
+                    little moments would become
+                    two years of our lives,
+                    maybe we wouldn't have believed them.
+                </p>
 
-            <p>
-                Still us.
-            </p>
+                <p>
+                    But here we are.
+                </p>
 
-            <p>
-                Still learning each other.
-                Still annoying each other.
-                Still loving each other.
-            </p>
+                <p>
+                    Still us.
+                    Still learning each other.
+                    Still annoying each other.
+                    Still loving each other.
+                </p>
 
-            <p>
-                And I hope this diary never really
-                gets its last page.
-            </p>
+                <p>
+                    And I hope this diary never
+                    really gets its last page.
+                </p>
 
-            <p>
-                Because I want to keep adding dates to it.
-            </p>
+                <p>
+                    Because I want to keep adding
+                    dates to it.
+                </p>
 
-            <p>
-                More days.
-                More nights.
-                More memories.
-                More of us.
-            </p>
+            </div>
 
             <div class="final-message">
 
@@ -706,7 +512,10 @@
     </main>
 
 
+    <!-- JAVASCRIPT -->
+
     <script src="script.js"></script>
 
 </body>
+
 </html>
