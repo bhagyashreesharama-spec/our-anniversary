@@ -1,145 +1,124 @@
-/* =========================
-   SECRET CODE
-========================= */
+```javascript
+/* =========================================
+   KUNNU & BHAGYA
+   OUR LITTLE DIARY
+========================================= */
 
-const SECRET_CODE = "30092024";
 
-
-/* =========================
-   GET ELEMENTS
-========================= */
+/* =========================================
+   ELEMENTS
+========================================= */
 
 const secretScreen = document.getElementById("secretScreen");
 const anniversaryScreen = document.getElementById("anniversaryScreen");
 const diary = document.getElementById("diary");
 
 const secretForm = document.getElementById("secretForm");
-const secretInput = document.getElementById("secretCode");
-
+const secretCode = document.getElementById("secretCode");
 const eyeButton = document.getElementById("eyeButton");
 const errorMessage = document.getElementById("errorMessage");
 
 const openDiaryButton = document.getElementById("openDiaryButton");
 
 
-/* =========================
-   SHOW / HIDE SECRET CODE
-========================= */
+/* =========================================
+   SECRET CODE
+========================================= */
 
-eyeButton.addEventListener("click", function () {
-
-    if (secretInput.type === "password") {
-
-        secretInput.type = "text";
-
-        eyeButton.textContent = "🙈";
-
-        eyeButton.setAttribute(
-            "aria-label",
-            "Hide password"
-        );
-
-    } else {
-
-        secretInput.type = "password";
-
-        eyeButton.textContent = "👁";
-
-        eyeButton.setAttribute(
-            "aria-label",
-            "Show password"
-        );
-
-    }
-
-});
+const SECRET_CODE = "30092024";
 
 
-/* =========================
-   CHECK SECRET CODE
-========================= */
+/* =========================================
+   EYE BUTTON
+========================================= */
 
-secretForm.addEventListener("submit", function (event) {
+if (eyeButton && secretCode) {
 
-    event.preventDefault();
+    eyeButton.addEventListener("click", function () {
 
-    const enteredCode = secretInput.value.trim();
+        if (secretCode.type === "password") {
+
+            secretCode.type = "text";
+
+            eyeButton.setAttribute(
+                "aria-label",
+                "Hide secret code"
+            );
+
+            eyeButton.classList.add("eye-open");
+
+        } else {
+
+            secretCode.type = "password";
+
+            eyeButton.setAttribute(
+                "aria-label",
+                "Show secret code"
+            );
+
+            eyeButton.classList.remove("eye-open");
+
+        }
+
+    });
+
+}
 
 
-    /* CORRECT */
+/* =========================================
+   HIDE ERROR WHEN TYPING
+========================================= */
 
-    if (enteredCode === SECRET_CODE) {
+if (secretCode) {
+
+    secretCode.addEventListener("input", function () {
 
         errorMessage.classList.remove("show");
 
-        secretScreen.classList.add("hidden");
+        secretCode.style.borderColor =
+            "rgba(214, 174, 192, 0.28)";
 
-        anniversaryScreen.classList.remove("hidden");
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    }
-
-
-    /* WRONG */
-
-    else {
-
-        errorMessage.classList.add("show");
-
-        secretInput.value = "";
-
-        secretInput.focus();
-
-    }
-
-});
-
-
-/* =========================
-   REMOVE ERROR WHILE TYPING
-========================= */
-
-secretInput.addEventListener("input", function () {
-
-    errorMessage.classList.remove("show");
-
-});
-
-
-/* =========================
-   OPEN DIARY
-========================= */
-
-openDiaryButton.addEventListener("click", function () {
-
-    anniversaryScreen.classList.add("hidden");
-
-    diary.classList.remove("hidden");
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
     });
 
-});
+}
 
 
-/* =========================
-   INITIAL STATE
-========================= */
+/* =========================================
+   SECRET FORM
+========================================= */
 
-window.addEventListener("load", function () {
+if (secretForm) {
 
-    secretScreen.classList.remove("hidden");
+    secretForm.addEventListener("submit", function (event) {
 
-    anniversaryScreen.classList.add("hidden");
+        event.preventDefault();
 
-    diary.classList.add("hidden");
+        const enteredCode =
+            secretCode.value.trim();
 
-    secretInput.focus();
 
-});
+        /* ==============================
+           EMPTY CODE
+        ============================== */
+
+        if (enteredCode === "") {
+
+            showError(
+                "Enter our secret code first."
+            );
+
+            return;
+        }
+
+
+        /* ==============================
+           CORRECT CODE
+        ============================== */
+
+        if (enteredCode === SECRET_CODE) {
+
+            errorMessage.classList.remove("show");
+
+            secretCode.style.borderColor =
+                "rgb
+```
