@@ -1,229 +1,405 @@
-/* =====================================================
-   KUNNU & BHAGYA
-   OUR LITTLE UNIVERSE
-   ANIMATED SCRIPT
-===================================================== */
+/* =========================================================
+   OUR ANNIVERSARY DIARY
+   Secret Code: 30092024
+   ========================================================= */
 
+const SECRET_CODE = "30092024";
 
-/* =====================================================
-   ELEMENTS
-===================================================== */
+/* ---------- ELEMENTS ---------- */
 
 const secretScreen = document.getElementById("secretScreen");
 const anniversaryScreen = document.getElementById("anniversaryScreen");
 const diary = document.getElementById("diary");
 
 const secretForm = document.getElementById("secretForm");
-const secretCode = document.getElementById("secretCode");
+const secretInput = document.getElementById("secretCode");
 const eyeButton = document.getElementById("eyeButton");
 const errorMessage = document.getElementById("errorMessage");
 
 const openDiaryButton = document.getElementById("openDiaryButton");
 
 
-/* =====================================================
-   SECRET CODE
-===================================================== */
+/* ---------- INITIAL STATE ---------- */
 
-const SECRET_CODE = "30092024";
+if (anniversaryScreen) {
+    anniversaryScreen.style.display = "none";
+}
+
+if (diary) {
+    diary.style.display = "none";
+}
 
 
-/* =====================================================
-   EYE BUTTON
-===================================================== */
+/* ---------- HELPER: SCROLL TOP ---------- */
 
-eyeButton.addEventListener("click", () => {
+function goToTop() {
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "auto"
+    });
+}
 
-    const isPassword =
-        secretCode.getAttribute("type") === "password";
 
-    if (isPassword) {
+/* ---------- ERROR MESSAGE ---------- */
 
-        secretCode.setAttribute("type", "text");
+function showError(message) {
+    if (!errorMessage) return;
 
-        eyeButton.setAttribute(
-            "aria-label",
-            "Hide secret code"
-        );
+    errorMessage.textContent = message;
+    errorMessage.classList.add("show");
 
-        eyeButton.classList.add("eye-open");
+    if (secretInput) {
+        secretInput.classList.remove("shake");
 
-    } else {
+        // Restart shake animation
+        void secretInput.offsetWidth;
 
-        secretCode.setAttribute("type", "password");
+        secretInput.classList.add("shake");
 
-        eyeButton.setAttribute(
-            "aria-label",
-            "Show secret code"
-        );
-
-        eyeButton.classList.remove("eye-open");
+        setTimeout(() => {
+            secretInput.classList.remove("shake");
+        }, 500);
     }
-
-    secretCode.focus();
-});
+}
 
 
-/* =====================================================
-   REMOVE ERROR WHILE TYPING
-===================================================== */
+function clearError() {
+    if (!errorMessage) return;
 
-secretCode.addEventListener("input", () => {
-
-    errorMessage.classList.remove("show-error");
-
-    secretCode.classList.remove("wrong-code");
-
-    secretCode.style.borderColor =
-        "rgba(244, 237, 231, 0.18)";
-});
+    errorMessage.textContent = "";
+    errorMessage.classList.remove("show");
+}
 
 
-/* =====================================================
-   SECRET FORM
-===================================================== */
+/* ---------- EYE BUTTON ---------- */
 
-secretForm.addEventListener("submit", (event) => {
+if (eyeButton && secretInput) {
 
-    event.preventDefault();
+    eyeButton.addEventListener("click", () => {
 
-    const enteredCode = secretCode.value.trim();
+        if (secretInput.type === "password") {
+            secretInput.type = "text";
+            eyeButton.textContent = "Hide";
+            eyeButton.setAttribute("aria-label", "Hide secret code");
+        } else {
+            secretInput.type = "password";
+            eyeButton.textContent = "Show";
+            eyeButton.setAttribute("aria-label", "Show secret code");
+        }
+
+        secretInput.focus();
+    });
+
+}
 
 
-    /* EMPTY */
+/* ---------- INPUT ---------- */
 
-    if (enteredCode === "") {
+if (secretInput) {
 
-        showError("Enter our secret code first.");
+    secretInput.addEventListener("input", () => {
 
-        shakeInput();
+        // Only numbers
+        secretInput.value = secretInput.value.replace(/\D/g, "");
 
-        return;
-    }
+        clearError();
+
+    });
+
+}
 
 
-    /* CORRECT */
+/* ---------- SECRET CODE ---------- */
 
-    if (enteredCode === SECRET_CODE) {
+if (secretForm) {
 
-        errorMessage.classList.remove("show-error");
+    secretForm.addEventListener("submit", (event) => {
 
-        secretCode.style.borderColor =
-            "rgba(216, 174, 188, 0.9)";
+        event.preventDefault();
 
-        secretScreen.classList.add("screen-exit");
+        const enteredCode = secretInput
+            ? secretInput.value.trim()
+            : "";
 
+        clearError();
+
+        if (!enteredCode) {
+
+            showError("Enter our secret date first ♡");
+
+            if (secretInput) {
+                secretInput.focus();
+            }
+
+            return;
+        }
+
+
+        if (enteredCode === SECRET_CODE) {
+
+            // Small exit animation
+            if (secretScreen) {
+                secretScreen.classList.add("screen-exit");
+            }
+
+            createHeartBurst(secretScreen);
+
+            setTimeout(() => {
+
+                if (secretScreen) {
+                    secretScreen.style.display = "none";
+                }
+
+                if (anniversaryScreen) {
+                    anniversaryScreen.style.display = "flex";
+                    anniversaryScreen.classList.remove("screen-exit");
+                    anniversaryScreen.classList.add("anniversary-appear");
+                }
+
+                goToTop();
+
+                startIntroParticles();
+
+            }, 850);
+
+        } else {
+
+            showError("That isn't our secret date ♡");
+
+            if (secretInput) {
+                secretInput.value = "";
+                secretInput.focus();
+            }
+
+        }
+
+    });
+
+}
+
+
+/* ---------- OPEN DIARY ---------- */
+
+if (openDiaryButton) {
+
+    openDiaryButton.addEventListener("click", () => {
+
+        if (anniversaryScreen) {
+            anniversaryScreen.classList.add("screen-exit");
+        }
+
+        createHeartBurst(anniversaryScreen);
 
         setTimeout(() => {
 
-            secretScreen.classList.add("hidden");
+            if (anniversaryScreen) {
+                anniversaryScreen.style.display = "none";
+            }
 
-            anniversaryScreen.classList.remove("hidden");
+            if (diary) {
 
-            anniversaryScreen.classList.add("anniversary-enter");
+                diary.style.display = "block";
 
-            window.scrollTo({
-                top: 0,
-                behavior: "instant"
-            });
+                diary.classList.remove("diary-enter");
 
-            createFloatingHearts();
+                // Restart animation
+                void diary.offsetWidth;
+
+                diary.classList.add("diary-enter");
+            }
+
+            goToTop();
+
+            startDiaryAnimations();
 
         }, 850);
 
-        return;
-    }
-
-
-    /* WRONG */
-
-    showError("Hmm... that's not our secret.");
-
-    shakeInput();
-
-    secretCode.value = "";
-
-    secretCode.focus();
-
-});
-
-
-/* =====================================================
-   ERROR
-===================================================== */
-
-function showError(message) {
-
-    errorMessage.textContent = message;
-
-    errorMessage.classList.add("show-error");
-
-    secretCode.classList.add("wrong-code");
-
-    secretCode.style.borderColor =
-        "rgba(190, 100, 120, 0.75)";
-}
-
-
-/* =====================================================
-   INPUT SHAKE
-===================================================== */
-
-function shakeInput() {
-
-    secretCode.classList.remove("shake-input");
-
-    void secretCode.offsetWidth;
-
-    secretCode.classList.add("shake-input");
+    });
 
 }
 
 
-/* =====================================================
-   OPEN DIARY
-===================================================== */
+/* =========================================================
+   FLOATING HEARTS / SPARKLES
+   ========================================================= */
 
-openDiaryButton.addEventListener("click", () => {
+function createParticle(container, type = "heart") {
 
-    anniversaryScreen.classList.add("screen-exit");
+    if (!container) return;
+
+    const particle = document.createElement("span");
+
+    particle.className =
+        type === "sparkle"
+            ? "js-sparkle"
+            : "js-heart";
+
+    particle.textContent =
+        type === "sparkle"
+            ? "✦"
+            : "♡";
+
+    particle.style.left = Math.random() * 100 + "%";
+
+    particle.style.animationDuration =
+        (7 + Math.random() * 8) + "s";
+
+    particle.style.animationDelay =
+        Math.random() * 4 + "s";
+
+    particle.style.fontSize =
+        (10 + Math.random() * 14) + "px";
+
+    container.appendChild(particle);
 
     setTimeout(() => {
+        particle.remove();
+    }, 17000);
+}
 
-        anniversaryScreen.classList.add("hidden");
 
-        diary.classList.remove("hidden");
+/* ---------- INTRO PARTICLES ---------- */
 
-        diary.classList.add("diary-enter");
+let introParticlesStarted = false;
 
-        window.scrollTo({
-            top: 0,
-            behavior: "instant"
-        });
+function startIntroParticles() {
+
+    if (introParticlesStarted) return;
+
+    introParticlesStarted = true;
+
+    const container = anniversaryScreen;
+
+    if (!container) return;
+
+    for (let i = 0; i < 18; i++) {
 
         setTimeout(() => {
 
-            diary.classList.remove("diary-enter");
+            createParticle(
+                container,
+                i % 3 === 0 ? "sparkle" : "heart"
+            );
 
-        }, 1300);
+        }, i * 350);
 
-        startDiaryAnimations();
+    }
 
-    }, 850);
-
-});
+}
 
 
-/* =====================================================
-   DIARY SCROLL ANIMATION
-===================================================== */
+/* ---------- DIARY PARTICLES ---------- */
+
+let diaryParticlesStarted = false;
 
 function startDiaryAnimations() {
 
-    const sections =
-        document.querySelectorAll(".diary-section");
+    if (diaryParticlesStarted) return;
 
-    const observer =
+    diaryParticlesStarted = true;
+
+    if (!diary) return;
+
+    // Continuous tiny hearts
+    setInterval(() => {
+
+        createParticle(
+            diary,
+            Math.random() > 0.72
+                ? "sparkle"
+                : "heart"
+        );
+
+    }, 1400);
+
+    // Extra tiny floating particles at the beginning
+    for (let i = 0; i < 12; i++) {
+
+        setTimeout(() => {
+
+            createParticle(
+                diary,
+                Math.random() > 0.75
+                    ? "sparkle"
+                    : "heart"
+            );
+
+        }, i * 500);
+
+    }
+
+}
+
+
+/* =========================================================
+   HEART BURST
+   ========================================================= */
+
+function createHeartBurst(container) {
+
+    if (!container) return;
+
+    const burst = document.createElement("div");
+
+    burst.className = "heart-burst";
+
+    for (let i = 0; i < 14; i++) {
+
+        const heart = document.createElement("span");
+
+        heart.textContent = "♡";
+
+        const angle =
+            (360 / 14) * i;
+
+        const distance =
+            60 + Math.random() * 80;
+
+        const x =
+            Math.cos(angle * Math.PI / 180) *
+            distance;
+
+        const y =
+            Math.sin(angle * Math.PI / 180) *
+            distance;
+
+        heart.style.setProperty(
+            "--x",
+            `${x}px`
+        );
+
+        heart.style.setProperty(
+            "--y",
+            `${y}px`
+        );
+
+        heart.style.animationDelay =
+            Math.random() * 0.15 + "s";
+
+        burst.appendChild(heart);
+    }
+
+    container.appendChild(burst);
+
+    setTimeout(() => {
+        burst.remove();
+    }, 1200);
+
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+
+const diarySections =
+    document.querySelectorAll(".diary-section");
+
+
+if ("IntersectionObserver" in window) {
+
+    const sectionObserver =
         new IntersectionObserver(
             (entries) => {
 
@@ -239,439 +415,287 @@ function startDiaryAnimations() {
 
             },
             {
-                threshold: 0.12,
-                rootMargin: "0px 0px -70px 0px"
+                threshold: 0.12
             }
         );
 
 
-    sections.forEach((section) => {
+    diarySections.forEach((section) => {
+        sectionObserver.observe(section);
+    });
 
-        observer.observe(section);
+} else {
 
+    diarySections.forEach((section) => {
+        section.classList.add("visible");
     });
 
 }
 
 
-/* =====================================================
-   FLOATING HEARTS
-===================================================== */
+/* =========================================================
+   PHOTO FLOAT / TILT
+   ========================================================= */
 
-function createFloatingHearts() {
-
-    const container =
-        document.createElement("div");
-
-    container.className =
-        "floating-hearts-container";
-
-    document.body.appendChild(container);
+const photos =
+    document.querySelectorAll(
+        ".photo-card, .polaroid, .memory-photo"
+    );
 
 
-    const hearts = [
-        "♡",
-        "♡",
-        "✦",
-        "♡",
-        "✧",
-        "♡"
-    ];
+photos.forEach((photo, index) => {
+
+    photo.addEventListener("mousemove", (event) => {
+
+        const rect =
+            photo.getBoundingClientRect();
+
+        const x =
+            event.clientX - rect.left;
+
+        const y =
+            event.clientY - rect.top;
+
+        const centerX =
+            rect.width / 2;
+
+        const centerY =
+            rect.height / 2;
+
+        const rotateY =
+            ((x - centerX) / centerX) * 5;
+
+        const rotateX =
+            ((centerY - y) / centerY) * 5;
+
+        photo.style.transform =
+            `translateY(-6px)
+             rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)
+             scale(1.02)`;
+
+    });
 
 
-    for (let i = 0; i < 14; i++) {
+    photo.addEventListener("mouseleave", () => {
 
-        const heart =
-            document.createElement("span");
+        photo.style.transform = "";
 
-        heart.className =
-            "floating-heart-particle";
+    });
 
-        heart.textContent =
-            hearts[
-                Math.floor(
-                    Math.random() * hearts.length
-                )
-            ];
-
-        heart.style.left =
-            Math.random() * 100 + "%";
-
-        heart.style.animationDelay =
-            Math.random() * 5 + "s";
-
-        heart.style.animationDuration =
-            6 + Math.random() * 5 + "s";
-
-        heart.style.fontSize =
-            9 + Math.random() * 13 + "px";
-
-        container.appendChild(heart);
-    }
+});
 
 
-    setTimeout(() => {
+/* =========================================================
+   MOUSE PARALLAX
+   ========================================================= */
 
-        container.remove();
-
-    }, 18000);
-
-}
-
-
-/* =====================================================
-   PARALLAX DECORATIONS
-===================================================== */
+let mouseX = 0;
+let mouseY = 0;
 
 document.addEventListener("mousemove", (event) => {
 
-    const x =
+    mouseX =
         (event.clientX / window.innerWidth - 0.5);
 
-    const y =
+    mouseY =
         (event.clientY / window.innerHeight - 0.5);
 
+    document.documentElement.style.setProperty(
+        "--mouse-x",
+        mouseX.toFixed(3)
+    );
 
-    const decorations =
-        document.querySelectorAll(
-            ".secret-decoration, .anniversary-decoration"
-        );
+    document.documentElement.style.setProperty(
+        "--mouse-y",
+        mouseY.toFixed(3)
+    );
+
+});
 
 
-    decorations.forEach((element, index) => {
+/* =========================================================
+   ENVELOPE INTERACTION
+   ========================================================= */
 
-        const strength =
-            8 + index * 2;
+const envelope =
+    document.querySelector(".final-envelope");
 
-        element.style.setProperty(
-            "--mouse-x",
-            `${x * strength}px`
-        );
 
-        element.style.setProperty(
-            "--mouse-y",
-            `${y * strength}px`
-        );
+if (envelope) {
+
+    envelope.addEventListener("click", () => {
+
+        envelope.classList.toggle("opened");
 
     });
 
-});
-
-
-/* =====================================================
-   ADD DYNAMIC ANIMATION CSS
-===================================================== */
-
-const dynamicStyle =
-    document.createElement("style");
-
-dynamicStyle.textContent = `
-
-/* -----------------------------------------
-   ERROR
------------------------------------------ */
-
-.error-message {
-    opacity: 0;
-    height: 0;
-    overflow: hidden;
-
-    margin-top: 0;
-
-    color: #c98b9c;
-
-    font-size: 11px;
-
-    letter-spacing: .5px;
-
-    transition:
-        opacity .3s ease,
-        height .3s ease,
-        margin .3s ease;
-}
-
-.error-message.show-error {
-    opacity: 1;
-
-    height: 20px;
-
-    margin-top: 14px;
 }
 
 
-/* -----------------------------------------
-   WRONG CODE
------------------------------------------ */
+/* =========================================================
+   CHAI STEAM
+   ========================================================= */
 
-.wrong-code {
-    box-shadow:
-        0 0 25px rgba(190, 100, 120, .08);
-}
-
-
-/* -----------------------------------------
-   EYE OPEN
------------------------------------------ */
-
-.eye-open .eye-icon {
-    transform:
-        rotate(45deg)
-        scaleY(.35);
-}
-
-.eye-open .eye-icon::after {
-    opacity: .25;
-}
+const chaiCups =
+    document.querySelectorAll(
+        ".chai-cup, .chai"
+    );
 
 
-/* -----------------------------------------
-   SCREEN EXIT
------------------------------------------ */
+chaiCups.forEach((cup) => {
 
-.screen-exit {
-    animation:
-        cinematicExit
-        .85s
-        cubic-bezier(.65,0,.35,1)
-        forwards;
-}
+    for (let i = 0; i < 3; i++) {
 
+        const steam =
+            document.createElement("span");
 
-/* -----------------------------------------
-   ANNIVERSARY ENTER
------------------------------------------ */
+        steam.className = "js-steam";
 
-.anniversary-enter {
-    animation:
-        anniversaryReveal
-        1.3s
-        cubic-bezier(.22,.61,.36,1)
-        both;
-}
+        steam.style.left =
+            `${25 + i * 20}%`;
 
+        steam.style.animationDelay =
+            `${i * 0.5}s`;
 
-/* -----------------------------------------
-   DIARY ENTER
------------------------------------------ */
-
-.diary-enter {
-    animation:
-        diaryReveal
-        1.2s
-        cubic-bezier(.22,.61,.36,1)
-        both;
-}
-
-
-/* -----------------------------------------
-   FLOATING HEART CONTAINER
------------------------------------------ */
-
-.floating-hearts-container {
-    position: fixed;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    overflow: hidden;
-
-    z-index: 100;
-}
-
-
-/* -----------------------------------------
-   FLOATING HEART PARTICLES
------------------------------------------ */
-
-.floating-heart-particle {
-    position: absolute;
-
-    bottom: -30px;
-
-    color:
-        rgba(216, 174, 188, .55);
-
-    font-family:
-        "Cormorant Garamond",
-        Georgia,
-        serif;
-
-    animation:
-        particleFloat
-        8s
-        linear
-        forwards;
-}
-
-
-/* -----------------------------------------
-   DECORATION MOUSE MOVEMENT
------------------------------------------ */
-
-.secret-decoration,
-.anniversary-decoration {
-    transition:
-        transform .6s
-        cubic-bezier(.22,.61,.36,1);
-}
-
-
-/* -----------------------------------------
-   KEYFRAMES
------------------------------------------ */
-
-@keyframes cinematicExit {
-
-    0% {
-        opacity: 1;
-        transform: scale(1);
-        filter: blur(0);
-    }
-
-    100% {
-        opacity: 0;
-        transform: scale(1.06);
-        filter: blur(12px);
-    }
-}
-
-
-@keyframes anniversaryReveal {
-
-    0% {
-        opacity: 0;
-        transform:
-            scale(.94)
-            translateY(35px);
-        filter: blur(12px);
-    }
-
-    60% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 1;
-        transform:
-            scale(1)
-            translateY(0);
-        filter: blur(0);
-    }
-}
-
-
-@keyframes diaryReveal {
-
-    0% {
-        opacity: 0;
-        transform:
-            translateY(45px);
-        filter: blur(8px);
-    }
-
-    100% {
-        opacity: 1;
-        transform:
-            translateY(0);
-        filter: blur(0);
-    }
-}
-
-
-@keyframes particleFloat {
-
-    0% {
-        transform:
-            translateY(0)
-            translateX(0)
-            rotate(0deg);
-
-        opacity: 0;
-    }
-
-    10% {
-        opacity: .8;
-    }
-
-    50% {
-        transform:
-            translateY(-50vh)
-            translateX(25px)
-            rotate(15deg);
-
-        opacity: .65;
-    }
-
-    80% {
-        opacity: .35;
-    }
-
-    100% {
-        transform:
-            translateY(-110vh)
-            translateX(-30px)
-            rotate(-15deg);
-
-        opacity: 0;
-    }
-}
-
-`;
-
-document.head.appendChild(dynamicStyle);
-
-
-/* =====================================================
-   SECRET CODE ENTER KEY
-===================================================== */
-
-secretCode.addEventListener("keydown", (event) => {
-
-    if (event.key === "Enter") {
-
-        event.preventDefault();
-
-        secretForm.requestSubmit();
+        cup.appendChild(steam);
 
     }
 
 });
 
 
-/* =====================================================
-   PREVENT NON-NUMERIC INPUT
-===================================================== */
+/* =========================================================
+   PETALS
+   ========================================================= */
 
-secretCode.addEventListener("input", () => {
+function createPetal() {
 
-    secretCode.value =
-        secretCode.value.replace(/\D/g, "");
+    if (!diary || diary.style.display === "none") {
+        return;
+    }
+
+    const petal =
+        document.createElement("span");
+
+    petal.className = "js-petal";
+
+    petal.textContent = "✦";
+
+    petal.style.left =
+        Math.random() * 100 + "%";
+
+    petal.style.animationDuration =
+        (8 + Math.random() * 7) + "s";
+
+    petal.style.animationDelay =
+        Math.random() * 3 + "s";
+
+    diary.appendChild(petal);
+
+    setTimeout(() => {
+        petal.remove();
+    }, 16000);
+
+}
+
+
+setInterval(createPetal, 2200);
+
+
+/* =========================================================
+   AIRPLANE / GOODBYE MOMENT
+   ========================================================= */
+
+const airplane =
+    document.querySelector(".airplane");
+
+
+if (airplane) {
+
+    airplane.addEventListener("click", () => {
+
+        airplane.classList.remove("fly-again");
+
+        void airplane.offsetWidth;
+
+        airplane.classList.add("fly-again");
+
+    });
+
+}
+
+
+/* =========================================================
+   KEYBOARD SUPPORT
+   ========================================================= */
+
+document.addEventListener("keydown", (event) => {
+
+    // Enter on secret screen
+    if (
+        event.key === "Enter" &&
+        secretScreen &&
+        secretScreen.style.display !== "none" &&
+        secretInput
+    ) {
+
+        secretForm?.requestSubmit();
+
+    }
 
 });
 
 
-/* =====================================================
-   INITIAL STATE
-===================================================== */
+/* =========================================================
+   PAGE VISIBILITY
+   ========================================================= */
 
-if (diary) {
+document.addEventListener(
+    "visibilitychange",
+    () => {
 
-    diary.classList.add("hidden");
+        if (document.hidden) {
 
-}
+            document.documentElement
+                .classList.add("page-paused");
 
-if (anniversaryScreen) {
+        } else {
 
-    anniversaryScreen.classList.add("hidden");
+            document.documentElement
+                .classList.remove("page-paused");
 
-}
+        }
+
+    }
+);
 
 
-/* =====================================================
+/* =========================================================
+   IMAGE FALLBACK
+   ========================================================= */
+
+document
+    .querySelectorAll("img")
+    .forEach((image) => {
+
+        image.addEventListener("error", () => {
+
+            image.classList.add("image-missing");
+
+        });
+
+    });
+
+
+/* =========================================================
    CONSOLE
-===================================================== */
+   ========================================================= */
 
 console.log(
-    "♡ Kunnu & Bhagya — Our Little Universe ♡"
+    "♡ Our little universe is ready."
+);
+
+console.log(
+    "Secret date: 30 September 2024"
 );
