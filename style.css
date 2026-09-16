@@ -1,0 +1,377 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #09080f;
+    color: #f8edf2;
+    overflow-x: hidden;
+}
+
+button {
+    font-family: inherit;
+}
+
+/* =========================
+   MAIN WEBSITE
+========================= */
+
+.website {
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* =========================
+   COMMON
+========================= */
+
+.hidden {
+    display: none !important;
+}
+
+button {
+    margin-top: 35px;
+    padding: 14px 28px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: 0.35s ease;
+    backdrop-filter: blur(10px);
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.18);
+    transform: translateY(-3px);
+}
+
+/* =========================
+   OPENING
+========================= */
+
+.opening-screen {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 50% 35%, rgba(126, 70, 105, 0.25), transparent 35%),
+        linear-gradient(145deg, #09080f, #17101b, #08070d);
+}
+
+.opening-screen::before,
+.opening-screen::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.25;
+}
+
+.opening-screen::before {
+    width: 250px;
+    height: 250px;
+    background: #8e4c72;
+    top: 10%;
+    left: -80px;
+}
+
+.opening-screen::after {
+    width: 300px;
+    height: 300px;
+    background: #513c83;
+    bottom: -120px;
+    right: -100px;
+}
+
+.opening-content {
+    position: relative;
+    z-index: 2;
+    width: min(90%, 600px);
+    animation: appear 1.5s ease forwards;
+}
+
+.small-text {
+    font-size: 13px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    opacity: 0.55;
+    margin-bottom: 25px;
+}
+
+.opening-content h1 {
+    font-size: clamp(42px, 9vw, 78px);
+    line-height: 1.05;
+    font-weight: 400;
+    letter-spacing: -2px;
+}
+
+.opening-content h1 span {
+    font-style: italic;
+    color: #e8a9c3;
+}
+
+.date {
+    margin-top: 28px;
+    font-size: 14px;
+    letter-spacing: 6px;
+    opacity: 0.6;
+}
+
+/* =========================
+   STORY
+========================= */
+
+.story-screen,
+.chapter-screen,
+.final-screen {
+    min-height: 100vh;
+    padding: 80px 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.story-screen {
+    background:
+        radial-gradient(circle at 30% 30%, rgba(113, 72, 104, 0.2), transparent 35%),
+        #0d0b12;
+}
+
+.story-content {
+    max-width: 650px;
+    animation: slideUp 1s ease forwards;
+}
+
+.chapter {
+    font-size: 12px;
+    letter-spacing: 5px;
+    opacity: 0.5;
+    margin-bottom: 25px;
+}
+
+.story-content h2,
+.chapter-screen h2,
+.final-content h2 {
+    font-size: clamp(42px, 8vw, 70px);
+    font-weight: 400;
+    line-height: 1.05;
+    margin-bottom: 30px;
+}
+
+.story-text {
+    max-width: 520px;
+    margin: auto;
+    font-size: 18px;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+/* =========================
+   MEMORIES
+========================= */
+
+.chapter-screen {
+    flex-direction: column;
+    background:
+        linear-gradient(rgba(10, 8, 14, 0.94), rgba(10, 8, 14, 0.94)),
+        radial-gradient(circle at center, #51354b, #09080f);
+}
+
+.memory-grid {
+    width: min(100%, 950px);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 15px;
+}
+
+.memory-card {
+    min-height: 230px;
+    padding: 30px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: left;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.045);
+    backdrop-filter: blur(12px);
+
+    transition: 0.4s ease;
+}
+
+.memory-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(232, 169, 195, 0.45);
+}
+
+.memory-card span {
+    font-size: 12px;
+    opacity: 0.4;
+    margin-bottom: auto;
+}
+
+.memory-card h3 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.memory-card p {
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.6;
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.final-screen {
+    background:
+        radial-gradient(circle at center, rgba(126, 63, 98, 0.3), transparent 45%),
+        #09080f;
+}
+
+.final-content {
+    max-width: 650px;
+    animation: appear 1.2s ease forwards;
+}
+
+.final-content h2 span {
+    color: #e8a9c3;
+    font-style: italic;
+}
+
+.final-content > p:not(.chapter):not(.ending) {
+    max-width: 520px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.9;
+    font-size: 17px;
+}
+
+.heart {
+    margin: 35px 0;
+    font-size: 70px;
+    color: #e8a9c3;
+    animation: heartbeat 2s infinite;
+}
+
+.ending {
+    font-size: 14px;
+    line-height: 1.8;
+    letter-spacing: 1px;
+    opacity: 0.55;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(45px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heartbeat {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .opening-screen,
+    .story-screen,
+    .chapter-screen,
+    .final-screen {
+        min-height: 100svh;
+        padding: 50px 20px;
+    }
+
+    .opening-content h1 {
+        font-size: clamp(38px, 12vw, 55px);
+    }
+
+    .small-text {
+        letter-spacing: 3px;
+    }
+
+    .date {
+        letter-spacing: 4px;
+    }
+
+    .story-content h2,
+    .chapter-screen h2,
+    .final-content h2 {
+        font-size: 46px;
+    }
+
+    .story-text {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    .memory-grid {
+        grid-template-columns: 1fr;
+        width: 100%;
+        max-width: 420px;
+    }
+
+    .memory-card {
+        min-height: 180px;
+    }
+
+    button {
+        padding: 13px 24px;
+    }
+}
