@@ -1,1 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Little Story</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+    <main class="website">
+
+        <!-- Opening Screen -->
+        <section class="opening-screen" id="openingScreen">
+
+            <div class="stars"></div>
+
+            <div class="opening-content">
+                <p class="small-text">A little story...</p>
+
+                <h1>
+                    Some stories<br>
+                    are meant to be<br>
+                    <span>remembered.</span>
+                </h1>
+
+                <p class="date">30.09.2024</p>
+
+                <button onclick="startStory()">
+                    Begin Our Story
+                </button>
+            </div>
+
+        </section>
+
+
+        <!-- Story Screen -->
+        <section class="story-screen hidden" id="storyScreen">
+
+            <div class="story-content">
+
+                <p class="chapter">CHAPTER 01</p>
+
+                <h2>And then...</h2>
+
+                <p class="story-text">
+                    Somewhere between ordinary days,
+                    conversations, laughter and little moments,
+                    something beautiful began.
+                </p>
+
+                <button onclick="nextChapter()">
+                    Continue →
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Chapter 2 -->
+        <section class="chapter-screen hidden" id="chapterTwo">
+
+            <p class="chapter">CHAPTER 02</p>
+
+            <h2>Our little moments</h2>
+
+            <div class="memory-grid">
+
+                <div class="memory-card">
+                    <span>01</span>
+                    <h3>First memories</h3>
+                    <p>The beginning of something special.</p>
+                </div>
+
+                <div class="memory-card">
+                    <span>02</span>
+                    <h3>Little adventures</h3>
+                    <p>Places, walks, food and endless bakchodi.</p>
+                </div>
+
+                <div class="memory-card">
+                    <span>03</span>
+                    <h3>Just us</h3>
+                    <p>The moments that nobody else understands.</p>
+                </div>
+
+            </div>
+
+            <button onclick="showFinal()">
+                There's more →
+            </button>
+
+        </section>
+
+
+        <!-- Final -->
+        <section class="final-screen hidden" id="finalScreen">
+
+            <div class="final-content">
+
+                <p class="chapter">TWO YEARS</p>
+
+                <h2>
+                    Still choosing<br>
+                    <span>you.</span>
+                </h2>
+
+                <p>
+                    Two years of memories,
+                    laughter, fights, food,
+                    travelling, distance and
+                    countless little moments.
+                </p>
+
+                <div class="heart">♡</div>
+
+                <p class="ending">
+                    This is only a small part<br>
+                    of our story.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
