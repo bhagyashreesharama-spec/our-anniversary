@@ -1,1761 +1,2530 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Kunnu × Bhagya | Our Little Universe</title>
+  <title>Our Little Universe</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Dancing+Script:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- =========================================================
-     GLOBAL ANIME SKY DECORATION
-========================================================= -->
+  <!-- =====================================================
+       BACKGROUND UNIVERSE
+  ====================================================== -->
 
-<div class="sky-decoration" aria-hidden="true">
+  <div class="universe">
 
-    <div class="big-moon">
-        <div class="moon-crater crater-one"></div>
-        <div class="moon-crater crater-two"></div>
-        <div class="moon-crater crater-three"></div>
+    <div class="stars stars-one"></div>
+    <div class="stars stars-two"></div>
+    <div class="stars stars-three"></div>
+
+    <div class="moon">
+      <div class="moon-glow"></div>
     </div>
 
     <div class="cloud cloud-one"></div>
     <div class="cloud cloud-two"></div>
 
-    <div class="stars">
-        <span class="star s1">✦</span>
-        <span class="star s2">✦</span>
-        <span class="star s3">✧</span>
-        <span class="star s4">✦</span>
-        <span class="star s5">✧</span>
-        <span class="star s6">✦</span>
-        <span class="star s7">✧</span>
-        <span class="star s8">✦</span>
-        <span class="star s9">✧</span>
-        <span class="star s10">✦</span>
-        <span class="star s11">✧</span>
-        <span class="star s12">✦</span>
-    </div>
+    <div class="floating-heart heart-one">♡</div>
+    <div class="floating-heart heart-two">♡</div>
+    <div class="floating-heart heart-three">♡</div>
 
-</div>
+  </div>
 
 
-<!-- =========================================================
-     FLOATING HEARTS
-========================================================= -->
+  <!-- =====================================================
+       OPENING
+  ====================================================== -->
 
-<div class="floating-hearts" aria-hidden="true">
-    <span>♡</span>
-    <span>♡</span>
-    <span>♥</span>
-    <span>♡</span>
-    <span>♥</span>
-    <span>♡</span>
-</div>
+  <main>
 
+    <section class="opening-section" id="opening">
 
-<!-- =========================================================
-     SECRET PASSWORD SCREEN
-========================================================= -->
+      <div class="opening-content">
 
-<section id="secretScreen" class="screen secret-screen">
-
-    <div class="secret-stars" aria-hidden="true">
-        <i>✦</i>
-        <i>✧</i>
-        <i>✦</i>
-        <i>✧</i>
-        <i>✦</i>
-    </div>
-
-    <div class="secret-door">
-
-        <div class="tiny-label">
-            A PRIVATE LITTLE UNIVERSE
-        </div>
-
-        <h1>
-            Kunnu <span>×</span> Bhagya
-        </h1>
-
-        <p class="secret-subtitle">
-            Some stories need a little secret to open them.
-        </p>
-
-        <div class="lock-illustration">
-            <div class="lock-body">
-                <div class="lock-hole"></div>
-            </div>
-            <div class="lock-ring"></div>
-        </div>
-
-        <form id="secretForm">
-
-            <label for="secretCode">
-                Enter our special date
-            </label>
-
-            <div class="password-wrapper">
-
-                <input
-                    id="secretCode"
-                    type="password"
-                    inputmode="numeric"
-                    maxlength="8"
-                    autocomplete="off"
-                    placeholder="DDMMYYYY"
-                >
-
-                <button
-                    type="button"
-                    id="eyeButton"
-                    class="eye-button"
-                    aria-label="Show password"
-                >
-                    ◉
-                </button>
-
-            </div>
-
-            <button type="submit" class="main-button">
-                Unlock Our Story
-                <span>→</span>
-            </button>
-
-            <p id="errorMessage" class="error-message"></p>
-
-        </form>
-
-        <div class="secret-date">
-            30 · 09 · 2024
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     INTRO / ANNIVERSARY SCREEN
-========================================================= -->
-
-<section id="anniversaryScreen" class="screen anniversary-screen">
-
-    <div class="intro-sky">
-
-        <div class="intro-moon"></div>
-
-        <div class="intro-stars">
-            <span>✦</span>
-            <span>✧</span>
-            <span>✦</span>
-            <span>✧</span>
-            <span>✦</span>
-            <span>✧</span>
-            <span>✦</span>
-        </div>
-
-        <div class="intro-cloud cloud-a"></div>
-        <div class="intro-cloud cloud-b"></div>
-
-        <!-- Anime Couple Silhouette -->
-        <div class="anime-couple silhouette-couple">
-
-            <div class="anime-person person-girl">
-                <div class="anime-head">
-                    <div class="anime-hair"></div>
-                    <div class="anime-face">
-                        <span class="eye left-eye"></span>
-                        <span class="eye right-eye"></span>
-                    </div>
-                </div>
-
-                <div class="anime-body">
-                    <div class="anime-arm"></div>
-                    <div class="anime-dress"></div>
-                </div>
-            </div>
-
-            <div class="anime-person person-boy">
-                <div class="anime-head">
-                    <div class="anime-hair boy-hair"></div>
-                    <div class="anime-face">
-                        <span class="eye left-eye"></span>
-                        <span class="eye right-eye"></span>
-                    </div>
-                </div>
-
-                <div class="anime-body">
-                    <div class="anime-arm"></div>
-                    <div class="anime-shirt"></div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="intro-title">
-
-            <p class="small-handwritten">
-                once upon a time...
-            </p>
-
-            <h1>
-                Kunnu <span>×</span> Bhagya
-            </h1>
-
-            <h2>
-                Our Little Universe
-            </h2>
-
-            <p>
-                A tiny animated diary of two people,
-                <br>
-                five photographs, countless little moments,
-                <br>
-                and a story still being written.
-            </p>
-
-            <button id="openDiaryButton" class="main-button">
-                Enter Our Story
-                <span>→</span>
-            </button>
-
-        </div>
-
-        <div class="intro-petals">
-            <span>✿</span>
-            <span>❀</span>
-            <span>✿</span>
-            <span>❀</span>
-            <span>✿</span>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     MAIN DIARY
-========================================================= -->
-
-<main id="diary" class="diary">
-
-
-<!-- =========================================================
-     DIARY COVER
-========================================================= -->
-
-<section class="diary-page cover-page">
-
-    <div class="page-decoration top-left">✦</div>
-    <div class="page-decoration top-right">♡</div>
-    <div class="page-decoration bottom-left">✧</div>
-    <div class="page-decoration bottom-right">♥</div>
-
-    <div class="scrapbook-tape tape-one"></div>
-    <div class="scrapbook-tape tape-two"></div>
-
-    <div class="cover-content">
-
-        <p class="tiny-label">
-            OUR ANIMATED LOVE DIARY
+        <p class="tiny-line">
+          A little place for two people
         </p>
 
         <h1>
-            Two Years
-            <br>
-            <span>of Us</span>
+          Our Little<br>
+          <span>Universe</span>
         </h1>
 
-        <div class="cover-line"></div>
+        <div class="opening-line"></div>
 
-        <p class="cover-date">
-            30.09.2024 — 30.09.2026
+        <p class="opening-text">
+          Some memories are too precious<br>
+          to be left only in our minds.
         </p>
 
-        <p class="cover-note">
-            "Some stories are written with words.
-            Ours was written with moments."
+        <button class="begin-button" id="beginButton">
+          Open our story
+        </button>
+
+      </div>
+
+      <div class="scroll-hint">
+        <span>↓</span>
+        <small>our story begins</small>
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         INTRODUCTION
+    ====================================================== -->
+
+    <section class="intro-section story-section">
+
+      <div class="section-number">
+        01
+      </div>
+
+      <div class="intro-content">
+
+        <p class="date-label">
+          BEFORE WE KNEW
         </p>
 
-    </div>
-
-
-    <!-- GIANT TEDDY -->
-    <div class="giant-teddy">
-
-        <div class="teddy-ear teddy-ear-left"></div>
-        <div class="teddy-ear teddy-ear-right"></div>
-
-        <div class="teddy-head">
-
-            <div class="teddy-bow">
-                <span></span>
-                <span></span>
-                <b></b>
-            </div>
-
-            <div class="teddy-eye teddy-eye-left"></div>
-            <div class="teddy-eye teddy-eye-right"></div>
-
-            <div class="teddy-muzzle">
-                <div class="teddy-nose"></div>
-                <div class="teddy-mouth"></div>
-            </div>
-
-            <div class="teddy-cheek cheek-left"></div>
-            <div class="teddy-cheek cheek-right"></div>
-
-        </div>
-
-        <div class="teddy-body">
-
-            <div class="teddy-arm arm-left"></div>
-            <div class="teddy-arm arm-right"></div>
-
-            <div class="teddy-heart">
-                <span>♡</span>
-            </div>
-
-            <div class="teddy-foot foot-left"></div>
-            <div class="teddy-foot foot-right"></div>
-
-        </div>
-
-        <div class="teddy-hearts">
-            <span>♥</span>
-            <span>♡</span>
-            <span>♥</span>
-        </div>
-
-    </div>
-
-
-    <!-- GUITAR -->
-    <div class="anime-guitar">
-
-        <div class="guitar-neck"></div>
-
-        <div class="guitar-body">
-            <div class="guitar-hole"></div>
-        </div>
-
-    </div>
-
-
-    <div class="cover-stars">
-        <span>✦</span>
-        <span>✧</span>
-        <span>✦</span>
-        <span>✧</span>
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     LETTER FROM KUNNU
-========================================================= -->
-
-<section id="kunnu-letter" class="diary-page letter-page">
-
-    <div class="scrapbook-header">
-
-        <span class="page-number">
-            01
-        </span>
-
-        <div>
-            <p class="tiny-label">
-                FIRST PAGE
-            </p>
-
-            <h2>
-                A Letter From Kunnu
-            </h2>
-        </div>
-
-        <span class="header-doodle">
-            ♡
-        </span>
-
-    </div>
-
-
-    <div class="letter-scene">
-
-        <div class="letter-paper">
-
-            <div class="paper-pin"></div>
-
-            <div class="paper-tape"></div>
-
-            <p class="letter-date">
-                somewhere between yesterday & forever
-            </p>
-
-            <p>
-                If someone had told me that one ordinary day
-                would become the beginning of something this
-                special, I probably wouldn't have believed them.
-            </p>
-
-            <p>
-                But then there was you.
-            </p>
-
-            <p>
-                And somehow, little conversations became
-                long conversations, ordinary moments became
-                favourite memories, and you slowly became
-                a very special part of my world.
-            </p>
-
-            <p>
-                We didn't have to plan every little thing.
-                Some things simply happened...
-                naturally.
-            </p>
-
-            <p>
-                And maybe that's what makes our story ours.
-            </p>
-
-            <div class="letter-signature">
-                — Kunnu
-            </div>
-
-        </div>
-
-
-        <div class="letter-decorations">
-            <span>✦</span>
-            <span>♡</span>
-            <span>✧</span>
-            <span>♥</span>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     30 SEPTEMBER 2024
-========================================================= -->
-
-<section id="memory-30-september" class="diary-page memory-page">
-
-    <div class="memory-heading">
-
-        <span class="page-number">
-            02
-        </span>
-
-        <div>
-            <p class="tiny-label">
-                THE BEGINNING
-            </p>
-
-            <h2>
-                30 September 2024
-            </h2>
-
-            <p class="memory-meta">
-                Monday · 12 PM · Lodhi Garden
-            </p>
-        </div>
-
-    </div>
-
-
-    <!-- ANIME LODHI GARDEN SCENE -->
-
-    <div class="anime-scene garden-scene">
-
-        <div class="anime-sun-moon"></div>
-
-        <div class="garden-tree tree-left">
-            <div class="tree-trunk"></div>
-            <div class="tree-crown"></div>
-        </div>
-
-        <div class="garden-tree tree-right">
-            <div class="tree-trunk"></div>
-            <div class="tree-crown"></div>
-        </div>
-
-        <div class="garden-bench"></div>
-
-        <div class="anime-couple garden-couple">
-
-            <div class="anime-person person-girl">
-                <div class="anime-head">
-                    <div class="anime-hair girl-hair-long"></div>
-                    <div class="anime-face">
-                        <span class="eye left-eye"></span>
-                        <span class="eye right-eye"></span>
-                    </div>
-                </div>
-
-                <div class="anime-body">
-                    <div class="anime-arm"></div>
-                    <div class="anime-dress"></div>
-                </div>
-            </div>
-
-            <div class="anime-person person-boy">
-                <div class="anime-head">
-                    <div class="anime-hair boy-hair"></div>
-                    <div class="anime-face">
-                        <span class="eye left-eye"></span>
-                        <span class="eye right-eye"></span>
-                    </div>
-                </div>
-
-                <div class="anime-body">
-                    <div class="anime-arm"></div>
-                    <div class="anime-shirt"></div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="falling-leaves">
-            <span>•</span>
-            <span>•</span>
-            <span>•</span>
-            <span>•</span>
-            <span>•</span>
-        </div>
-
-    </div>
-
-
-    <div class="memory-story">
-
-        <p class="story-highlight">
-            The day we didn't know was going to matter this much.
-        </p>
+        <h2>
+          Maybe it was<br>
+          just a normal day...
+        </h2>
 
         <p>
-            It started as an unexpected meeting at Lodhi Garden.
+          But some ordinary days quietly become
+          the days you remember forever.
+        </p>
+
+        <p class="handwritten">
+          And ours started without either of us
+          knowing what was coming.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         30 SEPTEMBER 2024
+    ====================================================== -->
+
+    <section class="memory-section sep-2024" id="sep2024">
+
+      <div class="memory-header">
+
+        <p class="date-label">
+          30 SEPTEMBER 2024 · MONDAY
+        </p>
+
+        <h2>
+          The day we met.
+        </h2>
+
+        <p class="subtitle">
+          The beginning of something neither of us had planned.
+        </p>
+
+      </div>
+
+
+      <!-- MEMORY 01 -->
+
+      <div class="memory-block left reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Around noon
+          </span>
+
+          <h3>
+            A plan that wasn't really a plan.
+          </h3>
+
+          <p>
+            I had my digital marketing class that day.
+            I thought I would sit in Lodhi Garden
+            and attend it there.
+          </p>
+
+          <p>
+            At that time, my Smart Value team had already
+            ended. Friends had left, things had changed,
+            and I had started thinking about meeting new
+            people, making friends and building a team again.
+          </p>
+
+          <p>
+            I was bored.
+            So I decided to go out.
+          </p>
+
+          <p class="handwritten">
+            And for the first time, I went to Lodhi Garden alone.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 02 -->
+
+      <div class="memory-block right reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            The first few seconds
+          </span>
+
+          <h3>
+            Same place.<br>
+            Same time.
+          </h3>
+
+          <p>
+            Around 12 PM, we both arrived at almost
+            the same time, on the same step.
+          </p>
+
+          <p>
+            He looked at me and simply said:
+          </p>
+
+          <div class="quote-card">
+            “Hi, I'm Kunal,<br>
+            I like your style.”
+          </div>
+
+          <p>
+            I was wearing a shirt and trousers,
+            shoes and my bag.
+          </p>
+
+          <p>
+            He was wearing a T-shirt and trousers.
+            I thought he might be a college student
+            living somewhere in Delhi.
+          </p>
+
+          <p>
+            Apparently, he thought I looked like
+            a working girl.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 03 -->
+
+      <div class="memory-block center reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            And then...
+          </span>
+
+          <h3>
+            I walked away.
+          </h3>
+
+          <p>
+            We talked for a little while.
+            Then I started walking away.
+          </p>
+
+          <p>
+            His face changed.
+            He was alone, and it probably looked
+            like I was ignoring him.
+          </p>
+
+          <p>
+            But I looked at the situation differently.
+            We were both alone.
+          </p>
+
+          <p class="handwritten">
+            So I went back.
+          </p>
+
+          <p>
+            Maybe I just wanted to make a new friend.
+            I had no idea that I was walking back
+            toward someone who would later become
+            so important to me.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 04 -->
+
+      <div class="memory-block left reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Slowly, somehow
+          </span>
+
+          <h3>
+            Too many similarities.
+          </h3>
+
+          <p>
+            We started talking.
+            Then we found out that we had
+            so many similar hobbies and interests.
+          </p>
+
+          <p>
+            It felt like more than coincidence,
+            although I didn't think much about it
+            that day.
+          </p>
+
+          <p>
+            We kept walking.
+            We kept talking.
+            Places changed, but somehow
+            the time didn't feel like it was moving.
+          </p>
+
+          <p class="handwritten">
+            I even missed my class.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 05 -->
+
+      <div class="memory-block right reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Somewhere between conversations
+          </span>
+
+          <h3>
+            A little cute.<br>
+            Maybe a little flirty.
+          </h3>
+
+          <p>
+            We sat somewhere and talked.
+          </p>
+
+          <p>
+            He seemed cute to me,
+            although I wasn't really thinking
+            about it that way.
+          </p>
+
+          <p>
+            Later I realised that maybe
+            he had already started taking
+            little chances and flirting.
+          </p>
+
+          <p class="handwritten">
+            I was just too innocent to notice.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 06 -->
+
+      <div class="memory-block center reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Before leaving
+          </span>
+
+          <h3>
+            “I'm going home today.”
+          </h3>
+
+          <p>
+            He told me he was leaving for home
+            that day.
+          </p>
+
+          <p>
+            I remember wondering:
+            what relation do I even have with
+            this person I met today?
+          </p>
+
+          <p>
+            And then, suddenly,
+            I thought I should take his number.
+          </p>
+
+          <p>
+            We exchanged numbers
+            and Instagram IDs.
+          </p>
+
+          <p class="handwritten">
+            And just like that,
+            a stranger became someone I could message.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 07 -->
+
+      <div class="memory-block left reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Lodhi Garden
+          </span>
+
+          <h3>
+            The duck that became a “duct”.
+          </h3>
+
+          <p>
+            We talked about family,
+            random things and everything in between.
+          </p>
+
+          <p>
+            My throat wasn't good that day.
+            I said “duck”.
+          </p>
+
+          <p>
+            He heard “duct”.
+          </p>
+
+          <p>
+            And somehow we ended up looking
+            for the ducks and the water area
+            we thought we were going to find.
+          </p>
+
+          <p class="handwritten">
+            We didn't find what we were looking for.
+            But the memory stayed.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 08 -->
+
+      <div class="memory-block right reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Around 2 PM
+          </span>
+
+          <h3>
+            “Have you been to CP?”
+          </h3>
+
+          <p>
+            He told me he had been to CP
+            and liked mutton there.
+          </p>
+
+          <p>
+            I had never been to CP.
+          </p>
+
+          <p>
+            So he suggested that we go.
+            I had time, so I said okay.
+          </p>
+
+          <p>
+            We left the Lodhi Road side
+            around 2 PM.
+          </p>
+
+          <p>
+            We walked, ate kulfi,
+            and kept talking.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- 30 SEP CAFE PHOTO -->
+
+      <div class="photo-memory reveal">
+
+        <div class="photo-card">
+
+          <img
+            src="images/30-sep-cafe.jpg"
+            alt="Our cafe memory from 30 September 2024"
+          >
+
+          <div class="photo-caption">
+            <span>30.09.2024</span>
+            <strong>That unexpected day.</strong>
+          </div>
+
+        </div>
+
+        <div class="photo-note">
+          <span class="note-pin"></span>
+
+          <p>
+            I didn't even know this was a date.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 09 -->
+
+      <div class="memory-block center reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            On the way to CP
+          </span>
+
+          <h3>
+            Still a stranger.
+          </h3>
+
+          <p>
+            He booked an auto.
+            I felt a little uncomfortable
+            because he was still an unknown person to me.
+          </p>
+
+          <p>
+            But after spending so much time together,
+            I thought it would probably be okay.
+          </p>
+
+          <p>
+            Then suddenly he put his hand on my shoulder.
+          </p>
+
+          <div class="quote-card">
+            “Arey aisa waisa nahi hoon yrr,<br>
+            darro mat.”
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 10 -->
+
+      <div class="memory-block left reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Connaught Place
+          </span>
+
+          <h3>
+            The rajma disaster.
+          </h3>
+
+          <p>
+            We reached CP and ate rajma.
+          </p>
+
+          <p>
+            It was bad.
+          </p>
+
+          <p>
+            Neither of us liked it,
+            but neither of us said it immediately.
+          </p>
+
+          <p class="handwritten">
+            Eventually, we threw it away.
+          </p>
+
+          <p>
+            Then a very overweight uncle walked past.
+            I commented,
+            “kya figure hai,”
+            and Kunnu started laughing.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 11 -->
+
+      <div class="memory-block right reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Crossing the road
+          </span>
+
+          <h3>
+            The first hand-hold.
+          </h3>
+
+          <p>
+            We crossed the road.
+          </p>
+
+          <p>
+            He wanted to hold my hand
+            and found an excuse.
+          </p>
+
+          <p>
+            I gave him my hand.
+          </p>
+
+          <p>
+            And he kept holding it.
+          </p>
+
+          <p>
+            His hand was warm.
+            I even told him that.
+          </p>
+
+          <p class="handwritten">
+            I didn't know then how many
+            times that hand would become familiar.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 12 -->
+
+      <div class="memory-block center reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            The café
+          </span>
+
+          <h3>
+            Not a date.<br>
+            Or so I thought.
+          </h3>
+
+          <p>
+            We went to a café.
+            I don't even remember its name now.
+          </p>
+
+          <p>
+            I didn't think this unexpected meeting
+            was a date.
+          </p>
+
+          <p>
+            A girl sitting behind us kept looking
+            at Kunnu.
+          </p>
+
+          <p class="handwritten">
+            I wasn't jealous then.
+            I definitely am now.
+          </p>
+
+          <p>
+            Kunnu wanted to dance with me.
+            I told him to dance with her instead.
+          </p>
+
+          <p>
+            He looked back...
+            and maybe she stopped looking.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- 30 SEP AUTO PHOTO -->
+
+      <div class="photo-memory photo-memory-auto reveal">
+
+        <div class="photo-card">
+
+          <img
+            src="images/30-sep-auto.jpg"
+            alt="Our auto memory from 30 September 2024"
+          >
+
+          <div class="photo-caption">
+            <span>30.09.2024</span>
+            <strong>Two people. One unexpected day.</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 13 -->
+
+      <div class="memory-block left reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Before the airport
+          </span>
+
+          <h3>
+            Small things I remember.
+          </h3>
+
+          <p>
+            We wandered around,
+            looked at keychains,
+            talked and kept moving.
+          </p>
+
+          <p>
+            I didn't carefully look at him that day.
+            I didn't notice his dimple properly.
+            I didn't realise how cute his smile was.
+          </p>
+
+          <p>
+            But his voice stayed somewhere in my head.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 14 -->
+
+      <div class="memory-block right reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Time to leave
+          </span>
+
+          <h3>
+            And suddenly, the day was ending.
+          </h3>
+
+          <p>
+            He got a call that he had to reach
+            the airport.
+          </p>
+
+          <p>
+            I asked him to drop me at the bus stand.
+          </p>
+
+          <p>
             He wanted to hug me.
-            I refused.
-        </p>
+            I didn't allow it.
+          </p>
 
-        <p>
-            He left a little disappointed and went towards the airport.
-            But the story didn't end there.
-        </p>
+          <p>
+            His rider came.
+            He left a little upset.
+          </p>
 
-        <p>
-            We kept talking that night.
-            And somehow, without forcing anything,
-            the conversations became easier,
-            funnier and warmer.
-        </p>
-
-        <p>
-            We developed this invisible but jolly little bond —
-            the kind that quietly grows before you even realise
-            how important it has become.
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     30 SEPTEMBER — TWO REAL PHOTOS
-========================================================= -->
-
-<section id="photos-30-september" class="diary-page photo-page">
-
-    <div class="photo-section-heading">
-
-        <p class="tiny-label">
-            TWO LITTLE PROOFS
-        </p>
-
-        <h2>
-            The first memories we kept
-        </h2>
-
-        <div class="handwritten-arrow">
-            ↘ these two
-        </div>
-
-    </div>
-
-
-    <div class="photo-grid two-photo-grid">
-
-
-        <!-- PHOTO 1 -->
-        <article class="memory-photo photo-auto">
-
-            <div class="photo-frame">
-
-                <div class="photo-tape"></div>
-
-                <img
-                    src="images/30-sep-auto.jpg"
-                    alt="30 September 2024 auto ride memory"
-                >
-
-                <span class="photo-number">
-                    01
-                </span>
-
-            </div>
-
-            <div class="photo-caption">
-
-                <span class="photo-date">
-                    30 · 09 · 2024
-                </span>
-
-                <p>
-                    "Somewhere between an ordinary ride
-                    and an unexpected meeting,
-                    something beautiful quietly began."
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <!-- PHOTO 2 -->
-        <article class="memory-photo photo-cafe">
-
-            <div class="photo-frame">
-
-                <div class="photo-tape"></div>
-
-                <img
-                    src="images/30-sep-cafe.jpg"
-                    alt="30 September 2024 cafe memory"
-                >
-
-                <span class="photo-number">
-                    02
-                </span>
-
-            </div>
-
-            <div class="photo-caption">
-
-                <span class="photo-date">
-                    same day · little moment
-                </span>
-
-                <p>
-                    "We didn't know it then,
-                    but this little moment was going to become
-                    a memory we'd keep coming back to."
-                </p>
-
-            </div>
-
-        </article>
-
-    </div>
-
-
-    <div class="photo-bottom-note">
-        <span>✦</span>
-        first chapter
-        <span>✦</span>
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     14 SEPTEMBER 2025
-========================================================= -->
-
-<section id="memory-14-september" class="diary-page memory-page">
-
-    <div class="memory-heading">
-
-        <span class="page-number">
-            03
-        </span>
-
-        <div>
-
-            <p class="tiny-label">
-                THE DAY WE LIVED
-            </p>
-
-            <h2>
-                14 September 2025
-            </h2>
-
-            <p class="memory-meta">
-                Green Park Metro · CP · Room
-            </p>
+          <p class="handwritten">
+            And I went home with a stranger's
+            number in my phone.
+          </p>
 
         </div>
 
-    </div>
+      </div>
 
 
-    <!-- METRO TRAVEL SCENE -->
+      <!-- MEMORY 15 -->
 
-    <div class="anime-scene metro-scene">
+      <div class="memory-block center reveal">
 
-        <div class="metro-sky"></div>
+        <div class="memory-text final-memory-2024">
 
-        <div class="metro-line">
-            <span class="station station-green">
-                GREEN PARK
-            </span>
+          <span class="memory-time">
+            That night
+          </span>
 
-            <span class="station station-cp">
-                CP
-            </span>
+          <h3>
+            Then I messaged him.
+          </h3>
 
-            <span class="station station-room">
-                ROOM
-            </span>
+          <div class="message-memory">
+            mai ghar pohoch gyi aap kaha tak pohoche
+          </div>
 
-            <div class="route-line"></div>
-            <div class="route-dot dot-one"></div>
-            <div class="route-dot dot-two"></div>
-            <div class="route-dot dot-three"></div>
+          <p>
+            And somehow, we talked on Instagram
+            almost the whole night.
+          </p>
+
+          <p>
+            I enjoyed talking to him.
+          </p>
+
+          <p>
+            I still didn't know that the day
+            had actually been a date.
+          </p>
+
+          <p>
+            He told me later.
+          </p>
+
+          <div class="quote-card special-quote">
+            “aap phle aise insan ho
+            jiske muh se jaida acha algta hai
+            mera naam bhagya.”
+          </div>
+
+          <p class="handwritten big-handwritten">
+            And maybe that was the first chapter.
+          </p>
+
         </div>
 
+      </div>
 
-        <div class="anime-train">
-
-            <div class="train-window">
-                <div class="mini-couple">
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-
-            <div class="train-window"></div>
-            <div class="train-window"></div>
-
-            <div class="train-door"></div>
-
-        </div>
+    </section>
 
 
-        <div class="metro-light"></div>
+    <!-- =====================================================
+         BETWEEN YEARS
+    ====================================================== -->
 
-    </div>
+    <section class="between-section story-section">
 
+      <div class="between-content">
 
-    <div class="memory-story">
+        <div class="tiny-stars">✦ &nbsp; ✦ &nbsp; ✦</div>
 
-        <p class="story-highlight">
-            No photograph. Just a day full of tiny moments.
-        </p>
-
-        <p>
-            Planshow had kept me busy and tired,
-            and I was already running late.
-            But his teasing somehow convinced me to meet him.
-        </p>
-
-        <p>
-            We met at Green Park Metro.
-            I was nervous, but he made me comfortable almost instantly.
-        </p>
-
-        <p>
-            In the metro I punched him,
-            and of course people looked.
-        </p>
-
-        <p>
-            Before reaching CP, he held my hand.
-            Then came food I didn't particularly like,
-            my classic "let's leave" moment,
-            his carrying my bag,
-            an auto ride together,
-            teasing,
-            shyness,
-            and all those little things that don't look
-            important from outside...
-            but somehow become everything inside a memory.
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     14 SEPTEMBER — ROOM / NO PHOTOS
-========================================================= -->
-
-<section id="room-14-september" class="diary-page room-memory-page">
-
-    <div class="room-title">
-
-        <p class="tiny-label">
-            NO PHOTO NEEDED
+        <p class="date-label">
+          TIME PASSED
         </p>
 
         <h2>
-            Some moments were only ours.
+          And somehow...
         </h2>
 
         <p>
-            And that's exactly why this page has no photograph.
+          One day became conversations.
+          Conversations became memories.
+          And memories became us.
         </p>
 
-    </div>
-
-
-    <!-- ANIME ROOM -->
-
-    <div class="anime-scene room-scene">
-
-        <div class="room-wall"></div>
-
-        <div class="room-window">
-            <div class="window-night"></div>
-            <div class="window-moon"></div>
-            <div class="window-star">✦</div>
-            <div class="window-star second">✧</div>
+        <div class="handwritten">
+          Until September came again.
         </div>
 
-        <div class="room-lamp">
-            <div class="lamp-glow"></div>
-            <div class="lamp-shade"></div>
-            <div class="lamp-stand"></div>
-        </div>
+      </div>
 
-        <div class="room-bed">
+    </section>
 
-            <div class="bed-head"></div>
-            <div class="bed-sheet"></div>
-            <div class="bed-pillow"></div>
 
-        </div>
+    <!-- =====================================================
+         14 SEPTEMBER 2025
+    ====================================================== -->
 
+    <section class="memory-section sep-2025" id="sep2025">
 
-        <!-- ANIME COUPLE SITTING -->
+      <div class="memory-header">
 
-        <div class="room-couple">
-
-            <div class="room-girl">
-                <div class="anime-head">
-                    <div class="anime-hair girl-hair-long"></div>
-                    <div class="anime-face">
-                        <span class="eye left-eye"></span>
-                        <span class="eye right-eye"></span>
-                    </div>
-                </div>
-
-                <div class="anime-body">
-                    <div class="anime-dress"></div>
-                </div>
-            </div>
-
-            <div class="room-boy">
-
-                <div class="anime-head">
-                    <div class="anime-hair boy-hair"></div>
-                    <div class="anime-face">
-                        <span class="eye left-eye"></span>
-                        <span class="eye right-eye"></span>
-                    </div>
-                </div>
-
-                <div class="anime-body">
-                    <div class="anime-shirt"></div>
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- PHONE PLAYING VIDEO -->
-
-        <div class="phone-video">
-
-            <div class="phone-screen">
-                <div class="video-light"></div>
-                <span>GANESH CHATURTHI</span>
-            </div>
-
-        </div>
-
-
-        <div class="room-hearts">
-            <span>♡</span>
-            <span>♥</span>
-            <span>♡</span>
-        </div>
-
-    </div>
-
-
-    <div class="no-photo-card">
-
-        <div class="no-photo-symbol">
-            ✦
-        </div>
-
-        <p>
-            "Some memories were never captured...
-            because we were too busy living them."
-        </p>
-
-        <span>
-            No photograph. No proof.
-            Just a moment that stayed.
-        </span>
-
-    </div>
-
-
-    <div class="handwritten-memory">
-
-        <p>
-            We watched the video together.
-            I told him to stop using the phone.
-            There were hugs, kisses, conversations,
-            teasing and playful fights.
-        </p>
-
-        <p>
-            Later he dropped me downstairs,
-            arranged an auto,
-            and even after I reached home,
-            the conversation continued over the phone.
-        </p>
-
-        <p class="final-memory-line">
-            "Some moments don't need a photograph.
-            They just stay somewhere inside you."
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     15 SEPTEMBER 2025
-========================================================= -->
-
-<section id="memory-15-september" class="diary-page memory-page">
-
-    <div class="memory-heading">
-
-        <span class="page-number">
-            04
-        </span>
-
-        <div>
-
-            <p class="tiny-label">
-                THE LAST EVENING
-            </p>
-
-            <h2>
-                15 September 2025
-            </h2>
-
-            <p class="memory-meta">
-                Room · Chai · Before Goodbye
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <!-- CHAI + ROOM ANIME SCENE -->
-
-    <div class="anime-scene chai-scene">
-
-        <div class="chai-window">
-
-            <div class="chai-moon"></div>
-
-            <span>✦</span>
-            <span>✧</span>
-            <span>✦</span>
-
-        </div>
-
-
-        <div class="chai-table">
-
-            <div class="chai-cup">
-
-                <div class="tea"></div>
-
-                <div class="steam">
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                </div>
-
-                <div class="cup-handle"></div>
-
-            </div>
-
-            <div class="chai-plate"></div>
-
-        </div>
-
-
-        <div class="chai-clock">
-
-            <div class="clock-face">
-                <span class="clock-hand hour"></span>
-                <span class="clock-hand minute"></span>
-                <span class="clock-center"></span>
-            </div>
-
-        </div>
-
-
-        <div class="chai-couple">
-
-            <div class="chai-girl">
-
-                <div class="anime-head">
-                    <div class="anime-hair girl-hair-long"></div>
-
-                    <div class="anime-face">
-                        <span class="eye left-eye"></span>
-                        <span class="eye right-eye"></span>
-                    </div>
-                </div>
-
-                <div class="anime-body">
-                    <div class="anime-dress"></div>
-                </div>
-
-            </div>
-
-
-            <div class="chai-boy">
-
-                <div class="anime-head">
-                    <div class="anime-hair boy-hair"></div>
-
-                    <div class="anime-face">
-                        <span class="eye left-eye"></span>
-                        <span class="eye right-eye"></span>
-                    </div>
-                </div>
-
-                <div class="anime-body">
-                    <div class="anime-shirt"></div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="memory-story">
-
-        <p class="story-highlight">
-            We knew the evening was ending.
-            We just didn't want it to.
-        </p>
-
-        <p>
-            This time we went directly to the room.
-            No outside plans.
-            Just time together.
-        </p>
-
-        <p>
-            We made chai while time kept moving faster
-            than we wanted it to.
-        </p>
-
-        <p>
-            I was fixing my hair in the bathroom,
-            and he was watching from outside.
-            I don't know why...
-            but I really liked that little moment.
-        </p>
-
-        <p>
-            He was going to leave for the airport.
-            I was going home.
-            So we simply stayed together
-            for as long as we could.
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     15 SEPTEMBER — EXACTLY 3 PHOTOS
-========================================================= -->
-
-<section id="photos-15-september" class="diary-page photo-page">
-
-    <div class="photo-section-heading">
-
-        <p class="tiny-label">
-            THREE LITTLE MOMENTS
+        <p class="date-label">
+          14 SEPTEMBER 2025 · SUNDAY
         </p>
 
         <h2>
-            An evening I wish could pause
+          He came back to Delhi.
         </h2>
 
-        <div class="handwritten-arrow">
-            ↘ keep these close
+        <p class="subtitle">
+          One night flight, one “mai agya”,
+          and one very long day waiting to happen.
+        </p>
+
+      </div>
+
+
+      <!-- MEMORY 14-01 -->
+
+      <div class="memory-block left reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Around 4 AM
+          </span>
+
+          <h3>
+            “mai agya”
+          </h3>
+
+          <p>
+            Kunnu had his Ganesh Chaturthi finale
+            and natak.
+          </p>
+
+          <p>
+            He took a night flight to Delhi
+            and reached around 4 AM.
+          </p>
+
+          <p>
+            He messaged that he had arrived.
+            I saw it around 8 AM.
+          </p>
+
+          <p class="handwritten">
+            He had come all this way.
+            For Delhi.
+            For us.
+          </p>
+
         </div>
 
-    </div>
+      </div>
 
 
-    <div class="photo-grid three-photo-grid">
+      <!-- MEMORY 14-02 -->
+
+      <div class="memory-block right reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Morning
+          </span>
+
+          <h3>
+            The plan that didn't happen.
+          </h3>
+
+          <p>
+            I was at Delton Hall.
+            My invitation shift was at 11 AM.
+          </p>
+
+          <p>
+            I had expected a 9 AM shift,
+            so I thought I would be free around noon.
+          </p>
+
+          <p>
+            The plan was to call him to
+            Jor Bagh Metro and go together.
+          </p>
+
+          <p class="handwritten">
+            But plans don't always listen to us.
+          </p>
+
+        </div>
+
+      </div>
 
 
-        <!-- PHOTO 1 -->
+      <!-- MEMORY 14-03 -->
 
-        <article class="memory-photo">
+      <div class="memory-block center reveal">
 
-            <div class="photo-frame">
+        <div class="memory-text">
 
-                <div class="photo-tape"></div>
+          <span class="memory-time">
+            Waiting
+          </span>
 
-                <img
-                    src="images/15-sep-1.jpg"
-                    alt="15 September 2025 memory one"
-                >
+          <h3>
+            “Bhagya kitna time lagega?”
+          </h3>
 
-                <span class="photo-number">
-                    01
-                </span>
+          <p>
+            He called and asked how long I would take.
+          </p>
 
-            </div>
+          <p>
+            I told him maybe 2 PM.
+          </p>
 
-            <div class="photo-caption">
+          <p>
+            He had already gone to the metro,
+            dressed up in an outfit I liked,
+            trying to impress me.
+          </p>
 
-                <span class="photo-date">
-                    15 · 09 · 2025
-                </span>
+          <p>
+            Some girls in the metro were staring at him.
+            He eventually left.
+          </p>
 
-                <p>
-                    "An ordinary evening,
-                    made special simply because you were there."
-                </p>
+        </div>
 
-            </div>
-
-        </article>
-
-
-        <!-- PHOTO 2 — FAVORITE -->
-
-        <article class="memory-photo favorite-photo">
-
-            <div class="favorite-label">
-                my favourite ♡
-            </div>
-
-            <div class="photo-frame">
-
-                <div class="photo-tape"></div>
-
-                <img
-                    src="images/15-sep-2.jpg"
-                    alt="15 September 2025 favorite memory"
-                >
-
-                <span class="photo-number">
-                    02
-                </span>
-
-            </div>
-
-            <div class="photo-caption">
-
-                <span class="photo-date">
-                    the favourite one
-                </span>
-
-                <p>
-                    "Of all the pictures that evening,
-                    this one somehow feels like home."
-                </p>
-
-            </div>
-
-        </article>
+      </div>
 
 
-        <!-- PHOTO 3 -->
+      <!-- MEMORY 14-04 -->
 
-        <article class="memory-photo">
+      <div class="memory-block left reveal">
 
-            <div class="photo-frame">
+        <div class="memory-text">
 
-                <div class="photo-tape"></div>
+          <span class="memory-time">
+            The calls
+          </span>
 
-                <img
-                    src="images/15-sep-3.jpg"
-                    alt="15 September 2025 memory three"
-                >
+          <h3>
+            Then he disappeared from the phone.
+          </h3>
 
-                <span class="photo-number">
-                    03
-                </span>
+          <p>
+            I finished my invitation work,
+            sent the invitee to the planshow,
+            and finally became free.
+          </p>
 
-            </div>
+          <p>
+            I called Kunnu.
+          </p>
 
-            <div class="photo-caption">
+          <p>
+            He had ridden a bike to the room.
+            The bike noise made it hard for him
+            to hear his phone.
+          </p>
 
-                <span class="photo-date">
-                    before goodbye
-                </span>
+          <p>
+            I called again.
+            And again.
+          </p>
 
-                <p>
-                    "If I could save one evening
-                    inside a little glass jar,
-                    I'd keep this one."
-                </p>
+          <p>
+            He didn't answer.
+          </p>
 
-            </div>
+          <p class="handwritten">
+            I got scared.
+          </p>
 
-        </article>
+        </div>
 
-    </div>
-
-
-    <div class="photo-bottom-note">
-        <span>✦</span>
-        three photographs · one evening
-        <span>✦</span>
-    </div>
-
-</section>
+      </div>
 
 
-<!-- =========================================================
-     BATHROOM / HAIR ANIME SCENE
-========================================================= -->
+      <!-- MEMORY 14-05 -->
 
-<section class="diary-page mirror-page">
+      <div class="memory-block right reveal">
 
-    <div class="mirror-heading">
+        <div class="memory-text">
 
-        <p class="tiny-label">
-            A TINY DETAIL I REMEMBER
+          <span class="memory-time">
+            Finally
+          </span>
+
+          <h3>
+            “Kya hua Bhagya itna call kiya?”
+          </h3>
+
+          <p>
+            He finally called back.
+          </p>
+
+          <p>
+            He had reached the room,
+            was checking things,
+            turned on the AC,
+            and was resting.
+          </p>
+
+          <p>
+            I told him to eat because
+            I would still be late.
+          </p>
+
+          <div class="quote-card">
+            “Tumhare bina aise reh lunga<br>
+            par tumse mile bina kuch na khaunga<br>
+            na kahi ghumunga.”
+          </div>
+
+          <p>
+            And then somehow,
+            I had to finish my work faster.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 14-06 -->
+
+      <div class="memory-block center reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Around 3 PM
+          </span>
+
+          <h3>
+            “Aa jao na yrr...”
+          </h3>
+
+          <p>
+            I was finally free around 3 PM.
+          </p>
+
+          <p>
+            He teased me on the phone:
+          </p>
+
+          <div class="quote-card">
+            “Aa jao na yrr warna<br>
+            mai flight lekr Pune chla jaunga.”
+          </div>
+
+          <p>
+            I was tired.
+            But he had come from so far.
+          </p>
+
+          <p class="handwritten">
+            I didn't want to hurt him.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 14-07 -->
+
+      <div class="memory-block left reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Jor Bagh → Green Park
+          </span>
+
+          <h3>
+            Finally, I went.
+          </h3>
+
+          <p>
+            I reached Green Park Metro.
+          </p>
+
+          <p>
+            At first, I couldn't see him at the exit.
+            I went outside.
+          </p>
+
+          <p>
+            Then he called and said he was inside.
+          </p>
+
+          <p>
+            So I went back inside the metro.
+          </p>
+
+          <p>
+            He was thinking about a hug and a kiss.
+            I was nervous.
+          </p>
+
+          <p class="handwritten">
+            And neither of us knew
+            how the next few hours would unfold.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 14-08 -->
+
+      <div class="memory-block right reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Metro
+          </span>
+
+          <h3>
+            The ticket trouble.
+          </h3>
+
+          <p>
+            His ticket scanned.
+            Mine didn't.
+          </p>
+
+          <p>
+            He had used his phone and needed
+            to select/slide another ticket.
+          </p>
+
+          <p>
+            Eventually mine worked too.
+          </p>
+
+          <p>
+            Then we boarded the metro towards
+            Rajiv Chowk.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 14-09 -->
+
+      <div class="memory-block center reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Crowded metro
+          </span>
+
+          <h3>
+            He kept me close.
+          </h3>
+
+          <p>
+            The metro was extremely crowded.
+          </p>
+
+          <p>
+            He protected me from the crowd,
+            and I held his hand.
+          </p>
+
+          <p>
+            People kept looking at us.
+          </p>
+
+          <p>
+            At Rajiv Chowk, he said something
+            and I punched him.
+          </p>
+
+          <p class="handwritten">
+            And yes, people looked even more.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 14-10 -->
+
+      <div class="memory-block left reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Connaught Place
+          </span>
+
+          <h3>
+            The art café scam.
+          </h3>
+
+          <p>
+            We reached CP.
+          </p>
+
+          <p>
+            He searched Google for an art café.
+          </p>
+
+          <p>
+            We went there...
+          </p>
+
+          <p>
+            And got scammed.
+          </p>
+
+          <p>
+            It wasn't good at all.
+          </p>
+
+          <p>
+            Still, we sat there holding hands.
+            He kept looking at me.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 14-11 -->
+
+      <div class="memory-block right reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Café
+          </span>
+
+          <h3>
+            Suddenly, everything felt softer.
+          </h3>
+
+          <p>
+            A couple sitting behind us
+            was being romantic.
+          </p>
+
+          <p>
+            Watching them made Kunnu even more romantic.
+          </p>
+
+          <p>
+            He kept holding my hand
+            and looking at me.
+          </p>
+
+          <p>
+            Then paneer tikka arrived.
+          </p>
+
+          <p>
+            Neither of us liked it.
+          </p>
+
+          <p class="handwritten">
+            So we decided to go back to the room.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 14-12 -->
+
+      <div class="memory-block center reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            On the way back
+          </span>
+
+          <h3>
+            The ride home.
+          </h3>
+
+          <p>
+            We took an auto/cab back.
+          </p>
+
+          <p>
+            He kept teasing me,
+            put his arm around my waist,
+            and kissed my cheek.
+          </p>
+
+          <p>
+            I became shy.
+          </p>
+
+          <p class="handwritten">
+            The day had changed completely
+            from what I had imagined that morning.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 14-13 -->
+
+      <div class="memory-block left reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Back at the room
+          </span>
+
+          <h3>
+            A very private evening.
+          </h3>
+
+          <p>
+            He showed me his natak video.
+          </p>
+
+          <p>
+            We lay down to watch it.
+            I watched for a while
+            and then asked him to stop.
+          </p>
+
+          <p>
+            We hugged and became closer.
+            The evening turned into a deeply
+            private and intimate moment between us.
+          </p>
+
+          <p>
+            Some things from that evening
+            don't need to be written out.
+          </p>
+
+          <p class="handwritten">
+            We know what they meant.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 14-14 -->
+
+      <div class="memory-block right reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Afterwards
+          </span>
+
+          <h3>
+            The little things.
+          </h3>
+
+          <p>
+            He buttoned my shirt,
+            fixed my hair and joked:
+          </p>
+
+          <div class="quote-card">
+            “Tumhe set kar sakta hu<br>
+            toh baal kyu nahi.”
+          </div>
+
+          <p>
+            I laughed.
+          </p>
+
+          <p>
+            We hugged, talked and stayed close.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 14-15 -->
+
+      <div class="memory-block center reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            The denim shirt
+          </span>
+
+          <h3>
+            “Kal kya pehnoge?”
+          </h3>
+
+          <p>
+            I asked what he would wear the next day.
+          </p>
+
+          <p>
+            He said he had brought a denim-like shirt.
+          </p>
+
+          <p>
+            I asked him to try it.
+          </p>
+
+          <p>
+            He changed into it.
+            I went close and fixed it.
+          </p>
+
+          <p>
+            It was loose,
+            so I told him to wear it properly.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 14-16 -->
+
+      <div class="memory-block left reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Night
+          </span>
+
+          <h3>
+            Time to go home.
+          </h3>
+
+          <p>
+            We went downstairs.
+          </p>
+
+          <p>
+            He booked a cab for me.
+          </p>
+
+          <p>
+            After reaching home,
+            I messaged him:
+          </p>
+
+          <div class="message-memory">
+            mai agyi ghar<br>
+            aap khana kha lena aur so jana
+          </div>
+
+          <p>
+            He slept early,
+            around 9 PM.
+          </p>
+
+          <p class="handwritten">
+            And I went to sleep too.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         15 SEPTEMBER 2025
+    ====================================================== -->
+
+    <section class="memory-section last-day" id="sep15">
+
+      <div class="memory-header">
+
+        <p class="date-label">
+          15 SEPTEMBER 2025 · MONDAY
         </p>
 
         <h2>
-            I really liked that moment.
+          One more day.
         </h2>
 
-    </div>
-
-
-    <div class="anime-scene mirror-scene">
-
-        <div class="mirror-frame">
-
-            <div class="mirror-glass">
-
-                <div class="mirror-girl">
-
-                    <div class="anime-head">
-                        <div class="anime-hair girl-hair-long"></div>
-
-                        <div class="anime-face">
-                            <span class="eye left-eye"></span>
-                            <span class="eye right-eye"></span>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="mirror-girl-real">
-
-            <div class="anime-head">
-
-                <div class="anime-hair girl-hair-long"></div>
-
-                <div class="anime-face">
-                    <span class="eye left-eye"></span>
-                    <span class="eye right-eye"></span>
-                </div>
-
-            </div>
-
-            <div class="hair-adjusting-hand"></div>
-
-        </div>
-
-
-        <div class="mirror-boy-watching">
-
-            <div class="anime-head">
-
-                <div class="anime-hair boy-hair"></div>
-
-                <div class="anime-face">
-                    <span class="eye left-eye"></span>
-                    <span class="eye right-eye"></span>
-                </div>
-
-            </div>
-
-            <div class="anime-body">
-                <div class="anime-shirt"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="mirror-quote">
-        "I don't know why...
-        but I really liked that moment."
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     GOODBYE — AIRPLANE
-========================================================= -->
-
-<section class="diary-page goodbye-page">
-
-    <div class="goodbye-sky">
-
-        <div class="goodbye-moon"></div>
-
-        <div class="goodbye-stars">
-            <span>✦</span>
-            <span>✧</span>
-            <span>✦</span>
-            <span>✧</span>
-            <span>✦</span>
-            <span>✧</span>
-        </div>
-
-
-        <!-- MOVING AIRPLANE -->
-
-        <div class="airplane">
-
-            <div class="plane-body"></div>
-            <div class="plane-wing wing-top"></div>
-            <div class="plane-wing wing-bottom"></div>
-            <div class="plane-tail"></div>
-
-            <div class="plane-window window-one"></div>
-            <div class="plane-window window-two"></div>
-            <div class="plane-window window-three"></div>
-
-            <div class="plane-trail"></div>
-
-        </div>
-
-
-        <div class="city-label delhi-label">
-            DELHI
-        </div>
-
-        <div class="city-label pune-label">
-            PUNE
-        </div>
-
-
-        <div class="goodbye-couple">
-
-            <div class="tiny-silhouette girl-silhouette"></div>
-            <div class="tiny-silhouette boy-silhouette"></div>
-
-        </div>
-
-
-        <div class="goodbye-text">
-
-            <p class="tiny-label">
-                UNTIL THE NEXT TIME
-            </p>
-
-            <h2>
-                Delhi → Pune
-            </h2>
-
-            <p>
-                Distance changed the location,
-                not the little universe we had made.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     TWO YEARS
-========================================================= -->
-
-<section class="diary-page two-years-page">
-
-    <div class="two-years-stars">
-        <span>✦</span>
-        <span>✧</span>
-        <span>✦</span>
-        <span>✧</span>
-        <span>✦</span>
-    </div>
-
-
-    <div class="giant-two">
-
-        <span class="number-two">
-            2
-        </span>
-
-        <span class="years-word">
-            YEARS
-        </span>
-
-    </div>
-
-
-    <div class="two-years-text">
-
-        <p>
-            Two years of conversations.
+        <p class="subtitle">
+          The day that somehow held laughter,
+          tears, tea, Maggie and a goodbye.
         </p>
 
-        <p>
-            Fights that didn't last forever.
-        </p>
-
-        <p>
-            Jokes that made absolutely no sense
-            to anyone else.
-        </p>
-
-        <p>
-            Meetings that ended too soon.
-        </p>
-
-        <p>
-            Tiny memories that somehow
-            became giant pieces of our story.
-        </p>
-
-    </div>
+      </div>
 
 
-    <div class="orbit-memories">
+      <!-- MEMORY 15-01 -->
 
-        <span>chat</span>
-        <span>laugh</span>
-        <span>fight</span>
-        <span>meet</span>
-        <span>miss</span>
-        <span>repeat</span>
+      <div class="memory-block left reveal">
 
-    </div>
+        <div class="memory-text">
 
-</section>
+          <span class="memory-time">
+            Morning
+          </span>
 
+          <h3>
+            “Kitne baje aaogi?”
+          </h3>
 
-<!-- =========================================================
-     FUTURE
-========================================================= -->
+          <p>
+            He messaged in the morning
+            asking what time I would come.
+          </p>
 
-<section class="diary-page future-page">
+          <p>
+            I bathed, got ready,
+            and went to Yusuf Sarai roadside.
+          </p>
 
-    <div class="future-sky">
-
-        <div class="future-moon"></div>
-
-        <div class="future-stars">
-            <span>✦</span>
-            <span>✧</span>
-            <span>✦</span>
-            <span>✧</span>
-            <span>✦</span>
-        </div>
-
-
-        <div class="future-sunrise"></div>
-
-
-        <!-- HOME -->
-        <div class="future-home">
-
-            <div class="home-roof"></div>
-            <div class="home-wall"></div>
-
-            <div class="home-window window-left"></div>
-            <div class="home-window window-right"></div>
-
-            <div class="home-door"></div>
+          <p>
+            I waited there.
+          </p>
 
         </div>
 
-
-        <!-- TREE -->
-        <div class="future-tree">
-            <div class="future-tree-trunk"></div>
-            <div class="future-tree-crown"></div>
-        </div>
+      </div>
 
 
-        <!-- SCOOTER -->
-        <div class="future-scooter">
-            <div class="scooter-body"></div>
-            <div class="scooter-wheel wheel-one"></div>
-            <div class="scooter-wheel wheel-two"></div>
-            <div class="scooter-handle"></div>
-        </div>
+      <!-- MEMORY 15-02 -->
 
+      <div class="memory-block right reveal">
 
-        <!-- LAPTOP -->
-        <div class="future-laptop">
-            <div class="laptop-screen"></div>
-            <div class="laptop-base"></div>
-        </div>
+        <div class="memory-text">
 
+          <span class="memory-time">
+            Yusuf Sarai
+          </span>
 
-        <!-- ANIMAL SILHOUETTES -->
-        <div class="animal-silhouettes">
+          <h3>
+            Back together again.
+          </h3>
 
-            <div class="dog-silhouette"></div>
-            <div class="cat-silhouette"></div>
+          <p>
+            He called and asked where I was.
+          </p>
 
-        </div>
+          <p>
+            I told him I was at the same place
+            from where I had gone home the previous day.
+          </p>
 
+          <p>
+            He came and was buying things.
+          </p>
 
-        <!-- COUPLE WALKING -->
-        <div class="future-couple">
+          <div class="quote-card">
+            “Kya lu tum btao?”
+          </div>
 
-            <div class="walking-girl">
-
-                <div class="anime-head">
-                    <div class="anime-hair girl-hair-long"></div>
-
-                    <div class="anime-face">
-                        <span class="eye left-eye"></span>
-                        <span class="eye right-eye"></span>
-                    </div>
-                </div>
-
-                <div class="anime-body">
-                    <div class="anime-dress"></div>
-                </div>
-
-            </div>
-
-
-            <div class="walking-boy">
-
-                <div class="anime-head">
-                    <div class="anime-hair boy-hair"></div>
-
-                    <div class="anime-face">
-                        <span class="eye left-eye"></span>
-                        <span class="eye right-eye"></span>
-                    </div>
-                </div>
-
-                <div class="anime-body">
-                    <div class="anime-shirt"></div>
-                </div>
-
-            </div>
+          <p>
+            We walked around the market
+            and bought things together.
+          </p>
 
         </div>
 
+      </div>
 
-        <div class="future-message">
 
-            <p class="tiny-label">
-                THE NEXT CHAPTER
-            </p>
+      <!-- MEMORY 15-03 -->
 
-            <h2>
-                Still writing...
-            </h2>
+      <div class="memory-block center reveal">
 
-            <p>
-                Maybe the future isn't one perfect picture.
-                Maybe it's a collection of little ordinary days
-                that slowly become our favourite ones.
-            </p>
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Back at the room
+          </span>
+
+          <h3>
+            Tea, reels and his natak.
+          </h3>
+
+          <p>
+            I lay on the bed scrolling through reels.
+          </p>
+
+          <p>
+            He took off his T-shirt,
+            made tea and came to lie beside me.
+          </p>
+
+          <p>
+            Earlier, when we entered,
+            he had seen my boots and happily said
+            I looked like a model.
+          </p>
+
+          <p class="handwritten">
+            “Model type.”
+          </p>
 
         </div>
 
-    </div>
-
-</section>
+      </div>
 
 
-<!-- =========================================================
-     FINAL ENVELOPE
-========================================================= -->
+      <!-- MEMORY 15-04 -->
 
-<section id="final-letter" class="diary-page final-page">
+      <div class="memory-block left reveal">
 
-    <div class="final-stars">
-        <span>✦</span>
-        <span>✧</span>
-        <span>✦</span>
-        <span>✧</span>
-        <span>✦</span>
-        <span>✧</span>
-    </div>
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Tea time
+          </span>
+
+          <h3>
+            Watching his natak again.
+          </h3>
+
+          <p>
+            He played his natak video again.
+          </p>
+
+          <p>
+            It was in Marathi,
+            so he explained everything to me in Hindi.
+          </p>
+
+          <p>
+            I was a little bored,
+            but he kept lovingly looking at me.
+          </p>
+
+          <p>
+            He even acted out parts of his natak
+            while we had tea.
+          </p>
+
+        </div>
+
+      </div>
 
 
-    <div class="final-intro">
+      <!-- MEMORY 15-05 -->
 
-        <p class="tiny-label">
-            ONE LAST THING...
+      <div class="memory-block right reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            The conversation
+          </span>
+
+          <h3>
+            Then we talked about his life.
+          </h3>
+
+          <p>
+            After tea and the video,
+            I asked about his job
+            and why he never told me online
+            why he became so emotional.
+          </p>
+
+          <p>
+            He told me about his journey.
+          </p>
+
+          <p>
+            He cried.
+            He lowered his head.
+          </p>
+
+          <p>
+            I felt bad seeing him like that
+            and hugged him.
+          </p>
+
+          <p class="handwritten">
+            Sometimes love is just sitting beside someone
+            when they don't have words left.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 15-06 -->
+
+      <div class="memory-block center reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            A difficult conversation
+          </span>
+
+          <h3>
+            Questions we couldn't avoid.
+          </h3>
+
+          <p>
+            We became close again,
+            and the moment became deeply intimate.
+          </p>
+
+          <p>
+            Later I asked him:
+          </p>
+
+          <div class="quote-card">
+            “Aap sach mein mujhse pyaar karte ho?”
+          </div>
+
+          <p>
+            He said yes and asked why I was asking.
+          </p>
+
+          <p>
+            I told him that so much had happened,
+            and it had only been about a year.
+          </p>
+
+          <p>
+            He mentioned that his mother might
+            marry him to a software engineer.
+          </p>
+
+          <p class="handwritten">
+            And yes, I got angry.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 15-07 -->
+
+      <div class="memory-block left reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Suddenly
+          </span>
+
+          <h3>
+            I wanted to leave.
+          </h3>
+
+          <p>
+            I told him I needed to dress
+            and asked him to go to the bathroom.
+          </p>
+
+          <p>
+            He asked what had happened.
+            I ignored him.
+          </p>
+
+          <p>
+            I pushed him away and told him
+            to go to the bathroom.
+          </p>
+
+          <p>
+            I quickly dressed
+            and prepared to leave.
+          </p>
+
+          <p class="handwritten">
+            I didn't want to stay angry,
+            but I was hurt.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 15-08 -->
+
+      <div class="memory-block right reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            At the door
+          </span>
+
+          <h3>
+            Neither of us was okay.
+          </h3>
+
+          <p>
+            He stopped me.
+            He hugged me and asked me not to go.
+          </p>
+
+          <p>
+            He kept asking what had happened.
+          </p>
+
+          <p>
+            I scolded him.
+            I told him I felt like
+            he had taken advantage of me.
+          </p>
+
+          <p>
+            I cried.
+            He cried a lot too.
+          </p>
+
+          <p>
+            He held me.
+          </p>
+
+          <p class="handwritten">
+            And still, I left.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 15-09 -->
+
+      <div class="memory-block center reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Then I came back.
+          </span>
+
+          <h3>
+            Because sometimes leaving
+            doesn't mean you want to leave.
+          </h3>
+
+          <p>
+            After some time,
+            I came back myself.
+          </p>
+
+          <p>
+            We hugged.
+          </p>
+
+          <p>
+            We both cried.
+          </p>
+
+          <p class="handwritten">
+            No perfect words.
+            Just two people trying to understand
+            what they were feeling.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 15-10 -->
+
+      <div class="memory-block left reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Maggie time
+          </span>
+
+          <h3>
+            Then he made Maggie.
+          </h3>
+
+          <p>
+            Somehow, after all those tears,
+            he went to make Maggie.
+          </p>
+
+          <p>
+            He made it romantically,
+            kept hugging and kissing me,
+            and somehow I turned red.
+          </p>
+
+          <p>
+            The Maggie wasn't even that good.
+          </p>
+
+          <p>
+            He said it would have been better
+            with tomato.
+          </p>
+
+          <div class="quote-card">
+            “Tumhare gaal daal du kya?”
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 15-11 -->
+
+      <div class="memory-block right reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            One plate
+          </span>
+
+          <h3>
+            We ate together.
+          </h3>
+
+          <p>
+            We ate from the same plate.
+          </p>
+
+          <p>
+            He lifted my face
+            and told me he couldn't see me crying.
+          </p>
+
+          <p>
+            He called me innocent.
+          </p>
+
+          <p>
+            Even while eating,
+            he still wanted to be close.
+          </p>
+
+          <p>
+            When I asked what was wrong,
+            he simply said:
+          </p>
+
+          <div class="quote-card">
+            “Kuch nhi.”
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 15-12 -->
+
+      <div class="memory-block center reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            After Maggie
+          </span>
+
+          <h3>
+            Quiet again.
+          </h3>
+
+          <p>
+            We lay down and cuddled.
+          </p>
+
+          <p>
+            He showed me a video about kissing.
+          </p>
+
+          <p>
+            There was a girl in the video.
+          </p>
+
+          <p>
+            I covered his eyes.
+          </p>
+
+          <div class="quote-card">
+            “Jab mai pas hu<br>
+            toh aap dusri kyu dekhoge bhala.”
+          </div>
+
+          <p>
+            We joked and talked.
+          </p>
+
+          <p>
+            And eventually,
+            I fell asleep.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 15-13 -->
+
+      <div class="memory-block left reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Later
+          </span>
+
+          <h3>
+            The headache.
+          </h3>
+
+          <p>
+            I woke up with a headache.
+          </p>
+
+          <p>
+            I told him my head hurt.
+          </p>
+
+          <p>
+            He offered to massage it.
+          </p>
+
+          <p>
+            I asked if he hadn't slept.
+          </p>
+
+          <p>
+            He said no.
+          </p>
+
+          <p>
+            I asked why.
+          </p>
+
+          <p>
+            He was looking at me.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 15-14 -->
+
+      <div class="memory-block right reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Tea again
+          </span>
+
+          <h3>
+            Black tea & one cute photo.
+          </h3>
+
+          <p>
+            We both got up and washed our faces.
+          </p>
+
+          <p>
+            He made black tea.
+          </p>
+
+          <p>
+            We took a photo while making tea.
+          </p>
+
+          <p class="handwritten">
+            And somehow,
+            we looked really cute together.
+          </p>
+
+          <p>
+            We sat on the bed and drank tea.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- 15 SEP THREE PHOTOS -->
+
+      <div class="photo-trio reveal">
+
+        <div class="photo-card small-photo">
+
+          <img
+            src="images/15-sep-1.jpg"
+            alt="Our memory from 15 September 2025"
+          >
+
+          <span class="photo-date">
+            15.09.2025
+          </span>
+
+        </div>
+
+
+        <div class="photo-card favourite-photo">
+
+          <div class="favourite-ribbon">
+            MY FAVOURITE
+          </div>
+
+          <img
+            src="images/15-sep-2.jpg"
+            alt="My favourite memory from 15 September 2025"
+          >
+
+          <div class="photo-caption">
+            <span>15.09.2025</span>
+            <strong>The one I love most.</strong>
+          </div>
+
+        </div>
+
+
+        <div class="photo-card small-photo">
+
+          <img
+            src="images/15-sep-3.jpg"
+            alt="Our memory from 15 September 2025"
+          >
+
+          <span class="photo-date">
+            15.09.2025
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 15-15 -->
+
+      <div class="memory-block center reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            Before leaving
+          </span>
+
+          <h3>
+            One last quiet moment.
+          </h3>
+
+          <p>
+            After tea, there were more hugs,
+            kisses and a quiet intimate moment
+            before the day finally moved towards goodbye.
+          </p>
+
+          <p>
+            I went to the bathroom to fix my hair.
+          </p>
+
+          <p>
+            He looked at me from outside.
+          </p>
+
+          <p>
+            I liked the way he was looking at me.
+          </p>
+
+          <p class="handwritten">
+            Then one more hug.
+            One more kiss.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 15-16 -->
+
+      <div class="memory-block left reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            The goodbye
+          </span>
+
+          <h3>
+            He took me downstairs.
+          </h3>
+
+          <p>
+            He put me in a cab/auto.
+          </p>
+
+          <p>
+            I went home.
+          </p>
+
+          <p>
+            He went from the room towards the airport.
+          </p>
+
+          <p>
+            His face looked like he might cry.
+          </p>
+
+          <p class="handwritten">
+            He didn't want to leave.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MEMORY 15-17 -->
+
+      <div class="memory-block right reveal">
+
+        <div class="memory-text">
+
+          <span class="memory-time">
+            The message
+          </span>
+
+          <h3>
+            And then came the message.
+          </h3>
+
+          <div class="message-memory large-message">
+            Bhagya mann nhi ho rha hai mera…
+          </div>
+
+          <p>
+            I cried that night.
+          </p>
+
+          <p>
+            Because sometimes a goodbye isn't
+            just about leaving a place.
+          </p>
+
+          <p>
+            It's about leaving the person
+            you wish you could stay with.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         LONG DISTANCE
+    ====================================================== -->
+
+    <section class="distance-section story-section">
+
+      <div class="distance-content">
+
+        <p class="date-label">
+          AFTER THAT
         </p>
 
         <h2>
-            I kept one little letter
-            for you.
+          Delhi ↔ Pune
         </h2>
 
-    </div>
-
-
-    <!-- CLICKABLE ENVELOPE -->
-
-    <button
-        id="finalEnvelope"
-        class="final-envelope"
-        type="button"
-        aria-label="Open final letter"
-    >
-
-        <div class="envelope-back"></div>
-
-        <div class="envelope-letter">
-
-            <p>
-                Happy 2 Years,
-                Kunnu ♡
-            </p>
-
-            <span>
-                30.09.2024
-            </span>
-
-        </div>
-
-        <div class="envelope-front"></div>
-
-        <div class="envelope-flap"></div>
-
-        <div class="envelope-heart">
-            ♡
-        </div>
-
-    </button>
-
-
-    <div class="final-letter-content">
+        <div class="distance-line"></div>
 
         <p>
-            Happy 2 Years, Kunnu.
+          Life went back to normal.
         </p>
 
         <p>
-            Thank you for becoming a part of
-            so many little moments that I now
-            can't imagine forgetting.
+          I stayed in Delhi.
+          He went back to Pune.
         </p>
 
         <p>
-            Here's to the conversations,
-            the teasing, the silly fights,
-            the meetings, the distance,
-            the chai,
-            the photographs,
-            and even the moments
-            we never captured.
+          Work.
+          Calls.
+          Messages.
+          Business.
+          Office.
+          Normal days.
         </p>
 
-        <p>
-            Some dates become memories.
-            Some people become a part of you.
+        <p class="handwritten">
+          But now normal days had memories inside them.
         </p>
 
-        <div class="final-signature">
-            — Bhagya ♡
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ANNIVERSARY ENDING
+    ====================================================== -->
+
+    <section class="ending-section" id="ending">
+
+      <div class="ending-stars"></div>
+
+      <div class="ending-content">
+
+        <p class="date-label">
+          30 SEPTEMBER 2026
+        </p>
+
+        <div class="two-years">
+          2
         </div>
 
-        <div class="final-special-date">
-            30.09.2024
-            <br>
-            forever a special date
+        <h2>
+          Two years.
+        </h2>
+
+        <p class="ending-main">
+          From two strangers taking the same step
+          in Lodhi Garden...
+        </p>
+
+        <p class="ending-main">
+          to two people carrying an entire
+          little universe of memories.
+        </p>
+
+        <div class="ending-divider">
+          ✦
         </div>
 
-    </div>
+        <p class="handwritten ending-note">
+          Kunnu,
+        </p>
+
+        <p class="ending-letter">
+
+          Agar kabhi meri yaad aaye,<br>
+          toh yahan aa jana.
+
+          <br><br>
+
+          Yahan woh din hai<br>
+          jab hum pehli baar mile the.
+
+          <br><br>
+
+          Yahan woh din hai<br>
+          jab tum Delhi wapas aaye the.
+
+          <br><br>
+
+          Yahan woh chai hai,<br>
+          woh Maggie hai,<br>
+          woh metro hai,<br>
+          woh hand-holding hai,<br>
+          woh rona hai,<br>
+          woh hasi hai...
+
+          <br><br>
+
+          Aur woh saari chhoti-chhoti cheezein<br>
+          jo shayad duniya ke liye kuch nahi,<br>
+          par humare liye sab kuch hain.
+
+        </p>
+
+        <p class="final-love">
+          Happy 2 Years, Kunnu.
+        </p>
+
+        <p class="final-small">
+          This little universe is ours.
+        </p>
+
+      </div>
+
+    </section>
 
 
-    <div class="final-footer">
-
-        <span>✦</span>
-
-        Kunnu × Bhagya · Our Little Universe
-
-        <span>✦</span>
-
-    </div>
-
-</section>
+  </main>
 
 
-</main>
+  <!-- =====================================================
+       MUSIC
+  ====================================================== -->
+
+  <audio id="backgroundMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
 
 
-<!-- =========================================================
-     JAVASCRIPT
-========================================================= -->
+  <!-- =====================================================
+       JAVASCRIPT
+       Actual functionality will be added in script.js
+  ====================================================== -->
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 
 </body>
 </html>
