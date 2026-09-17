@@ -1,2530 +1,2283 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Our Little Universe</title>
+    <title>Kunnu & Bhagya — Our Little Universe</title>
 
-  <link rel="stylesheet" href="style.css">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Dancing+Script:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- =====================================================
-       BACKGROUND UNIVERSE
-  ====================================================== -->
+    <!-- =========================================================
+         LOCK SCREEN
+    ========================================================== -->
 
-  <div class="universe">
+    <div id="lockScreen" class="lock-screen">
 
-    <div class="stars stars-one"></div>
-    <div class="stars stars-two"></div>
-    <div class="stars stars-three"></div>
+        <div class="night-sky">
+            <div class="stars"></div>
 
-    <div class="moon">
-      <div class="moon-glow"></div>
+            <div class="moon"></div>
+
+            <div class="cloud cloud-one"></div>
+            <div class="cloud cloud-two"></div>
+            <div class="cloud cloud-three"></div>
+
+            <span class="floating-heart heart-one">♡</span>
+            <span class="floating-heart heart-two">♡</span>
+            <span class="floating-heart heart-three">♡</span>
+            <span class="floating-heart heart-four">♡</span>
+        </div>
+
+        <div class="lock-content">
+
+            <div class="lock-symbol">🔐</div>
+
+            <p class="small-label">A LITTLE SECRET UNIVERSE</p>
+
+            <h1>Kunnu & Bhagya</h1>
+
+            <p class="lock-subtitle">
+                Some memories are not meant for everyone.
+            </p>
+
+            <div class="lock-card">
+
+                <p class="lock-card-title">
+                    Enter the date where everything began.
+                </p>
+
+                <input
+                    type="password"
+                    id="secretCode"
+                    placeholder="Enter the secret code"
+                    maxlength="8"
+                    autocomplete="off"
+                >
+
+                <button id="unlockBtn">
+                    Unlock Our Story ♡
+                </button>
+
+                <p id="codeError" class="code-error"></p>
+
+            </div>
+
+            <p class="lock-footer">
+                30 • 09 • 2024
+            </p>
+
+        </div>
     </div>
 
-    <div class="cloud cloud-one"></div>
-    <div class="cloud cloud-two"></div>
 
-    <div class="floating-heart heart-one">♡</div>
-    <div class="floating-heart heart-two">♡</div>
-    <div class="floating-heart heart-three">♡</div>
+    <!-- =========================================================
+         MAIN WEBSITE
+    ========================================================== -->
 
-  </div>
+    <main id="mainContent" class="main-content">
 
+        <!-- MUSIC -->
 
-  <!-- =====================================================
-       OPENING
-  ====================================================== -->
+        <audio id="backgroundMusic" loop>
+            <source src="music.mp3" type="audio/mpeg">
+        </audio>
 
-  <main>
 
-    <section class="opening-section" id="opening">
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
 
-      <div class="opening-content">
+        <section class="hero-section">
 
-        <p class="tiny-line">
-          A little place for two people
-        </p>
+            <div class="hero-stars"></div>
 
-        <h1>
-          Our Little<br>
-          <span>Universe</span>
-        </h1>
+            <div class="hero-moon"></div>
 
-        <div class="opening-line"></div>
+            <div class="hero-cloud hero-cloud-one"></div>
+            <div class="hero-cloud hero-cloud-two"></div>
 
-        <p class="opening-text">
-          Some memories are too precious<br>
-          to be left only in our minds.
-        </p>
+            <div class="hero-content">
 
-        <button class="begin-button" id="beginButton">
-          Open our story
-        </button>
+                <p class="date-label">
+                    30 September 2026
+                </p>
 
-      </div>
+                <h1>
+                    Happy Anniversary
+                    <span>Kunnu ♡</span>
+                </h1>
 
-      <div class="scroll-hint">
-        <span>↓</span>
-        <small>our story begins</small>
-      </div>
+                <p class="hero-subtitle">
+                    Two years of a story that neither of us planned.
+                </p>
 
-    </section>
+                <div class="hero-names">
+                    Kunnu <span>×</span> Bhagya
+                </div>
 
+                <button id="beginButton" class="begin-button">
+                    Begin our story
+                </button>
 
-    <!-- =====================================================
-         INTRODUCTION
-    ====================================================== -->
+            </div>
 
-    <section class="intro-section story-section">
+            <div class="hero-teddy">🧸</div>
+            <div class="hero-guitar">🎸</div>
 
-      <div class="section-number">
-        01
-      </div>
+            <div class="scroll-hint">
+                ↓
+            </div>
 
-      <div class="intro-content">
+        </section>
 
-        <p class="date-label">
-          BEFORE WE KNEW
-        </p>
 
-        <h2>
-          Maybe it was<br>
-          just a normal day...
-        </h2>
+        <!-- =====================================================
+             INTRO
+        ====================================================== -->
 
-        <p>
-          But some ordinary days quietly become
-          the days you remember forever.
-        </p>
+        <section id="intro" class="intro-section story-section">
 
-        <p class="handwritten">
-          And ours started without either of us
-          knowing what was coming.
-        </p>
+            <div class="section-inner">
 
-      </div>
+                <p class="eyebrow">
+                    A story we never planned
+                </p>
 
-    </section>
+                <h2>
+                    Before it became <span>“us”</span>
+                </h2>
 
+                <div class="intro-letter">
 
-    <!-- =====================================================
-         30 SEPTEMBER 2024
-    ====================================================== -->
+                    <p>
+                        There are some days that look completely ordinary
+                        when they begin, and only later do you realize
+                        that they quietly changed everything.
+                    </p>
 
-    <section class="memory-section sep-2024" id="sep2024">
+                    <p>
+                        For us, that day was
+                        <strong>30 September 2024.</strong>
+                    </p>
 
-      <div class="memory-header">
+                    <p>
+                        There was no plan to meet someone special.
+                        There was no expectation of a date.
+                        There wasn't even a thought that the person
+                        standing beside us would still matter two years later.
+                    </p>
 
-        <p class="date-label">
-          30 SEPTEMBER 2024 · MONDAY
-        </p>
+                    <p class="handwritten">
+                        And yet… here we are.
+                    </p>
 
-        <h2>
-          The day we met.
-        </h2>
+                </div>
 
-        <p class="subtitle">
-          The beginning of something neither of us had planned.
-        </p>
+            </div>
 
-      </div>
+        </section>
 
 
-      <!-- MEMORY 01 -->
+        <!-- =====================================================
+             30 SEPTEMBER 2024
+        ====================================================== -->
 
-      <div class="memory-block left reveal">
+        <section id="first-meeting" class="memory-section first-date-section">
 
-        <div class="memory-text">
+            <div class="section-inner">
 
-          <span class="memory-time">
-            Around noon
-          </span>
+                <div class="memory-heading">
 
-          <h3>
-            A plan that wasn't really a plan.
-          </h3>
+                    <p class="eyebrow">
+                        Chapter One
+                    </p>
 
-          <p>
-            I had my digital marketing class that day.
-            I thought I would sit in Lodhi Garden
-            and attend it there.
-          </p>
+                    <h2>
+                        30 September 2024
+                    </h2>
 
-          <p>
-            At that time, my Smart Value team had already
-            ended. Friends had left, things had changed,
-            and I had started thinking about meeting new
-            people, making friends and building a team again.
-          </p>
+                    <p class="day-location">
+                        Monday · Lodhi Garden → Connaught Place
+                    </p>
 
-          <p>
-            I was bored.
-            So I decided to go out.
-          </p>
+                </div>
 
-          <p class="handwritten">
-            And for the first time, I went to Lodhi Garden alone.
-          </p>
 
-        </div>
+                <!-- MORNING / BEFORE MEETING -->
 
-      </div>
+                <article class="story-card">
 
+                    <div class="story-time">
+                        Before noon
+                    </div>
 
-      <!-- MEMORY 02 -->
+                    <h3>
+                        A completely different reason for going out
+                    </h3>
 
-      <div class="memory-block right reveal">
+                    <p>
+                        I had an online digital marketing class that day,
+                        and I thought I would take it while sitting in
+                        Lodhi Garden.
+                    </p>
 
-        <div class="memory-text">
+                    <p>
+                        At that time, my Smart Value / network marketing
+                        team had already ended. The people I knew had left,
+                        and suddenly I found myself thinking about meeting
+                        new people, making friends and building a new team.
+                    </p>
 
-          <span class="memory-time">
-            The first few seconds
-          </span>
+                    <p>
+                        I was bored that day, so I decided to go outside.
+                        And for the first time, I went to Lodhi Garden alone.
+                    </p>
 
-          <h3>
-            Same place.<br>
-            Same time.
-          </h3>
+                </article>
 
-          <p>
-            Around 12 PM, we both arrived at almost
-            the same time, on the same step.
-          </p>
 
-          <p>
-            He looked at me and simply said:
-          </p>
+                <!-- FIRST MEETING -->
 
-          <div class="quote-card">
-            “Hi, I'm Kunal,<br>
-            I like your style.”
-          </div>
+                <article class="story-card featured-story">
 
-          <p>
-            I was wearing a shirt and trousers,
-            shoes and my bag.
-          </p>
+                    <div class="story-time">
+                        Around 12 PM · Lodhi Garden
+                    </div>
 
-          <p>
-            He was wearing a T-shirt and trousers.
-            I thought he might be a college student
-            living somewhere in Delhi.
-          </p>
+                    <h3>
+                        The same step, the same moment
+                    </h3>
 
-          <p>
-            Apparently, he thought I looked like
-            a working girl.
-          </p>
+                    <p>
+                        Around 12 PM, both of us arrived at almost the same
+                        time, at the same step.
+                    </p>
 
-        </div>
+                    <p>
+                        You looked at me and simply said:
+                    </p>
 
-      </div>
+                    <blockquote>
+                        “Hi, I’m Kunal, I like your style.”
+                    </blockquote>
 
+                    <p>
+                        I was wearing a shirt-and-trouser type outfit,
+                        shoes and a bag. You were wearing a T-shirt and
+                        trousers.
+                    </p>
 
-      <!-- MEMORY 03 -->
+                    <p>
+                        I remember thinking that you might be a college
+                        student living somewhere in Delhi.
+                    </p>
 
-      <div class="memory-block center reveal">
+                    <p>
+                        And apparently, you thought I looked like a
+                        working girl.
+                    </p>
 
-        <div class="memory-text">
+                    <p>
+                        We talked for a little while.
+                    </p>
 
-          <span class="memory-time">
-            And then...
-          </span>
+                    <p>
+                        Then I started walking away.
+                    </p>
 
-          <h3>
-            I walked away.
-          </h3>
+                    <p>
+                        You were alone, and when it looked like I was
+                        ignoring you, your face changed a little.
+                    </p>
 
-          <p>
-            We talked for a little while.
-            Then I started walking away.
-          </p>
+                    <p>
+                        I looked at the situation differently.
+                        We were both alone, and I thought,
+                        <em>why not make him a friend?</em>
+                    </p>
 
-          <p>
-            His face changed.
-            He was alone, and it probably looked
-            like I was ignoring him.
-          </p>
+                    <p>
+                        So I went back with you.
+                    </p>
 
-          <p>
-            But I looked at the situation differently.
-            We were both alone.
-          </p>
+                </article>
 
-          <p class="handwritten">
-            So I went back.
-          </p>
 
-          <p>
-            Maybe I just wanted to make a new friend.
-            I had no idea that I was walking back
-            toward someone who would later become
-            so important to me.
-          </p>
+                <!-- SIMILARITIES -->
 
-        </div>
+                <article class="story-card">
 
-      </div>
+                    <div class="story-time">
+                        Later · Lodhi Garden
+                    </div>
 
+                    <h3>
+                        Too many similarities to ignore
+                    </h3>
 
-      <!-- MEMORY 04 -->
+                    <p>
+                        We started talking properly, and very quickly
+                        discovered that we had many similar hobbies,
+                        interests and ways of thinking.
+                    </p>
 
-      <div class="memory-block left reveal">
+                    <p>
+                        It felt like there were more similarities than
+                        there should have been between two people who had
+                        literally just met.
+                    </p>
 
-        <div class="memory-text">
+                    <p class="handwritten">
+                        It felt like more than coincidence.
+                    </p>
 
-          <span class="memory-time">
-            Slowly, somehow
-          </span>
+                    <p>
+                        But at that moment, I didn't think too much about it.
+                    </p>
 
-          <h3>
-            Too many similarities.
-          </h3>
+                    <p>
+                        We kept walking and roaming around different places.
+                        Time passed without us noticing.
+                    </p>
 
-          <p>
-            We started talking.
-            Then we found out that we had
-            so many similar hobbies and interests.
-          </p>
+                    <p>
+                        I even missed my class.
+                    </p>
 
-          <p>
-            It felt like more than coincidence,
-            although I didn't think much about it
-            that day.
-          </p>
+                </article>
 
-          <p>
-            We kept walking.
-            We kept talking.
-            Places changed, but somehow
-            the time didn't feel like it was moving.
-          </p>
 
-          <p class="handwritten">
-            I even missed my class.
-          </p>
+                <!-- DUCK / WATER MOMENT -->
 
-        </div>
+                <article class="story-card">
 
-      </div>
+                    <div class="story-time">
+                        Lodhi Garden
+                    </div>
 
+                    <h3>
+                        The duck that became a “duct”
+                    </h3>
 
-      <!-- MEMORY 05 -->
+                    <p>
+                        At one point, I took you towards the part of
+                        Lodhi Garden where there were ducks and water.
+                    </p>
 
-      <div class="memory-block right reveal">
+                    <p>
+                        My throat wasn't good that day, so when I said
+                        “duck”, you heard something completely different.
+                    </p>
 
-        <div class="memory-text">
+                    <p>
+                        Somehow, neither of us found exactly the ducks,
+                        river or waterfall we were expecting.
+                    </p>
 
-          <span class="memory-time">
-            Somewhere between conversations
-          </span>
+                    <p class="funny-note">
+                        Our first misunderstanding… and it wasn't even
+                        a serious one. 😂
+                    </p>
 
-          <h3>
-            A little cute.<br>
-            Maybe a little flirty.
-          </h3>
+                </article>
 
-          <p>
-            We sat somewhere and talked.
-          </p>
 
-          <p>
-            He seemed cute to me,
-            although I wasn't really thinking
-            about it that way.
-          </p>
+                <!-- LEAVING LODHI / AUTO PHOTO FIRST -->
 
-          <p>
-            Later I realised that maybe
-            he had already started taking
-            little chances and flirting.
-          </p>
+                <article class="story-card photo-story">
 
-          <p class="handwritten">
-            I was just too innocent to notice.
-          </p>
+                    <div class="story-time">
+                        Around 2 PM · Leaving Lodhi Garden
+                    </div>
 
-        </div>
+                    <h3>
+                        “Let's go to CP.”
+                    </h3>
 
-      </div>
+                    <p>
+                        While sitting and talking, you told me that you
+                        had been to CP before and liked the mutton there.
+                    </p>
 
+                    <p>
+                        I had never been to CP.
+                    </p>
 
-      <!-- MEMORY 06 -->
+                    <p>
+                        So you suggested going there.
+                    </p>
 
-      <div class="memory-block center reveal">
+                    <p>
+                        You asked if I had to go home.
+                        I told you I still had time.
+                    </p>
 
-        <div class="memory-text">
+                    <p>
+                        We were free from Lodhi Road around 2 PM.
+                        We started walking while eating kulfi and talking.
+                    </p>
 
-          <span class="memory-time">
-            Before leaving
-          </span>
+                    <p>
+                        Then you booked an auto.
+                    </p>
 
-          <h3>
-            “I'm going home today.”
-          </h3>
+                    <p>
+                        Of course, you were still a complete stranger to me.
+                        I felt a little uncomfortable about getting into an
+                        auto with someone I had met only that day.
+                    </p>
 
-          <p>
-            He told me he was leaving for home
-            that day.
-          </p>
+                    <p>
+                        But after spending those two hours together,
+                        I thought it would be okay.
+                    </p>
 
-          <p>
-            I remember wondering:
-            what relation do I even have with
-            this person I met today?
-          </p>
+                    <div class="photo-frame">
 
-          <p>
-            And then, suddenly,
-            I thought I should take his number.
-          </p>
+                        <img
+                            src="images/30-sep-auto.jpg"
+                            alt="30 September 2024 auto memory"
+                        >
 
-          <p>
-            We exchanged numbers
-            and Instagram IDs.
-          </p>
+                        <p class="photo-caption">
+                            The first little journey after we met.
+                        </p>
 
-          <p class="handwritten">
-            And just like that,
-            a stranger became someone I could message.
-          </p>
+                    </div>
 
-        </div>
+                    <p>
+                        And then, completely suddenly, you put your hand
+                        on my shoulder.
+                    </p>
 
-      </div>
+                    <p>
+                        I got a little scared.
+                        I was comfortable around male friends,
+                        but you were new.
+                    </p>
 
+                    <blockquote>
+                        “Arey aisa waisa nahi hoon yrr, darro mat.”
+                    </blockquote>
 
-      <!-- MEMORY 07 -->
+                    <p>
+                        And somehow, that was enough to make me stay.
+                    </p>
 
-      <div class="memory-block left reveal">
+                </article>
 
-        <div class="memory-text">
 
-          <span class="memory-time">
-            Lodhi Garden
-          </span>
+                <!-- CP RAJMA -->
 
-          <h3>
-            The duck that became a “duct”.
-          </h3>
+                <article class="story-card">
 
-          <p>
-            We talked about family,
-            random things and everything in between.
-          </p>
+                    <div class="story-time">
+                        Later · Connaught Place
+                    </div>
 
-          <p>
-            My throat wasn't good that day.
-            I said “duck”.
-          </p>
+                    <h3>
+                        Bad rajma, good company
+                    </h3>
 
-          <p>
-            He heard “duct”.
-          </p>
+                    <p>
+                        We reached CP and went to eat rajma.
+                    </p>
 
-          <p>
-            And somehow we ended up looking
-            for the ducks and the water area
-            we thought we were going to find.
-          </p>
+                    <p>
+                        The rajma was honestly bad.
+                    </p>
 
-          <p class="handwritten">
-            We didn't find what we were looking for.
-            But the memory stayed.
-          </p>
+                    <p>
+                        Neither of us liked it, but neither of us really
+                        said it to the other.
+                    </p>
 
-        </div>
+                    <p>
+                        Eventually, we gave up and threw it away.
+                    </p>
 
-      </div>
+                    <p>
+                        Then a very overweight uncle came by, and I casually
+                        commented:
+                    </p>
 
+                    <blockquote>
+                        “Kya figure hai.”
+                    </blockquote>
 
-      <!-- MEMORY 08 -->
+                    <p>
+                        You laughed.
+                    </p>
 
-      <div class="memory-block right reveal">
+                    <p>
+                        Somehow, even silly little moments like that became
+                        part of the day.
+                    </p>
 
-        <div class="memory-text">
+                </article>
 
-          <span class="memory-time">
-            Around 2 PM
-          </span>
 
-          <h3>
-            “Have you been to CP?”
-          </h3>
+                <!-- HAND HOLDING -->
 
-          <p>
-            He told me he had been to CP
-            and liked mutton there.
-          </p>
+                <article class="story-card">
 
-          <p>
-            I had never been to CP.
-          </p>
+                    <div class="story-time">
+                        CP streets
+                    </div>
 
-          <p>
-            So he suggested that we go.
-            I had time, so I said okay.
-          </p>
+                    <h3>
+                        The hand you didn't let go of
+                    </h3>
 
-          <p>
-            We left the Lodhi Road side
-            around 2 PM.
-          </p>
+                    <p>
+                        We crossed the road together.
+                    </p>
 
-          <p>
-            We walked, ate kulfi,
-            and kept talking.
-          </p>
+                    <p>
+                        You wanted to hold my hand, but instead of simply
+                        saying it, you found an excuse.
+                    </p>
 
-        </div>
+                    <p>
+                        I gave you my hand.
+                    </p>
 
-      </div>
+                    <p>
+                        And you just kept holding it.
+                    </p>
 
+                    <p>
+                        Your hand felt warm.
+                    </p>
 
-      <!-- 30 SEP CAFE PHOTO -->
+                    <p>
+                        I even told you that.
+                    </p>
 
-      <div class="photo-memory reveal">
+                    <p>
+                        I didn't know then that you had already been taking
+                        little chances and flirting through the day.
+                    </p>
 
-        <div class="photo-card">
+                    <p class="handwritten">
+                        My innocence apparently made your work easier. 🙃
+                    </p>
 
-          <img
-            src="images/30-sep-cafe.jpg"
-            alt="Our cafe memory from 30 September 2024"
-          >
+                </article>
 
-          <div class="photo-caption">
-            <span>30.09.2024</span>
-            <strong>That unexpected day.</strong>
-          </div>
 
-        </div>
+                <!-- CAFE PHOTO SECOND -->
 
-        <div class="photo-note">
-          <span class="note-pin"></span>
+                <article class="story-card photo-story">
 
-          <p>
-            I didn't even know this was a date.
-          </p>
+                    <div class="story-time">
+                        Later · Café, Connaught Place
+                    </div>
 
-        </div>
+                    <h3>
+                        The café I don't remember the name of
+                    </h3>
 
-      </div>
+                    <p>
+                        We eventually went to a café.
+                    </p>
 
+                    <p>
+                        In my head, this still wasn't a date.
+                        It was just an unexpected day out with someone
+                        I had met that afternoon.
+                    </p>
 
-      <!-- MEMORY 09 -->
+                    <p>
+                        I had never even had a date with Tarun,
+                        so the word “date” wasn't exactly something
+                        I was thinking about.
+                    </p>
 
-      <div class="memory-block center reveal">
+                    <p>
+                        You later told me that, actually,
+                        <strong>this was a date.</strong>
+                    </p>
 
-        <div class="memory-text">
+                    <div class="photo-frame">
 
-          <span class="memory-time">
-            On the way to CP
-          </span>
+                        <img
+                            src="images/30-sep-cafe.jpg"
+                            alt="30 September 2024 cafe memory"
+                        >
 
-          <h3>
-            Still a stranger.
-          </h3>
+                        <p class="photo-caption">
+                            Somewhere in CP, on a day that wasn't supposed
+                            to become a memory like this.
+                        </p>
 
-          <p>
-            He booked an auto.
-            I felt a little uncomfortable
-            because he was still an unknown person to me.
-          </p>
+                    </div>
 
-          <p>
-            But after spending so much time together,
-            I thought it would probably be okay.
-          </p>
+                    <p>
+                        There was a girl sitting behind you who kept
+                        looking at you.
+                    </p>
 
-          <p>
-            Then suddenly he put his hand on my shoulder.
-          </p>
+                    <p>
+                        I wasn't jealous then.
+                    </p>
 
-          <div class="quote-card">
-            “Arey aisa waisa nahi hoon yrr,<br>
-            darro mat.”
-          </div>
+                    <p>
+                        But now?
+                    </p>
 
-        </div>
+                    <p class="funny-note">
+                        “Mere maal ko dekha kaise bc.” 😂
+                    </p>
 
-      </div>
+                    <p>
+                        You wanted to dance with me.
+                        I told you to dance with the girl instead.
+                    </p>
 
+                    <p>
+                        You looked back, and maybe she finally stopped
+                        looking.
+                    </p>
 
-      <!-- MEMORY 10 -->
+                </article>
 
-      <div class="memory-block left reveal">
 
-        <div class="memory-text">
+                <!-- VOICE / DIMPLE -->
 
-          <span class="memory-time">
-            Connaught Place
-          </span>
+                <article class="story-card">
 
-          <h3>
-            The rajma disaster.
-          </h3>
+                    <div class="story-time">
+                        Later that afternoon
+                    </div>
 
-          <p>
-            We reached CP and ate rajma.
-          </p>
+                    <h3>
+                        Things I didn't notice that day
+                    </h3>
 
-          <p>
-            It was bad.
-          </p>
+                    <p>
+                        I didn't really look at you carefully that day.
+                    </p>
 
-          <p>
-            Neither of us liked it,
-            but neither of us said it immediately.
-          </p>
+                    <p>
+                        I didn't notice your dimple properly.
+                        I didn't notice your cute smile the way I would
+                        later.
+                    </p>
 
-          <p class="handwritten">
-            Eventually, we threw it away.
-          </p>
+                    <p>
+                        But somehow, your voice and the conversations
+                        stayed in my mind.
+                    </p>
 
-          <p>
-            Then a very overweight uncle walked past.
-            I commented,
-            “kya figure hai,”
-            and Kunnu started laughing.
-          </p>
+                    <p>
+                        We kept wandering around, looking at little things
+                        like keychains and just talking.
+                    </p>
 
-        </div>
+                </article>
 
-      </div>
 
+                <!-- AIRPORT / GOODBYE -->
 
-      <!-- MEMORY 11 -->
+                <article class="story-card">
 
-      <div class="memory-block right reveal">
+                    <div class="story-time">
+                        Later · Before the airport
+                    </div>
 
-        <div class="memory-text">
+                    <h3>
+                        A goodbye that wasn't supposed to matter so much
+                    </h3>
 
-          <span class="memory-time">
-            Crossing the road
-          </span>
+                    <p>
+                        Then you got a call.
+                        You had to reach the airport.
+                    </p>
 
-          <h3>
-            The first hand-hold.
-          </h3>
+                    <p>
+                        I asked you to drop me at the bus stand.
+                    </p>
 
-          <p>
-            We crossed the road.
-          </p>
+                    <p>
+                        You wanted to hug me.
+                    </p>
 
-          <p>
-            He wanted to hold my hand
-            and found an excuse.
-          </p>
+                    <p>
+                        I didn't let you.
+                    </p>
 
-          <p>
-            I gave him my hand.
-          </p>
+                    <p>
+                        Your rider arrived, and you left.
+                    </p>
 
-          <p>
-            And he kept holding it.
-          </p>
+                    <p>
+                        You looked a little upset.
+                    </p>
 
-          <p>
-            His hand was warm.
-            I even told him that.
-          </p>
+                    <p>
+                        After reaching home, I messaged you:
+                    </p>
 
-          <p class="handwritten">
-            I didn't know then how many
-            times that hand would become familiar.
-          </p>
+                    <blockquote>
+                        “mai ghar pohoch gyi aap kaha tak pohoche.”
+                    </blockquote>
 
-        </div>
+                    <p>
+                        And then we talked on Instagram almost the entire
+                        night.
+                    </p>
 
-      </div>
+                    <p>
+                        I genuinely enjoyed talking to you.
+                    </p>
 
+                    <p>
+                        I still didn't know that, according to you,
+                        I had already been on a date.
+                    </p>
 
-      <!-- MEMORY 12 -->
+                </article>
 
-      <div class="memory-block center reveal">
 
-        <div class="memory-text">
+                <!-- FIRST NIGHT QUOTE -->
 
-          <span class="memory-time">
-            The café
-          </span>
+                <article class="story-card quote-card">
 
-          <h3>
-            Not a date.<br>
-            Or so I thought.
-          </h3>
+                    <p class="quote-mark">“</p>
 
-          <p>
-            We went to a café.
-            I don't even remember its name now.
-          </p>
+                    <blockquote>
+                        “aap phle aise insan ho jiske muh se jaida acha
+                        algta hai mera naam bhagya.”
+                    </blockquote>
 
-          <p>
-            I didn't think this unexpected meeting
-            was a date.
-          </p>
+                    <p class="quote-note">
+                        And somehow, a name became part of the story too.
+                    </p>
 
-          <p>
-            A girl sitting behind us kept looking
-            at Kunnu.
-          </p>
+                </article>
 
-          <p class="handwritten">
-            I wasn't jealous then.
-            I definitely am now.
-          </p>
 
-          <p>
-            Kunnu wanted to dance with me.
-            I told him to dance with her instead.
-          </p>
+                <!-- FIRST DATE END -->
 
-          <p>
-            He looked back...
-            and maybe she stopped looking.
-          </p>
+                <div class="chapter-ending">
 
-        </div>
+                    <span>30.09.2024</span>
 
-      </div>
+                    <p>
+                        One ordinary day.
+                        One unexpected meeting.
+                        One story beginning quietly.
+                    </p>
 
+                </div>
 
-      <!-- 30 SEP AUTO PHOTO -->
+            </div>
 
-      <div class="photo-memory photo-memory-auto reveal">
+        </section>
 
-        <div class="photo-card">
 
-          <img
-            src="images/30-sep-auto.jpg"
-            alt="Our auto memory from 30 September 2024"
-          >
+        <!-- =====================================================
+             BETWEEN YEARS
+        ====================================================== -->
 
-          <div class="photo-caption">
-            <span>30.09.2024</span>
-            <strong>Two people. One unexpected day.</strong>
-          </div>
+        <section class="between-section">
 
-        </div>
+            <div class="between-stars"></div>
 
-      </div>
+            <div class="between-content">
 
+                <p>
+                    Time passed.
+                </p>
 
-      <!-- MEMORY 13 -->
+                <h2>
+                    And somehow,
+                    <span>we kept choosing each other.</span>
+                </h2>
 
-      <div class="memory-block left reveal">
+                <div class="moon-line"></div>
 
-        <div class="memory-text">
+                <p class="small-between">
+                    One year later, another September came.
+                </p>
 
-          <span class="memory-time">
-            Before the airport
-          </span>
+            </div>
 
-          <h3>
-            Small things I remember.
-          </h3>
+        </section>
 
-          <p>
-            We wandered around,
-            looked at keychains,
-            talked and kept moving.
-          </p>
 
-          <p>
-            I didn't carefully look at him that day.
-            I didn't notice his dimple properly.
-            I didn't realise how cute his smile was.
-          </p>
+        <!-- =====================================================
+             14 SEPTEMBER 2025
+        ====================================================== -->
 
-          <p>
-            But his voice stayed somewhere in my head.
-          </p>
+        <section id="second-meeting" class="memory-section second-date-section">
 
-        </div>
+            <div class="section-inner">
 
-      </div>
+                <div class="memory-heading">
 
+                    <p class="eyebrow">
+                        Chapter Two
+                    </p>
 
-      <!-- MEMORY 14 -->
+                    <h2>
+                        14 September 2025
+                    </h2>
 
-      <div class="memory-block right reveal">
+                    <p class="day-location">
+                        Sunday · Delhi
+                    </p>
 
-        <div class="memory-text">
+                </div>
 
-          <span class="memory-time">
-            Time to leave
-          </span>
 
-          <h3>
-            And suddenly, the day was ending.
-          </h3>
+                <!-- ARRIVAL -->
 
-          <p>
-            He got a call that he had to reach
-            the airport.
-          </p>
+                <article class="story-card">
 
-          <p>
-            I asked him to drop me at the bus stand.
-          </p>
+                    <div class="story-time">
+                        Around 4 AM
+                    </div>
 
-          <p>
-            He wanted to hug me.
-            I didn't allow it.
-          </p>
+                    <h3>
+                        “mai agya”
+                    </h3>
 
-          <p>
-            His rider came.
-            He left a little upset.
-          </p>
+                    <p>
+                        You had your Ganesh Chaturthi finale / natak and
+                        came to Delhi on a night flight.
+                    </p>
 
-          <p class="handwritten">
-            And I went home with a stranger's
-            number in my phone.
-          </p>
+                    <p>
+                        You reached around 4 AM.
+                    </p>
 
-        </div>
+                    <p>
+                        Around 8 AM, I saw your WhatsApp:
+                    </p>
 
-      </div>
+                    <blockquote>
+                        “mai agya”
+                    </blockquote>
 
+                    <p>
+                        I was at Delton Hall that morning.
+                        My invitation shift was at 11 AM.
+                    </p>
 
-      <!-- MEMORY 15 -->
+                    <p>
+                        I had expected to be in the 9 AM shift and be free
+                        around noon. The plan was simple: I would call you
+                        to Jor Bagh Metro and we would go together.
+                    </p>
 
-      <div class="memory-block center reveal">
+                    <p>
+                        But that plan didn't happen.
+                    </p>
 
-        <div class="memory-text final-memory-2024">
+                </article>
 
-          <span class="memory-time">
-            That night
-          </span>
 
-          <h3>
-            Then I messaged him.
-          </h3>
+                <!-- METRO -->
 
-          <div class="message-memory">
-            mai ghar pohoch gyi aap kaha tak pohoche
-          </div>
+                <article class="story-card">
 
-          <p>
-            And somehow, we talked on Instagram
-            almost the whole night.
-          </p>
+                    <div class="story-time">
+                        Morning
+                    </div>
 
-          <p>
-            I enjoyed talking to him.
-          </p>
+                    <h3>
+                        You came to the metro anyway
+                    </h3>
 
-          <p>
-            I still didn't know that the day
-            had actually been a date.
-          </p>
+                    <p>
+                        You called and asked:
+                    </p>
 
-          <p>
-            He told me later.
-          </p>
+                    <blockquote>
+                        “Bhagya kitna time lagega?”
+                    </blockquote>
 
-          <div class="quote-card special-quote">
-            “aap phle aise insan ho
-            jiske muh se jaida acha algta hai
-            mera naam bhagya.”
-          </div>
+                    <p>
+                        I told you maybe around 2 PM.
+                    </p>
 
-          <p class="handwritten big-handwritten">
-            And maybe that was the first chapter.
-          </p>
+                    <p>
+                        You had even gone to the metro to impress me,
+                        wearing an outfit you knew I liked.
+                    </p>
 
-        </div>
+                    <p>
+                        You had properly dressed up —
+                        <em>ho ban ke.</em>
+                    </p>
 
-      </div>
+                    <p>
+                        Some girls in the metro were staring at you.
+                    </p>
 
-    </section>
+                    <p>
+                        And then you left.
+                    </p>
 
+                </article>
 
-    <!-- =====================================================
-         BETWEEN YEARS
-    ====================================================== -->
 
-    <section class="between-section story-section">
+                <!-- INVITY -->
 
-      <div class="between-content">
+                <article class="story-card">
 
-        <div class="tiny-stars">✦ &nbsp; ✦ &nbsp; ✦</div>
+                    <div class="story-time">
+                        Around noon
+                    </div>
 
-        <p class="date-label">
-          TIME PASSED
-        </p>
+                    <h3>
+                        Waiting for the day to finally begin
+                    </h3>
 
-        <h2>
-          And somehow...
-        </h2>
+                    <p>
+                        I was still busy with the invitation work.
+                    </p>
 
-        <p>
-          One day became conversations.
-          Conversations became memories.
-          And memories became us.
-        </p>
+                    <p>
+                        I talked to the invitee, sent her to the
+                        “planshow”, and slowly started becoming free.
+                    </p>
 
-        <div class="handwritten">
-          Until September came again.
-        </div>
+                </article>
 
-      </div>
 
-    </section>
+                <!-- MISSED CALLS -->
 
+                <article class="story-card">
 
-    <!-- =====================================================
-         14 SEPTEMBER 2025
-    ====================================================== -->
+                    <div class="story-time">
+                        Early afternoon
+                    </div>
 
-    <section class="memory-section sep-2025" id="sep2025">
+                    <h3>
+                        The calls that scared me
+                    </h3>
 
-      <div class="memory-header">
+                    <p>
+                        I called you after becoming free.
+                    </p>
 
-        <p class="date-label">
-          14 SEPTEMBER 2025 · SUNDAY
-        </p>
+                    <p>
+                        You had taken a bike to the room.
+                    </p>
 
-        <h2>
-          He came back to Delhi.
-        </h2>
+                    <p>
+                        The phone sound was difficult to hear while you
+                        were riding, so you didn't answer several calls.
+                    </p>
 
-        <p class="subtitle">
-          One night flight, one “mai agya”,
-          and one very long day waiting to happen.
-        </p>
+                    <p>
+                        I got scared.
+                    </p>
 
-      </div>
+                    <p>
+                        Then you finally called back:
+                    </p>
 
+                    <blockquote>
+                        “Kya hua Bhagya itna call kiya?”
+                    </blockquote>
 
-      <!-- MEMORY 14-01 -->
+                    <p>
+                        I told you I was only trying to find out where
+                        you were, but because you weren't answering,
+                        I had started worrying.
+                    </p>
 
-      <div class="memory-block left reveal">
+                    <p>
+                        You explained that you had ridden to the room,
+                        reached there, checked everything, turned on the AC
+                        and were resting.
+                    </p>
 
-        <div class="memory-text">
+                    <p>
+                        I told you to eat because I was going to be late.
+                    </p>
 
-          <span class="memory-time">
-            Around 4 AM
-          </span>
+                </article>
 
-          <h3>
-            “mai agya”
-          </h3>
 
-          <p>
-            Kunnu had his Ganesh Chaturthi finale
-            and natak.
-          </p>
+                <!-- HIS MESSAGE -->
 
-          <p>
-            He took a night flight to Delhi
-            and reached around 4 AM.
-          </p>
+                <article class="story-card quote-card">
 
-          <p>
-            He messaged that he had arrived.
-            I saw it around 8 AM.
-          </p>
+                    <p class="quote-mark">“</p>
 
-          <p class="handwritten">
-            He had come all this way.
-            For Delhi.
-            For us.
-          </p>
+                    <blockquote>
+                        “Tumhare bina aise reh lunga par tumse mile bina
+                        kuch na khaunga na kahi ghumunga.”
+                    </blockquote>
 
-        </div>
+                    <p class="quote-note">
+                        And suddenly the distance between Delhi and Pune
+                        felt a little smaller.
+                    </p>
 
-      </div>
+                </article>
 
 
-      <!-- MEMORY 14-02 -->
+                <!-- 3 PM -->
 
-      <div class="memory-block right reveal">
+                <article class="story-card">
 
-        <div class="memory-text">
+                    <div class="story-time">
+                        Around 3 PM
+                    </div>
 
-          <span class="memory-time">
-            Morning
-          </span>
+                    <h3>
+                        “Aa jao na yrr…”
+                    </h3>
 
-          <h3>
-            The plan that didn't happen.
-          </h3>
+                    <p>
+                        I was busy with the Invity closing, and finally
+                        became free around 3 PM.
+                    </p>
 
-          <p>
-            I was at Delton Hall.
-            My invitation shift was at 11 AM.
-          </p>
+                    <p>
+                        On call, you started teasing me:
+                    </p>
 
-          <p>
-            I had expected a 9 AM shift,
-            so I thought I would be free around noon.
-          </p>
+                    <blockquote>
+                        “Aa jao na yrr warna mai flight lekr Pune chla jaunga.”
+                    </blockquote>
 
-          <p>
-            The plan was to call him to
-            Jor Bagh Metro and go together.
-          </p>
+                    <p>
+                        I was tired.
+                    </p>
 
-          <p class="handwritten">
-            But plans don't always listen to us.
-          </p>
+                    <p>
+                        But you had come from so far just to meet me,
+                        and I didn't want to hurt you by not coming.
+                    </p>
 
-        </div>
+                </article>
 
-      </div>
 
+                <!-- JOR BAGH / GREEN PARK -->
 
-      <!-- MEMORY 14-03 -->
+                <article class="story-card">
 
-      <div class="memory-block center reveal">
+                    <div class="story-time">
+                        Afternoon · Jor Bagh → Green Park
+                    </div>
 
-        <div class="memory-text">
+                    <h3>
+                        Finding each other again
+                    </h3>
 
-          <span class="memory-time">
-            Waiting
-          </span>
+                    <p>
+                        I went from Jor Bagh towards Green Park Metro.
+                    </p>
 
-          <h3>
-            “Bhagya kitna time lagega?”
-          </h3>
+                    <p>
+                        At first, I couldn't see you at the exit.
+                        I went outside.
+                    </p>
 
-          <p>
-            He called and asked how long I would take.
-          </p>
+                    <p>
+                        Then you called and told me you were still inside.
+                    </p>
 
-          <p>
-            I told him maybe 2 PM.
-          </p>
+                    <p>
+                        So I went back in.
+                    </p>
 
-          <p>
-            He had already gone to the metro,
-            dressed up in an outfit I liked,
-            trying to impress me.
-          </p>
+                    <p>
+                        You had already been thinking about a hug and a kiss.
+                    </p>
 
-          <p>
-            Some girls in the metro were staring at him.
-            He eventually left.
-          </p>
+                    <p>
+                        I was nervous, so I didn't really do anything.
+                    </p>
 
-        </div>
+                </article>
 
-      </div>
 
+                <!-- TICKET -->
 
-      <!-- MEMORY 14-04 -->
+                <article class="story-card">
 
-      <div class="memory-block left reveal">
+                    <div class="story-time">
+                        Metro
+                    </div>
 
-        <div class="memory-text">
+                    <h3>
+                        Even the ticket had its own drama
+                    </h3>
 
-          <span class="memory-time">
-            The calls
-          </span>
+                    <p>
+                        Your ticket scanned.
+                    </p>
 
-          <h3>
-            Then he disappeared from the phone.
-          </h3>
+                    <p>
+                        Mine didn't.
+                    </p>
 
-          <p>
-            I finished my invitation work,
-            sent the invitee to the planshow,
-            and finally became free.
-          </p>
+                    <p>
+                        You had used your phone, and apparently another
+                        ticket had to be selected or slid properly.
+                    </p>
 
-          <p>
-            I called Kunnu.
-          </p>
+                    <p>
+                        After a little confusion, mine finally worked too.
+                    </p>
 
-          <p>
-            He had ridden a bike to the room.
-            The bike noise made it hard for him
-            to hear his phone.
-          </p>
+                    <p class="handwritten">
+                        Even the metro wanted to make us work for it. 😭
+                    </p>
 
-          <p>
-            I called again.
-            And again.
-          </p>
+                </article>
 
-          <p>
-            He didn't answer.
-          </p>
 
-          <p class="handwritten">
-            I got scared.
-          </p>
+                <!-- CROWDED METRO -->
 
-        </div>
+                <article class="story-card">
 
-      </div>
+                    <div class="story-time">
+                        Metro → Rajiv Chowk
+                    </div>
 
+                    <h3>
+                        A crowded metro and one protective hand
+                    </h3>
 
-      <!-- MEMORY 14-05 -->
+                    <p>
+                        We searched for Rajiv Chowk and boarded the metro.
+                    </p>
 
-      <div class="memory-block right reveal">
+                    <p>
+                        It was extremely crowded.
+                    </p>
 
-        <div class="memory-text">
+                    <p>
+                        You kept me protected in the crowd,
+                        and I held your hand.
+                    </p>
 
-          <span class="memory-time">
-            Finally
-          </span>
+                    <p>
+                        People kept looking at us.
+                    </p>
 
-          <h3>
-            “Kya hua Bhagya itna call kiya?”
-          </h3>
+                    <p>
+                        At Rajiv Chowk, you said something that annoyed me
+                        enough for me to punch you.
+                    </p>
 
-          <p>
-            He finally called back.
-          </p>
+                    <p>
+                        People looked at us again.
+                    </p>
 
-          <p>
-            He had reached the room,
-            was checking things,
-            turned on the AC,
-            and was resting.
-          </p>
+                </article>
 
-          <p>
-            I told him to eat because
-            I would still be late.
-          </p>
 
-          <div class="quote-card">
-            “Tumhare bina aise reh lunga<br>
-            par tumse mile bina kuch na khaunga<br>
-            na kahi ghumunga.”
-          </div>
+                <!-- CP + MARATHI MOMENT -->
 
-          <p>
-            And then somehow,
-            I had to finish my work faster.
-          </p>
+                <article class="story-card">
 
-        </div>
+                    <div class="story-time">
+                        Later · Connaught Place
+                    </div>
 
-      </div>
+                    <h3>
+                        The Marathi sentence I didn't understand
+                    </h3>
 
+                    <p>
+                        We reached CP.
+                    </p>
 
-      <!-- MEMORY 14-06 -->
+                    <p>
+                        While walking there, you were saying something to me
+                        in Marathi:
+                    </p>
 
-      <div class="memory-block center reveal">
+                    <blockquote>
+                        “Pagal ladki, jaldi chal.”
+                    </blockquote>
 
-        <div class="memory-text">
+                    <p>
+                        I didn't understand what you were saying at that
+                        moment.
+                    </p>
 
-          <span class="memory-time">
-            Around 3 PM
-          </span>
+                    <p>
+                        You, on the other hand, seemed to be enjoying
+                        yourself while I was trying to figure out what
+                        exactly you were saying.
+                    </p>
 
-          <h3>
-            “Aa jao na yrr...”
-          </h3>
+                    <p class="funny-note">
+                        One person talking, the other person completely
+                        confused. 😂
+                    </p>
 
-          <p>
-            I was finally free around 3 PM.
-          </p>
+                </article>
 
-          <p>
-            He teased me on the phone:
-          </p>
 
-          <div class="quote-card">
-            “Aa jao na yrr warna<br>
-            mai flight lekr Pune chla jaunga.”
-          </div>
+                <!-- ART CAFE -->
 
-          <p>
-            I was tired.
-            But he had come from so far.
-          </p>
+                <article class="story-card">
 
-          <p class="handwritten">
-            I didn't want to hurt him.
-          </p>
+                    <div class="story-time">
+                        CP
+                    </div>
 
-        </div>
+                    <h3>
+                        The art café that wasn't really the plan
+                    </h3>
 
-      </div>
+                    <p>
+                        You searched Google for an “art cafe”.
+                    </p>
 
+                    <p>
+                        We went there, but it turned out to be a scam
+                        and the place wasn't good.
+                    </p>
 
-      <!-- MEMORY 14-07 -->
+                    <p>
+                        So much for the perfect café plan.
+                    </p>
 
-      <div class="memory-block left reveal">
+                    <p>
+                        We still sat there for a while, holding hands.
+                    </p>
 
-        <div class="memory-text">
+                    <p>
+                        You kept holding my hand and looking at me.
+                    </p>
 
-          <span class="memory-time">
-            Jor Bagh → Green Park
-          </span>
+                    <p>
+                        There was a couple sitting behind us being romantic.
+                    </p>
 
-          <h3>
-            Finally, I went.
-          </h3>
+                    <p>
+                        Seeing them somehow made you even more romantic.
+                    </p>
 
-          <p>
-            I reached Green Park Metro.
-          </p>
+                </article>
 
-          <p>
-            At first, I couldn't see him at the exit.
-            I went outside.
-          </p>
 
-          <p>
-            Then he called and said he was inside.
-          </p>
+                <!-- PANEER TIKKA -->
 
-          <p>
-            So I went back inside the metro.
-          </p>
+                <article class="story-card">
 
-          <p>
-            He was thinking about a hug and a kiss.
-            I was nervous.
-          </p>
+                    <div class="story-time">
+                        Later
+                    </div>
 
-          <p class="handwritten">
-            And neither of us knew
-            how the next few hours would unfold.
-          </p>
+                    <h3>
+                        Another food disappointment
+                    </h3>
 
-        </div>
+                    <p>
+                        Paneer tikka arrived.
+                    </p>
 
-      </div>
+                    <p>
+                        Neither of us really liked it.
+                    </p>
 
+                    <p>
+                        So I said we should just go to the room.
+                    </p>
 
-      <!-- MEMORY 14-08 -->
+                </article>
 
-      <div class="memory-block right reveal">
 
-        <div class="memory-text">
+                <!-- AUTO / CAB -->
 
-          <span class="memory-time">
-            Metro
-          </span>
+                <article class="story-card">
 
-          <h3>
-            The ticket trouble.
-          </h3>
+                    <div class="story-time">
+                        Evening
+                    </div>
 
-          <p>
-            His ticket scanned.
-            Mine didn't.
-          </p>
+                    <h3>
+                        The ride back
+                    </h3>
 
-          <p>
-            He had used his phone and needed
-            to select/slide another ticket.
-          </p>
+                    <p>
+                        We took an auto / cab towards the room.
+                    </p>
 
-          <p>
-            Eventually mine worked too.
-          </p>
+                    <p>
+                        You kept teasing me.
+                    </p>
 
-          <p>
-            Then we boarded the metro towards
-            Rajiv Chowk.
-          </p>
+                    <p>
+                        Your arm came around my waist, I held your hand,
+                        and you kissed my cheek.
+                    </p>
 
-        </div>
+                    <p>
+                        I became shy.
+                    </p>
 
-      </div>
+                </article>
 
 
-      <!-- MEMORY 14-09 -->
+                <!-- ROOM -->
 
-      <div class="memory-block center reveal">
+                <article class="story-card">
 
-        <div class="memory-text">
+                    <div class="story-time">
+                        Evening · Room
+                    </div>
 
-          <span class="memory-time">
-            Crowded metro
-          </span>
+                    <h3>
+                        A room full of feelings
+                    </h3>
 
-          <h3>
-            He kept me close.
-          </h3>
+                    <p>
+                        At the room, you showed me your natak video.
+                    </p>
 
-          <p>
-            The metro was extremely crowded.
-          </p>
+                    <p>
+                        We lay down while watching it.
+                        I watched for a little while and then asked you
+                        to stop.
+                    </p>
 
-          <p>
-            He protected me from the crowd,
-            and I held his hand.
-          </p>
+                    <p>
+                        The rest of the evening became much more private
+                        and intimate.
+                    </p>
 
-          <p>
-            People kept looking at us.
-          </p>
+                    <p>
+                        We hugged, kissed and shared a deeply personal
+                        moment together.
+                    </p>
 
-          <p>
-            At Rajiv Chowk, he said something
-            and I punched him.
-          </p>
+                    <p>
+                        Afterwards, you buttoned my shirt and fixed my hair.
+                    </p>
 
-          <p class="handwritten">
-            And yes, people looked even more.
-          </p>
+                    <blockquote>
+                        “Tumhe set kar sakta hu toh baal kyu nahi.”
+                    </blockquote>
 
-        </div>
+                    <p>
+                        And somehow, that made me laugh.
+                    </p>
 
-      </div>
+                </article>
 
 
-      <!-- MEMORY 14-10 -->
+                <!-- DENIM SHIRT -->
 
-      <div class="memory-block left reveal">
+                <article class="story-card">
 
-        <div class="memory-text">
+                    <div class="story-time">
+                        Later that evening
+                    </div>
 
-          <span class="memory-time">
-            Connaught Place
-          </span>
+                    <h3>
+                        The shirt you brought
+                    </h3>
 
-          <h3>
-            The art café scam.
-          </h3>
+                    <p>
+                        We stood together, hugged and kissed again.
+                    </p>
 
-          <p>
-            We reached CP.
-          </p>
+                    <p>
+                        I asked what you were going to wear the next day.
+                    </p>
 
-          <p>
-            He searched Google for an art café.
-          </p>
+                    <p>
+                        You told me you had brought a denim-shirt-like
+                        shirt.
+                    </p>
 
-          <p>
-            We went there...
-          </p>
+                    <p>
+                        I asked you to try it.
+                    </p>
 
-          <p>
-            And got scammed.
-          </p>
+                    <p>
+                        You took off your black shirt and put on the other
+                        one.
+                    </p>
 
-          <p>
-            It wasn't good at all.
-          </p>
+                    <p>
+                        I went close and fixed it for you.
+                    </p>
 
-          <p>
-            Still, we sat there holding hands.
-            He kept looking at me.
-          </p>
+                    <p>
+                        You became romantic again.
+                    </p>
 
-        </div>
+                    <p>
+                        I told you it looked loose and that you should
+                        open it / wear it properly.
+                    </p>
 
-      </div>
+                </article>
 
 
-      <!-- MEMORY 14-11 -->
+                <!-- GOODBYE -->
 
-      <div class="memory-block right reveal">
+                <article class="story-card">
 
-        <div class="memory-text">
+                    <div class="story-time">
+                        Night
+                    </div>
 
-          <span class="memory-time">
-            Café
-          </span>
+                    <h3>
+                        Back home
+                    </h3>
 
-          <h3>
-            Suddenly, everything felt softer.
-          </h3>
+                    <p>
+                        We went downstairs and you booked a cab for me.
+                    </p>
 
-          <p>
-            A couple sitting behind us
-            was being romantic.
-          </p>
+                    <p>
+                        After reaching home, I messaged:
+                    </p>
 
-          <p>
-            Watching them made Kunnu even more romantic.
-          </p>
+                    <blockquote>
+                        “mai agyi ghar aap khana kha lena aur so jana.”
+                    </blockquote>
 
-          <p>
-            He kept holding my hand
-            and looking at me.
-          </p>
+                    <p>
+                        You slept early, around 9 PM.
+                    </p>
 
-          <p>
-            Then paneer tikka arrived.
-          </p>
+                    <p>
+                        I slept at home too.
+                    </p>
 
-          <p>
-            Neither of us liked it.
-          </p>
+                </article>
 
-          <p class="handwritten">
-            So we decided to go back to the room.
-          </p>
 
-        </div>
+                <div class="chapter-ending">
 
-      </div>
+                    <span>14.09.2025</span>
 
+                    <p>
+                        No photographs that day.
+                        Just memories that stayed in our heads.
+                    </p>
 
-      <!-- MEMORY 14-12 -->
+                </div>
 
-      <div class="memory-block center reveal">
+            </div>
 
-        <div class="memory-text">
+        </section>
 
-          <span class="memory-time">
-            On the way back
-          </span>
 
-          <h3>
-            The ride home.
-          </h3>
+        <!-- =====================================================
+             15 SEPTEMBER 2025
+        ====================================================== -->
 
-          <p>
-            We took an auto/cab back.
-          </p>
+        <section id="third-day" class="memory-section third-date-section">
 
-          <p>
-            He kept teasing me,
-            put his arm around my waist,
-            and kissed my cheek.
-          </p>
+            <div class="section-inner">
 
-          <p>
-            I became shy.
-          </p>
+                <div class="memory-heading">
 
-          <p class="handwritten">
-            The day had changed completely
-            from what I had imagined that morning.
-          </p>
+                    <p class="eyebrow">
+                        Chapter Three
+                    </p>
 
-        </div>
+                    <h2>
+                        15 September 2025
+                    </h2>
 
-      </div>
+                    <p class="day-location">
+                        Monday · Delhi
+                    </p>
 
+                </div>
 
-      <!-- MEMORY 14-13 -->
 
-      <div class="memory-block left reveal">
+                <!-- MORNING -->
 
-        <div class="memory-text">
+                <article class="story-card">
 
-          <span class="memory-time">
-            Back at the room
-          </span>
+                    <div class="story-time">
+                        Morning
+                    </div>
 
-          <h3>
-            A very private evening.
-          </h3>
+                    <h3>
+                        Another morning together
+                    </h3>
 
-          <p>
-            He showed me his natak video.
-          </p>
+                    <p>
+                        In the morning, you asked me what time I would come.
+                    </p>
 
-          <p>
-            We lay down to watch it.
-            I watched for a while
-            and then asked him to stop.
-          </p>
+                    <p>
+                        I bathed, got ready and went to Yusuf Sarai roadside
+                        to wait for you.
+                    </p>
 
-          <p>
-            We hugged and became closer.
-            The evening turned into a deeply
-            private and intimate moment between us.
-          </p>
+                    <p>
+                        You called and asked where I was.
+                    </p>
 
-          <p>
-            Some things from that evening
-            don't need to be written out.
-          </p>
+                    <p>
+                        I told you I was at the same place from where
+                        I had gone home the previous day.
+                    </p>
 
-          <p class="handwritten">
-            We know what they meant.
-          </p>
+                </article>
 
-        </div>
 
-      </div>
+                <!-- MARKET -->
 
+                <article class="story-card">
 
-      <!-- MEMORY 14-14 -->
+                    <div class="story-time">
+                        Later · Yusuf Sarai
+                    </div>
 
-      <div class="memory-block right reveal">
+                    <h3>
+                        “Kya lu tum btao”
+                    </h3>
 
-        <div class="memory-text">
+                    <p>
+                        You came and started buying things.
+                    </p>
 
-          <span class="memory-time">
-            Afterwards
-          </span>
+                    <p>
+                        While walking through the market, you kept asking:
+                    </p>
 
-          <h3>
-            The little things.
-          </h3>
+                    <blockquote>
+                        “kya lu tum btao”
+                    </blockquote>
 
-          <p>
-            He buttoned my shirt,
-            fixed my hair and joked:
-          </p>
+                    <p>
+                        We walked around the market together and bought
+                        things before going back to the room.
+                    </p>
 
-          <div class="quote-card">
-            “Tumhe set kar sakta hu<br>
-            toh baal kyu nahi.”
-          </div>
+                </article>
 
-          <p>
-            I laughed.
-          </p>
 
-          <p>
-            We hugged, talked and stayed close.
-          </p>
+                <!-- BOOTS -->
 
-        </div>
+                <article class="story-card">
 
-      </div>
+                    <div class="story-time">
+                        Room
+                    </div>
 
+                    <h3>
+                        “Model type”
+                    </h3>
 
-      <!-- MEMORY 14-15 -->
+                    <p>
+                        When we entered the room, you noticed my boots.
+                    </p>
 
-      <div class="memory-block center reveal">
+                    <p>
+                        You got happy and said I looked:
+                    </p>
 
-        <div class="memory-text">
+                    <blockquote>
+                        “model type.”
+                    </blockquote>
 
-          <span class="memory-time">
-            The denim shirt
-          </span>
+                    <p>
+                        I didn't know a pair of boots could make you
+                        that happy.
+                    </p>
 
-          <h3>
-            “Kal kya pehnoge?”
-          </h3>
+                </article>
 
-          <p>
-            I asked what he would wear the next day.
-          </p>
 
-          <p>
-            He said he had brought a denim-like shirt.
-          </p>
+                <!-- TEA + VIDEO -->
 
-          <p>
-            I asked him to try it.
-          </p>
+                <article class="story-card photo-story">
 
-          <p>
-            He changed into it.
-            I went close and fixed it.
-          </p>
+                    <div class="story-time">
+                        Around 5 PM · After waking up
+                    </div>
 
-          <p>
-            It was loose,
-            so I told him to wear it properly.
-          </p>
+                    <h3>
+                        Black tea, sleepy eyes and three little memories
+                    </h3>
 
-        </div>
+                    <p>
+                        At some point, I was lying on the bed using my phone
+                        and watching reels.
+                    </p>
 
-      </div>
+                    <p>
+                        You took off your T-shirt and started making tea.
+                    </p>
 
+                    <p>
+                        Then you came and lay on my left side, teasing me
+                        romantically.
+                    </p>
 
-      <!-- MEMORY 14-16 -->
+                    <p>
+                        The tea was ready.
+                    </p>
 
-      <div class="memory-block left reveal">
+                    <p>
+                        You played your natak video again and explained it
+                        to me in Hindi because the original was in Marathi.
+                    </p>
 
-        <div class="memory-text">
+                    <p>
+                        I was honestly a little bored with the video.
+                    </p>
 
-          <span class="memory-time">
-            Night
-          </span>
+                    <p>
+                        While drinking tea, you also acted out parts of
+                        your natak.
+                    </p>
 
-          <h3>
-            Time to go home.
-          </h3>
+                    <p>
+                        You looked at me lovingly even when I was slightly
+                        bored.
+                    </p>
 
-          <p>
-            We went downstairs.
-          </p>
+                    <div class="three-photo-grid">
 
-          <p>
-            He booked a cab for me.
-          </p>
+                        <div class="photo-frame">
+                            <img
+                                src="images/15-sep-1.jpg"
+                                alt="15 September 2025 black tea memory 1"
+                            >
+                        </div>
 
-          <p>
-            After reaching home,
-            I messaged him:
-          </p>
+                        <div class="photo-frame">
+                            <img
+                                src="images/15-sep-2.jpg"
+                                alt="15 September 2025 black tea memory 2"
+                            >
+                        </div>
 
-          <div class="message-memory">
-            mai agyi ghar<br>
-            aap khana kha lena aur so jana
-          </div>
+                        <div class="photo-frame">
+                            <img
+                                src="images/15-sep-3.jpg"
+                                alt="15 September 2025 black tea memory 3"
+                            >
+                        </div>
 
-          <p>
-            He slept early,
-            around 9 PM.
-          </p>
+                    </div>
 
-          <p class="handwritten">
-            And I went to sleep too.
-          </p>
+                    <p class="photo-caption">
+                        All three photographs belong to this one moment —
+                        making black tea together after waking around 5 PM.
+                    </p>
 
-        </div>
+                </article>
 
-      </div>
 
-    </section>
+                <!-- HIS JOURNEY -->
 
+                <article class="story-card">
 
-    <!-- =====================================================
-         15 SEPTEMBER 2025
-    ====================================================== -->
+                    <div class="story-time">
+                        After tea
+                    </div>
 
-    <section class="memory-section last-day" id="sep15">
+                    <h3>
+                        The part of you I hadn't heard before
+                    </h3>
 
-      <div class="memory-header">
+                    <p>
+                        After the tea and video, I asked you about your job
+                        and why you had never told me online why you became
+                        so emotional sometimes.
+                    </p>
 
-        <p class="date-label">
-          15 SEPTEMBER 2025 · MONDAY
-        </p>
+                    <p>
+                        You started telling me about your journey.
+                    </p>
 
-        <h2>
-          One more day.
-        </h2>
+                    <p>
+                        While telling me everything, you cried and bowed
+                        your head.
+                    </p>
 
-        <p class="subtitle">
-          The day that somehow held laughter,
-          tears, tea, Maggie and a goodbye.
-        </p>
+                    <p>
+                        Seeing you like that made me feel bad.
+                    </p>
 
-      </div>
+                    <p>
+                        I hugged you.
+                    </p>
 
+                    <p>
+                        For a while, everything around us became quiet.
+                    </p>
 
-      <!-- MEMORY 15-01 -->
+                </article>
 
-      <div class="memory-block left reveal">
 
-        <div class="memory-text">
+                <!-- INTIMATE MOMENT -->
 
-          <span class="memory-time">
-            Morning
-          </span>
+                <article class="story-card">
 
-          <h3>
-            “Kitne baje aaogi?”
-          </h3>
+                    <div class="story-time">
+                        Later
+                    </div>
 
-          <p>
-            He messaged in the morning
-            asking what time I would come.
-          </p>
+                    <h3>
+                        A day full of complicated feelings
+                    </h3>
 
-          <p>
-            I bathed, got ready,
-            and went to Yusuf Sarai roadside.
-          </p>
+                    <p>
+                        We stayed close to each other for a long time.
+                    </p>
 
-          <p>
-            I waited there.
-          </p>
+                    <p>
+                        The affection between us became more intimate,
+                        and we shared another deeply private moment together.
+                    </p>
 
-        </div>
+                    <p>
+                        Afterwards, I asked you something that had been
+                        sitting somewhere inside my mind:
+                    </p>
 
-      </div>
+                    <p class="handwritten">
+                        Did you really love me?
+                    </p>
 
+                    <p>
+                        You said yes and asked why I was asking.
+                    </p>
 
-      <!-- MEMORY 15-02 -->
+                    <p>
+                        I told you that so much had happened.
+                        It had only been about a year, and somehow our
+                        relationship had already become this deep.
+                    </p>
 
-      <div class="memory-block right reveal">
+                </article>
 
-        <div class="memory-text">
 
-          <span class="memory-time">
-            Yusuf Sarai
-          </span>
+                <!-- MOTHER COMMENT -->
 
-          <h3>
-            Back together again.
-          </h3>
+                <article class="story-card">
 
-          <p>
-            He called and asked where I was.
-          </p>
+                    <div class="story-time">
+                        Later
+                    </div>
 
-          <p>
-            I told him I was at the same place
-            from where I had gone home the previous day.
-          </p>
+                    <h3>
+                        One sentence that changed the mood
+                    </h3>
 
-          <p>
-            He came and was buying things.
-          </p>
+                    <p>
+                        You told me that your mother might marry you to
+                        a software engineer.
+                    </p>
 
-          <div class="quote-card">
-            “Kya lu tum btao?”
-          </div>
+                    <p>
+                        And obviously…
+                    </p>
 
-          <p>
-            We walked around the market
-            and bought things together.
-          </p>
+                    <p class="funny-note">
+                        I was not exactly happy about hearing that. 😭
+                    </p>
 
-        </div>
+                </article>
 
-      </div>
 
+                <!-- EMOTIONAL MISUNDERSTANDING -->
 
-      <!-- MEMORY 15-03 -->
+                <article class="story-card emotional-card">
 
-      <div class="memory-block center reveal">
+                    <div class="story-time">
+                        Later that afternoon
+                    </div>
 
-        <div class="memory-text">
+                    <h3>
+                        When the day suddenly felt heavier
+                    </h3>
 
-          <span class="memory-time">
-            Back at the room
-          </span>
+                    <p>
+                        At some point, the happiness of the day became mixed
+                        with too many emotions at once.
+                    </p>
 
-          <h3>
-            Tea, reels and his natak.
-          </h3>
+                    <p>
+                        I needed some space to get dressed and collect
+                        myself, so I asked you to go to the bathroom.
+                    </p>
 
-          <p>
-            I lay on the bed scrolling through reels.
-          </p>
+                    <blockquote>
+                        “aap bathroom.”
+                    </blockquote>
 
-          <p>
-            He took off his T-shirt,
-            made tea and came to lie beside me.
-          </p>
+                    <p>
+                        I didn't really explain what was happening inside
+                        my head.
+                    </p>
 
-          <p>
-            Earlier, when we entered,
-            he had seen my boots and happily said
-            I looked like a model.
-          </p>
+                    <p>
+                        I quickly got dressed and prepared to leave.
+                    </p>
 
-          <p class="handwritten">
-            “Model type.”
-          </p>
+                    <p>
+                        You tried to stop me.
+                    </p>
 
-        </div>
+                    <p>
+                        You held me, hugged me and kept asking what had
+                        happened.
+                    </p>
 
-      </div>
+                    <p>
+                        There were tears on both sides.
+                    </p>
 
+                    <p>
+                        I left anyway.
+                    </p>
 
-      <!-- MEMORY 15-04 -->
+                    <p>
+                        But after some time, I came back myself.
+                    </p>
 
-      <div class="memory-block left reveal">
+                    <p>
+                        We hugged again.
+                    </p>
 
-        <div class="memory-text">
+                    <p>
+                        We both cried.
+                    </p>
 
-          <span class="memory-time">
-            Tea time
-          </span>
+                    <p class="handwritten">
+                        Sometimes love doesn't look perfect.
+                        Sometimes it looks like two people trying
+                        to understand each other through tears.
+                    </p>
 
-          <h3>
-            Watching his natak again.
-          </h3>
+                </article>
 
-          <p>
-            He played his natak video again.
-          </p>
 
-          <p>
-            It was in Marathi,
-            so he explained everything to me in Hindi.
-          </p>
+                <!-- MAGGIE -->
 
-          <p>
-            I was a little bored,
-            but he kept lovingly looking at me.
-          </p>
+                <article class="story-card">
 
-          <p>
-            He even acted out parts of his natak
-            while we had tea.
-          </p>
+                    <div class="story-time">
+                        Later
+                    </div>
 
-        </div>
+                    <h3>
+                        Then you made Maggie
+                    </h3>
 
-      </div>
+                    <p>
+                        After everything became a little calmer,
+                        you made Maggie for us.
+                    </p>
 
+                    <p>
+                        You made it in such a romantic way that I kept
+                        turning red while you were cooking.
+                    </p>
 
-      <!-- MEMORY 15-05 -->
+                    <p>
+                        The Maggie wasn't exactly amazing.
+                    </p>
 
-      <div class="memory-block right reveal">
+                    <p>
+                        You said it would be better with tomato.
+                    </p>
 
-        <div class="memory-text">
+                    <p>
+                        You pulled my cheeks and teased:
+                    </p>
 
-          <span class="memory-time">
-            The conversation
-          </span>
+                    <blockquote>
+                        “tumhare gaal daal du kya.”
+                    </blockquote>
 
-          <h3>
-            Then we talked about his life.
-          </h3>
+                    <p>
+                        We ate from the same plate.
+                    </p>
 
-          <p>
-            After tea and the video,
-            I asked about his job
-            and why he never told me online
-            why he became so emotional.
-          </p>
+                    <p>
+                        You lifted my face and told me you couldn't see me
+                        crying.
+                    </p>
 
-          <p>
-            He told me about his journey.
-          </p>
+                    <p>
+                        You called me innocent.
+                    </p>
 
-          <p>
-            He cried.
-            He lowered his head.
-          </p>
+                    <p>
+                        Even while eating, you still wanted to be close.
+                    </p>
 
-          <p>
-            I felt bad seeing him like that
-            and hugged him.
-          </p>
+                    <p>
+                        When I asked what was wrong, you simply said:
+                    </p>
 
-          <p class="handwritten">
-            Sometimes love is just sitting beside someone
-            when they don't have words left.
-          </p>
+                    <blockquote>
+                        “kuch nhi.”
+                    </blockquote>
 
-        </div>
+                </article>
 
-      </div>
 
+                <!-- KISS VIDEO -->
 
-      <!-- MEMORY 15-06 -->
+                <article class="story-card">
 
-      <div class="memory-block center reveal">
+                    <div class="story-time">
+                        Later
+                    </div>
 
-        <div class="memory-text">
+                    <h3>
+                        The video I wasn't letting you watch
+                    </h3>
 
-          <span class="memory-time">
-            A difficult conversation
-          </span>
+                    <p>
+                        After Maggie, we lay down together and cuddled.
+                    </p>
 
-          <h3>
-            Questions we couldn't avoid.
-          </h3>
+                    <p>
+                        You showed me a video to teach me how to kiss.
+                    </p>
 
-          <p>
-            We became close again,
-            and the moment became deeply intimate.
-          </p>
+                    <p>
+                        There was a girl in the video.
+                    </p>
 
-          <p>
-            Later I asked him:
-          </p>
+                    <p>
+                        So naturally, I covered your eyes and said:
+                    </p>
 
-          <div class="quote-card">
-            “Aap sach mein mujhse pyaar karte ho?”
-          </div>
+                    <blockquote>
+                        “jab mai pas hu toh aap dusri kyu dekhoge bhala.”
+                    </blockquote>
 
-          <p>
-            He said yes and asked why I was asking.
-          </p>
+                    <p>
+                        We joked and talked until I eventually fell asleep.
+                    </p>
 
-          <p>
-            I told him that so much had happened,
-            and it had only been about a year.
-          </p>
+                </article>
 
-          <p>
-            He mentioned that his mother might
-            marry him to a software engineer.
-          </p>
 
-          <p class="handwritten">
-            And yes, I got angry.
-          </p>
+                <!-- SLEEP / HEADACHE -->
 
-        </div>
+                <article class="story-card">
 
-      </div>
+                    <div class="story-time">
+                        Later
+                    </div>
 
+                    <h3>
+                        The quietest part of the day
+                    </h3>
 
-      <!-- MEMORY 15-07 -->
+                    <p>
+                        While I was sleeping, you stayed awake beside me.
+                    </p>
 
-      <div class="memory-block left reveal">
+                    <p>
+                        You kissed me while I slept and stayed close.
+                    </p>
 
-        <div class="memory-text">
+                    <p>
+                        When I woke up, I had a headache.
+                    </p>
 
-          <span class="memory-time">
-            Suddenly
-          </span>
+                    <p>
+                        You offered to massage my head.
+                    </p>
 
-          <h3>
-            I wanted to leave.
-          </h3>
+                    <p>
+                        I asked if you hadn't slept.
+                    </p>
 
-          <p>
-            I told him I needed to dress
-            and asked him to go to the bathroom.
-          </p>
+                    <p>
+                        You said no.
+                    </p>
 
-          <p>
-            He asked what had happened.
-            I ignored him.
-          </p>
+                    <p>
+                        I asked why.
+                    </p>
 
-          <p>
-            I pushed him away and told him
-            to go to the bathroom.
-          </p>
+                    <p>
+                        And you were just looking at me.
+                    </p>
 
-          <p>
-            I quickly dressed
-            and prepared to leave.
-          </p>
+                </article>
 
-          <p class="handwritten">
-            I didn't want to stay angry,
-            but I was hurt.
-          </p>
 
-        </div>
+                <!-- BLACK TEA AGAIN -->
 
-      </div>
+                <article class="story-card">
 
+                    <div class="story-time">
+                        Around 5 PM
+                    </div>
 
-      <!-- MEMORY 15-08 -->
+                    <h3>
+                        Another cup of black tea
+                    </h3>
 
-      <div class="memory-block right reveal">
+                    <p>
+                        We got up and washed our faces.
+                    </p>
 
-        <div class="memory-text">
+                    <p>
+                        You made black tea again.
+                    </p>
 
-          <span class="memory-time">
-            At the door
-          </span>
+                    <p>
+                        We sat on the bed and drank it together.
+                    </p>
 
-          <h3>
-            Neither of us was okay.
-          </h3>
+                    <p>
+                        After tea came another quiet, intimate moment
+                        between us.
+                    </p>
 
-          <p>
-            He stopped me.
-            He hugged me and asked me not to go.
-          </p>
+                    <p>
+                        I went to the bathroom to fix my hair.
+                    </p>
 
-          <p>
-            He kept asking what had happened.
-          </p>
+                    <p>
+                        You looked at me romantically from outside.
+                    </p>
 
-          <p>
-            I scolded him.
-            I told him I felt like
-            he had taken advantage of me.
-          </p>
+                    <p>
+                        I liked that look.
+                    </p>
 
-          <p>
-            I cried.
-            He cried a lot too.
-          </p>
+                    <p>
+                        Another hug.
+                        Another kiss.
+                        Another little moment that stayed.
+                    </p>
 
-          <p>
-            He held me.
-          </p>
+                </article>
 
-          <p class="handwritten">
-            And still, I left.
-          </p>
 
-        </div>
+                <!-- FINAL GOODBYE -->
 
-      </div>
+                <article class="story-card">
 
+                    <div class="story-time">
+                        Evening
+                    </div>
 
-      <!-- MEMORY 15-09 -->
+                    <h3>
+                        The hardest goodbye
+                    </h3>
 
-      <div class="memory-block center reveal">
+                    <p>
+                        Eventually, you took me downstairs and put me in
+                        a cab / auto.
+                    </p>
 
-        <div class="memory-text">
+                    <p>
+                        I went home.
+                    </p>
 
-          <span class="memory-time">
-            Then I came back.
-          </span>
+                    <p>
+                        You went from the room towards the airport.
+                    </p>
 
-          <h3>
-            Because sometimes leaving
-            doesn't mean you want to leave.
-          </h3>
+                    <p>
+                        Your face looked like you might cry.
+                    </p>
 
-          <p>
-            After some time,
-            I came back myself.
-          </p>
+                    <p>
+                        It looked like you wanted to go back to Bhagya
+                        instead of going away.
+                    </p>
 
-          <p>
-            We hugged.
-          </p>
+                    <p>
+                        Then you messaged me:
+                    </p>
 
-          <p>
-            We both cried.
-          </p>
+                    <blockquote>
+                        “Bhagya mann nhi ho rha hai mera…”
+                    </blockquote>
 
-          <p class="handwritten">
-            No perfect words.
-            Just two people trying to understand
-            what they were feeling.
-          </p>
+                    <p>
+                        And that night, I cried too.
+                    </p>
 
-        </div>
+                </article>
 
-      </div>
 
+                <!-- END OF VISIT -->
 
-      <!-- MEMORY 15-10 -->
+                <div class="chapter-ending">
 
-      <div class="memory-block left reveal">
+                    <span>15.09.2025</span>
 
-        <div class="memory-text">
+                    <p>
+                        Three photographs.
+                        One black-tea moment.
+                        A thousand feelings.
+                    </p>
 
-          <span class="memory-time">
-            Maggie time
-          </span>
+                </div>
 
-          <h3>
-            Then he made Maggie.
-          </h3>
+            </div>
 
-          <p>
-            Somehow, after all those tears,
-            he went to make Maggie.
-          </p>
+        </section>
 
-          <p>
-            He made it romantically,
-            kept hugging and kissing me,
-            and somehow I turned red.
-          </p>
 
-          <p>
-            The Maggie wasn't even that good.
-          </p>
+        <!-- =====================================================
+             LONG DISTANCE
+        ====================================================== -->
 
-          <p>
-            He said it would have been better
-            with tomato.
-          </p>
+        <section class="distance-section story-section">
 
-          <div class="quote-card">
-            “Tumhare gaal daal du kya?”
-          </div>
+            <div class="section-inner">
 
-        </div>
+                <p class="eyebrow">
+                    After September
+                </p>
 
-      </div>
+                <h2>
+                    Then came the distance.
+                </h2>
 
+                <div class="distance-card">
 
-      <!-- MEMORY 15-11 -->
+                    <p>
+                        Delhi became Delhi again.
+                    </p>
 
-      <div class="memory-block right reveal">
+                    <p>
+                        Pune became Pune again.
+                    </p>
 
-        <div class="memory-text">
+                    <p>
+                        I went back to working on my things here.
+                    </p>
 
-          <span class="memory-time">
-            One plate
-          </span>
+                    <p>
+                        You went back to your office there.
+                    </p>
 
-          <h3>
-            We ate together.
-          </h3>
+                    <p>
+                        The room, the metro rides, the bad food,
+                        the tea, the little arguments, the hugs,
+                        the airport goodbye —
+                        all of it became memories we carried separately.
+                    </p>
 
-          <p>
-            We ate from the same plate.
-          </p>
+                    <p>
+                        But the story didn't end when the visit ended.
+                    </p>
 
-          <p>
-            He lifted my face
-            and told me he couldn't see me crying.
-          </p>
+                    <p class="handwritten">
+                        We just went back to loving each other
+                        from different cities.
+                    </p>
 
-          <p>
-            He called me innocent.
-          </p>
+                </div>
 
-          <p>
-            Even while eating,
-            he still wanted to be close.
-          </p>
+            </div>
 
-          <p>
-            When I asked what was wrong,
-            he simply said:
-          </p>
+        </section>
 
-          <div class="quote-card">
-            “Kuch nhi.”
-          </div>
 
-        </div>
+        <!-- =====================================================
+             TWO YEARS
+        ====================================================== -->
 
-      </div>
+        <section class="ending-section">
 
+            <div class="ending-stars"></div>
 
-      <!-- MEMORY 15-12 -->
+            <div class="ending-moon"></div>
 
-      <div class="memory-block center reveal">
+            <div class="ending-content">
 
-        <div class="memory-text">
+                <p class="eyebrow">
+                    30 September 2026
+                </p>
 
-          <span class="memory-time">
-            After Maggie
-          </span>
+                <h2>
+                    Two Years
+                </h2>
 
-          <h3>
-            Quiet again.
-          </h3>
+                <p class="ending-main">
+                    Two years since two strangers arrived at the same step.
+                </p>
 
-          <p>
-            We lay down and cuddled.
-          </p>
+                <div class="ending-line"></div>
 
-          <p>
-            He showed me a video about kissing.
-          </p>
+                <p>
+                    Two years since a simple
+                    <strong>“Hi, I’m Kunal”</strong>
+                    became the beginning of something neither of us
+                    had planned.
+                </p>
 
-          <p>
-            There was a girl in the video.
-          </p>
+                <p>
+                    Since then, there have been laughs,
+                    misunderstandings, silly moments,
+                    long conversations, distance,
+                    tears, hugs, kisses, tea,
+                    bad food and countless little memories.
+                </p>
 
-          <p>
-            I covered his eyes.
-          </p>
+                <p>
+                    And somehow, through all of it,
+                    there is still this story.
+                </p>
 
-          <div class="quote-card">
-            “Jab mai pas hu<br>
-            toh aap dusri kyu dekhoge bhala.”
-          </div>
+                <div class="final-love-card">
 
-          <p>
-            We joked and talked.
-          </p>
+                    <div class="tiny-teddy">🧸</div>
 
-          <p>
-            And eventually,
-            I fell asleep.
-          </p>
+                    <p class="final-script">
+                        Kunnu & Bhagya
+                    </p>
 
-        </div>
+                    <p>
+                        Our little universe.
+                    </p>
 
-      </div>
+                    <p class="final-date">
+                        30.09.2024 → 30.09.2026
+                    </p>
 
+                </div>
 
-      <!-- MEMORY 15-13 -->
+                <p class="final-message">
+                    Happy Anniversary, Kunnu. ♡
+                </p>
 
-      <div class="memory-block left reveal">
+                <p class="final-small">
+                    This isn't just a website.
+                    It's a little place where our memories can stay.
+                </p>
 
-        <div class="memory-text">
+            </div>
 
-          <span class="memory-time">
-            Later
-          </span>
+        </section>
 
-          <h3>
-            The headache.
-          </h3>
+    </main>
 
-          <p>
-            I woke up with a headache.
-          </p>
 
-          <p>
-            I told him my head hurt.
-          </p>
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
 
-          <p>
-            He offered to massage it.
-          </p>
-
-          <p>
-            I asked if he hadn't slept.
-          </p>
-
-          <p>
-            He said no.
-          </p>
-
-          <p>
-            I asked why.
-          </p>
-
-          <p>
-            He was looking at me.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <!-- MEMORY 15-14 -->
-
-      <div class="memory-block right reveal">
-
-        <div class="memory-text">
-
-          <span class="memory-time">
-            Tea again
-          </span>
-
-          <h3>
-            Black tea & one cute photo.
-          </h3>
-
-          <p>
-            We both got up and washed our faces.
-          </p>
-
-          <p>
-            He made black tea.
-          </p>
-
-          <p>
-            We took a photo while making tea.
-          </p>
-
-          <p class="handwritten">
-            And somehow,
-            we looked really cute together.
-          </p>
-
-          <p>
-            We sat on the bed and drank tea.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <!-- 15 SEP THREE PHOTOS -->
-
-      <div class="photo-trio reveal">
-
-        <div class="photo-card small-photo">
-
-          <img
-            src="images/15-sep-1.jpg"
-            alt="Our memory from 15 September 2025"
-          >
-
-          <span class="photo-date">
-            15.09.2025
-          </span>
-
-        </div>
-
-
-        <div class="photo-card favourite-photo">
-
-          <div class="favourite-ribbon">
-            MY FAVOURITE
-          </div>
-
-          <img
-            src="images/15-sep-2.jpg"
-            alt="My favourite memory from 15 September 2025"
-          >
-
-          <div class="photo-caption">
-            <span>15.09.2025</span>
-            <strong>The one I love most.</strong>
-          </div>
-
-        </div>
-
-
-        <div class="photo-card small-photo">
-
-          <img
-            src="images/15-sep-3.jpg"
-            alt="Our memory from 15 September 2025"
-          >
-
-          <span class="photo-date">
-            15.09.2025
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <!-- MEMORY 15-15 -->
-
-      <div class="memory-block center reveal">
-
-        <div class="memory-text">
-
-          <span class="memory-time">
-            Before leaving
-          </span>
-
-          <h3>
-            One last quiet moment.
-          </h3>
-
-          <p>
-            After tea, there were more hugs,
-            kisses and a quiet intimate moment
-            before the day finally moved towards goodbye.
-          </p>
-
-          <p>
-            I went to the bathroom to fix my hair.
-          </p>
-
-          <p>
-            He looked at me from outside.
-          </p>
-
-          <p>
-            I liked the way he was looking at me.
-          </p>
-
-          <p class="handwritten">
-            Then one more hug.
-            One more kiss.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <!-- MEMORY 15-16 -->
-
-      <div class="memory-block left reveal">
-
-        <div class="memory-text">
-
-          <span class="memory-time">
-            The goodbye
-          </span>
-
-          <h3>
-            He took me downstairs.
-          </h3>
-
-          <p>
-            He put me in a cab/auto.
-          </p>
-
-          <p>
-            I went home.
-          </p>
-
-          <p>
-            He went from the room towards the airport.
-          </p>
-
-          <p>
-            His face looked like he might cry.
-          </p>
-
-          <p class="handwritten">
-            He didn't want to leave.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <!-- MEMORY 15-17 -->
-
-      <div class="memory-block right reveal">
-
-        <div class="memory-text">
-
-          <span class="memory-time">
-            The message
-          </span>
-
-          <h3>
-            And then came the message.
-          </h3>
-
-          <div class="message-memory large-message">
-            Bhagya mann nhi ho rha hai mera…
-          </div>
-
-          <p>
-            I cried that night.
-          </p>
-
-          <p>
-            Because sometimes a goodbye isn't
-            just about leaving a place.
-          </p>
-
-          <p>
-            It's about leaving the person
-            you wish you could stay with.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         LONG DISTANCE
-    ====================================================== -->
-
-    <section class="distance-section story-section">
-
-      <div class="distance-content">
-
-        <p class="date-label">
-          AFTER THAT
-        </p>
-
-        <h2>
-          Delhi ↔ Pune
-        </h2>
-
-        <div class="distance-line"></div>
-
-        <p>
-          Life went back to normal.
-        </p>
-
-        <p>
-          I stayed in Delhi.
-          He went back to Pune.
-        </p>
-
-        <p>
-          Work.
-          Calls.
-          Messages.
-          Business.
-          Office.
-          Normal days.
-        </p>
-
-        <p class="handwritten">
-          But now normal days had memories inside them.
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         ANNIVERSARY ENDING
-    ====================================================== -->
-
-    <section class="ending-section" id="ending">
-
-      <div class="ending-stars"></div>
-
-      <div class="ending-content">
-
-        <p class="date-label">
-          30 SEPTEMBER 2026
-        </p>
-
-        <div class="two-years">
-          2
-        </div>
-
-        <h2>
-          Two years.
-        </h2>
-
-        <p class="ending-main">
-          From two strangers taking the same step
-          in Lodhi Garden...
-        </p>
-
-        <p class="ending-main">
-          to two people carrying an entire
-          little universe of memories.
-        </p>
-
-        <div class="ending-divider">
-          ✦
-        </div>
-
-        <p class="handwritten ending-note">
-          Kunnu,
-        </p>
-
-        <p class="ending-letter">
-
-          Agar kabhi meri yaad aaye,<br>
-          toh yahan aa jana.
-
-          <br><br>
-
-          Yahan woh din hai<br>
-          jab hum pehli baar mile the.
-
-          <br><br>
-
-          Yahan woh din hai<br>
-          jab tum Delhi wapas aaye the.
-
-          <br><br>
-
-          Yahan woh chai hai,<br>
-          woh Maggie hai,<br>
-          woh metro hai,<br>
-          woh hand-holding hai,<br>
-          woh rona hai,<br>
-          woh hasi hai...
-
-          <br><br>
-
-          Aur woh saari chhoti-chhoti cheezein<br>
-          jo shayad duniya ke liye kuch nahi,<br>
-          par humare liye sab kuch hain.
-
-        </p>
-
-        <p class="final-love">
-          Happy 2 Years, Kunnu.
-        </p>
-
-        <p class="final-small">
-          This little universe is ours.
-        </p>
-
-      </div>
-
-    </section>
-
-
-  </main>
-
-
-  <!-- =====================================================
-       MUSIC
-  ====================================================== -->
-
-  <audio id="backgroundMusic" loop>
-    <source src="music.mp3" type="audio/mpeg">
-  </audio>
-
-
-  <!-- =====================================================
-       JAVASCRIPT
-       Actual functionality will be added in script.js
-  ====================================================== -->
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
