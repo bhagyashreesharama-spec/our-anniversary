@@ -1,617 +1,334 @@
-/* =========================================================
-   KUNNU & BHAGYA — 2 YEAR ANNIVERSARY DIARY
-   JavaScript
-========================================================= */
+/* =========================================
+   OUR LITTLE UNIVERSE
+   script.js
+   ========================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+// ---------- CODE ENTRY ----------
+const SECRET_CODE = "30092024";
 
-    /* =====================================================
-       1. ELEMENTS
-    ===================================================== */
+const lockScreen = document.getElementById("lockScreen");
+const mainContent = document.getElementById("mainContent");
+const codeInput = document.getElementById("secretCode");
+const unlockBtn = document.getElementById("unlockBtn");
+const errorMessage = document.getElementById("codeError");
 
-    const secretScreen = document.getElementById("secretScreen");
-    const anniversaryScreen = document.getElementById("anniversaryScreen");
-    const diary = document.getElementById("diary");
+function unlockUniverse() {
+    if (!codeInput) return;
 
-    const secretForm = document.getElementById("secretForm");
-    const secretCode = document.getElementById("secretCode");
-    const eyeButton = document.getElementById("eyeButton");
-    const errorMessage = document.getElementById("errorMessage");
+    const enteredCode = codeInput.value.trim();
 
-    const openDiaryButton = document.getElementById("openDiaryButton");
+    if (enteredCode === SECRET_CODE) {
+        if (errorMessage) {
+            errorMessage.textContent = "";
+        }
 
-    const finalEnvelope = document.getElementById("finalEnvelope");
-    const plane = document.querySelector(".airplane");
+        if (lockScreen) {
+            lockScreen.classList.add("unlocked");
+        }
 
-    const SECRET_CODE = "30092024";
-
-
-    /* =====================================================
-       2. INITIAL STATE
-    ===================================================== */
-
-    if (anniversaryScreen) {
-        anniversaryScreen.style.display = "none";
-    }
-
-    if (diary) {
-        diary.style.display = "none";
-    }
-
-
-    /* =====================================================
-       3. PASSWORD EYE BUTTON
-    ===================================================== */
-
-    if (eyeButton && secretCode) {
-
-        eyeButton.addEventListener("click", () => {
-
-            if (secretCode.type === "password") {
-
-                secretCode.type = "text";
-                eyeButton.textContent = "◉";
-                eyeButton.setAttribute("aria-label", "Hide password");
-
-            } else {
-
-                secretCode.type = "password";
-                eyeButton.textContent = "◌";
-                eyeButton.setAttribute("aria-label", "Show password");
-
+        setTimeout(() => {
+            if (lockScreen) {
+                lockScreen.style.display = "none";
             }
 
-            secretCode.focus();
-        });
-    }
-
-
-    /* =====================================================
-       4. PASSWORD CHECK
-    ===================================================== */
-
-    if (secretForm && secretCode) {
-
-        secretForm.addEventListener("submit", (event) => {
-
-            event.preventDefault();
-
-            const enteredCode = secretCode.value.trim();
-
-            if (enteredCode === SECRET_CODE) {
-
-                if (errorMessage) {
-                    errorMessage.textContent = "";
-                }
-
-                secretScreen.classList.add("secret-exit");
-
-                setTimeout(() => {
-
-                    if (secretScreen) {
-                        secretScreen.style.display = "none";
-                    }
-
-                    if (anniversaryScreen) {
-
-                        anniversaryScreen.style.display = "flex";
-
-                        requestAnimationFrame(() => {
-                            anniversaryScreen.classList.add("show");
-                        });
-                    }
-
-                    startRomanticEffects();
-
-                }, 850);
-
-            } else {
-
-                if (errorMessage) {
-                    errorMessage.textContent =
-                        "Hmm… date yaad hai na? Try again ♡";
-                }
-
-                secretCode.classList.remove("wrong-code");
-
-                void secretCode.offsetWidth;
-
-                secretCode.classList.add("wrong-code");
-
-                secretCode.value = "";
-                secretCode.focus();
-            }
-        });
-    }
-
-
-    /* =====================================================
-       5. OPEN DIARY
-    ===================================================== */
-
-    if (openDiaryButton) {
-
-        openDiaryButton.addEventListener("click", () => {
-
-            if (anniversaryScreen) {
-                anniversaryScreen.classList.add("intro-exit");
+            if (mainContent) {
+                mainContent.style.display = "block";
             }
 
-            setTimeout(() => {
+            document.body.classList.add("universe-open");
 
-                if (anniversaryScreen) {
-                    anniversaryScreen.style.display = "none";
-                }
+            window.scrollTo({
+                top: 0,
+                behavior: "instant"
+            });
 
-                if (diary) {
+            startMusic();
+        }, 900);
 
-                    diary.style.display = "block";
+    } else {
+        if (errorMessage) {
+            errorMessage.textContent = "Hmm... ye code nahi hai 🤍";
+        }
 
-                    requestAnimationFrame(() => {
-                        diary.classList.add("diary-enter");
-                    });
-                }
+        if (codeInput) {
+            codeInput.classList.remove("wrong-code");
 
-                startDiaryAnimations();
+            // restart animation
+            void codeInput.offsetWidth;
 
-            }, 700);
-        });
-    }
-
-
-    /* =====================================================
-       6. ENTER KEY SUPPORT
-    ===================================================== */
-
-    if (secretCode) {
-
-        secretCode.addEventListener("keydown", (event) => {
-
-            if (event.key === "Enter") {
-
-                event.preventDefault();
-
-                if (secretForm) {
-                    secretForm.requestSubmit();
-                }
-            }
-        });
-    }
-
-
-    /* =====================================================
-       7. ROMANTIC PARTICLES
-    ===================================================== */
-
-    function createIntroParticles() {
-
-        const container =
-            document.querySelector(".intro-particles") ||
-            document.body;
-
-        for (let i = 0; i < 24; i++) {
-
-            const particle = document.createElement("span");
-
-            particle.className = "intro-particle";
-
-            particle.style.left =
-                Math.random() * 100 + "%";
-
-            particle.style.top =
-                Math.random() * 100 + "%";
-
-            particle.style.animationDelay =
-                Math.random() * 5 + "s";
-
-            particle.style.animationDuration =
-                4 + Math.random() * 5 + "s";
-
-            container.appendChild(particle);
+            codeInput.classList.add("wrong-code");
+            codeInput.value = "";
+            codeInput.focus();
         }
     }
-
-
-    /* =====================================================
-       8. FLOATING HEARTS
-    ===================================================== */
-
-    function createFloatingHearts() {
-
-        const heartContainer = document.createElement("div");
-
-        heartContainer.className = "dynamic-hearts";
-
-        document.body.appendChild(heartContainer);
-
-        setInterval(() => {
-
-            const heart = document.createElement("span");
-
-            heart.className = "dynamic-heart";
-
-            heart.textContent = "♡";
-
-            heart.style.left =
-                Math.random() * 100 + "vw";
-
-            heart.style.animationDuration =
-                6 + Math.random() * 5 + "s";
-
-            heart.style.animationDelay =
-                Math.random() * 1.5 + "s";
-
-            heartContainer.appendChild(heart);
-
-            setTimeout(() => {
-                heart.remove();
-            }, 12000);
-
-        }, 1300);
-    }
-
-
-    /* =====================================================
-       9. FALLING PETALS
-    ===================================================== */
-
-    function createFallingPetals() {
-
-        const petalContainer = document.createElement("div");
-
-        petalContainer.className = "falling-petals";
-
-        document.body.appendChild(petalContainer);
-
-        setInterval(() => {
-
-            const petal = document.createElement("span");
-
-            petal.className = "falling-petal";
-
-            petal.textContent = "✦";
-
-            petal.style.left =
-                Math.random() * 100 + "vw";
-
-            petal.style.animationDuration =
-                7 + Math.random() * 5 + "s";
-
-            petal.style.animationDelay =
-                Math.random() * 2 + "s";
-
-            petalContainer.appendChild(petal);
-
-            setTimeout(() => {
-                petal.remove();
-            }, 14000);
-
-        }, 1800);
-    }
-
-
-    /* =====================================================
-       10. SECTION REVEAL
-    ===================================================== */
-
-    function setupSectionReveal() {
-
-        const sections =
-            document.querySelectorAll(
-                ".memory-section, .photo-section, .letter-section, .future-section, .goodbye-section, .final-section"
-            );
-
-        if (!sections.length) return;
-
-        const observer =
-            new IntersectionObserver(
-                (entries) => {
-
-                    entries.forEach((entry) => {
-
-                        if (entry.isIntersecting) {
-
-                            entry.target.classList.add("section-visible");
-
-                            observer.unobserve(entry.target);
-                        }
-                    });
-
-                },
-                {
-                    threshold: 0.15
-                }
-            );
-
-        sections.forEach((section) => {
-            observer.observe(section);
-        });
-    }
-
-
-    /* =====================================================
-       11. PHOTO FLOAT / TILT
-    ===================================================== */
-
-    function setupPhotoInteraction() {
-
-        const photos =
-            document.querySelectorAll(".polaroid");
-
-        photos.forEach((photo) => {
-
-            photo.addEventListener("mousemove", (event) => {
-
-                const rect =
-                    photo.getBoundingClientRect();
-
-                const x =
-                    event.clientX - rect.left;
-
-                const y =
-                    event.clientY - rect.top;
-
-                const centerX =
-                    rect.width / 2;
-
-                const centerY =
-                    rect.height / 2;
-
-                const rotateY =
-                    ((x - centerX) / centerX) * 5;
-
-                const rotateX =
-                    ((centerY - y) / centerY) * 5;
-
-                photo.style.setProperty(
-                    "--mouse-x",
-                    rotateX + "deg"
-                );
-
-                photo.style.setProperty(
-                    "--mouse-y",
-                    rotateY + "deg"
-                );
-
-                photo.classList.add("photo-interacting");
-            });
-
-
-            photo.addEventListener("mouseleave", () => {
-
-                photo.classList.remove("photo-interacting");
-
-                photo.style.removeProperty("--mouse-x");
-                photo.style.removeProperty("--mouse-y");
-            });
-        });
-    }
-
-
-    /* =====================================================
-       12. IMAGE FALLBACK
-    ===================================================== */
-
-    function setupImageFallback() {
-
-        const images =
-            document.querySelectorAll(".photo-frame img");
-
-        images.forEach((img) => {
-
-            img.addEventListener("error", () => {
-
-                const frame =
-                    img.closest(".photo-frame");
-
-                if (frame) {
-
-                    frame.classList.add("missing-photo");
-
-                    img.style.display = "none";
-                }
-            });
-
-
-            img.addEventListener("load", () => {
-
-                const frame =
-                    img.closest(".photo-frame");
-
-                if (frame) {
-                    frame.classList.remove("missing-photo");
-                }
-            });
-        });
-    }
-
-
-    /* =====================================================
-       13. CHAI STEAM
-    ===================================================== */
-
-    function setupChaiSteam() {
-
-        const chaiCup =
-            document.querySelector(".chai-cup");
-
-        if (!chaiCup) return;
-
-        const existingSteam =
-            chaiCup.querySelectorAll(".steam");
-
-        if (existingSteam.length) return;
-
-        for (let i = 0; i < 3; i++) {
-
-            const steam =
-                document.createElement("span");
-
-            steam.className = "steam js-steam";
-
-            steam.style.left =
-                (25 + i * 22) + "%";
-
-            steam.style.animationDelay =
-                (i * 0.7) + "s";
-
-            chaiCup.appendChild(steam);
+}
+
+if (unlockBtn) {
+    unlockBtn.addEventListener("click", unlockUniverse);
+}
+
+if (codeInput) {
+    codeInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            unlockUniverse();
         }
-    }
+    });
+}
 
 
-    /* =====================================================
-       14. AIRPLANE ANIMATION
-    ===================================================== */
+// ---------- BACKGROUND MUSIC ----------
+const music = document.getElementById("backgroundMusic");
 
-    function setupAirplane() {
+function startMusic() {
+    if (!music) return;
 
-        if (!plane) return;
+    music.volume = 0.35;
 
-        plane.addEventListener("click", () => {
+    const playPromise = music.play();
 
-            plane.classList.remove("plane-replay");
-
-            void plane.offsetWidth;
-
-            plane.classList.add("plane-replay");
+    if (playPromise !== undefined) {
+        playPromise.catch(() => {
+            // Browser may block autoplay.
         });
     }
+}
 
 
-    /* =====================================================
-       15. FINAL ENVELOPE
-    ===================================================== */
+// ---------- BEGIN BUTTON ----------
+const beginButton = document.getElementById("beginButton");
+const introSection = document.getElementById("intro");
 
-    function setupFinalEnvelope() {
+if (beginButton && introSection) {
+    beginButton.addEventListener("click", function () {
+        introSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
 
-        if (!finalEnvelope) return;
+        startMusic();
+    });
+}
 
-        finalEnvelope.addEventListener("click", () => {
 
-            finalEnvelope.classList.toggle("opened");
+// ---------- SCROLL REVEAL ----------
+const revealElements = document.querySelectorAll(".reveal");
 
-            const finalMessage =
-                document.querySelector(".final-message");
-
-            if (
-                finalEnvelope.classList.contains("opened") &&
-                finalMessage
-            ) {
-
-                finalMessage.classList.add(
-                    "message-visible"
-                );
+const revealObserver = new IntersectionObserver(
+    function (entries, observer) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+                observer.unobserve(entry.target);
             }
         });
+    },
+    {
+        threshold: 0.12
+    }
+);
+
+revealElements.forEach(function (element) {
+    revealObserver.observe(element);
+});
+
+
+// ---------- FLOATING HEARTS ----------
+function createHeart() {
+    if (!document.body.classList.contains("universe-open")) return;
+
+    const heart = document.createElement("span");
+
+    heart.className = "floating-heart";
+    heart.innerHTML = "♡";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (6 + Math.random() * 5) + "s";
+    heart.style.fontSize = (10 + Math.random() * 14) + "px";
+    heart.style.opacity = (0.2 + Math.random() * 0.5).toFixed(2);
+
+    document.body.appendChild(heart);
+
+    setTimeout(function () {
+        heart.remove();
+    }, 12000);
+}
+
+setInterval(createHeart, 1800);
+
+
+// ---------- LITTLE STAR PARTICLES ----------
+function createStarParticle() {
+    if (!document.body.classList.contains("universe-open")) return;
+
+    const star = document.createElement("span");
+
+    star.className = "star-particle";
+
+    star.style.left = Math.random() * 100 + "vw";
+    star.style.top = Math.random() * 100 + "vh";
+    star.style.animationDuration = (2 + Math.random() * 3) + "s";
+    star.style.animationDelay = Math.random() * 2 + "s";
+
+    document.body.appendChild(star);
+
+    setTimeout(function () {
+        star.remove();
+    }, 6000);
+}
+
+setInterval(createStarParticle, 700);
+
+
+// ---------- SOFT PARALLAX ----------
+document.addEventListener("mousemove", function (event) {
+    if (!document.body.classList.contains("universe-open")) return;
+
+    const x = (event.clientX / window.innerWidth - 0.5);
+    const y = (event.clientY / window.innerHeight - 0.5);
+
+    const moon = document.querySelector(".moon");
+    const clouds = document.querySelectorAll(".cloud");
+
+    if (moon) {
+        moon.style.transform =
+            `translate(${x * 12}px, ${y * 12}px)`;
     }
 
+    clouds.forEach(function (cloud, index) {
+        const movement = (index + 1) * 5;
 
-    /* =====================================================
-       16. LETTER CARD
-    ===================================================== */
+        cloud.style.transform =
+            `translate(${x * movement}px, ${y * movement}px)`;
+    });
+});
 
-    function setupLetterAnimation() {
 
-        const letter =
-            document.querySelector(".letter-paper");
+// ---------- POLAROID TILT ----------
+const photos = document.querySelectorAll(".polaroid");
 
-        if (!letter) return;
+photos.forEach(function (photo) {
 
-        letter.addEventListener("click", () => {
+    photo.addEventListener("mousemove", function (event) {
 
-            letter.classList.remove("letter-bump");
+        const rect = photo.getBoundingClientRect();
 
-            void letter.offsetWidth;
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
 
-            letter.classList.add("letter-bump");
-        });
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -4;
+        const rotateY = ((x - centerX) / centerX) * 4;
+
+        photo.style.transform =
+            `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+    });
+
+    photo.addEventListener("mouseleave", function () {
+        photo.style.transform = "";
+    });
+});
+
+
+// ---------- GENTLE HEART BURST ----------
+document.addEventListener("click", function (event) {
+
+    if (!document.body.classList.contains("universe-open")) return;
+
+    // Don't create burst when clicking buttons/inputs
+    if (
+        event.target.closest("button") ||
+        event.target.closest("input") ||
+        event.target.closest("a")
+    ) {
+        return;
     }
 
+    for (let i = 0; i < 5; i++) {
 
-    /* =====================================================
-       17. PHOTO GENTLE MOVEMENT
-    ===================================================== */
+        const heart = document.createElement("span");
 
-    function setupPhotoFloat() {
+        heart.className = "click-heart";
+        heart.innerHTML = "♡";
 
-        const photos =
-            document.querySelectorAll(".polaroid");
+        heart.style.left = event.clientX + "px";
+        heart.style.top = event.clientY + "px";
 
-        photos.forEach((photo, index) => {
-
-            photo.style.animationDelay =
-                (index * 0.7) + "s";
-        });
-    }
-
-
-    /* =====================================================
-       18. START INTRO EFFECTS
-    ===================================================== */
-
-    function startRomanticEffects() {
-
-        createIntroParticles();
-        createFloatingHearts();
-        createFallingPetals();
-    }
-
-
-    /* =====================================================
-       19. START DIARY EFFECTS
-    ===================================================== */
-
-    function startDiaryAnimations() {
-
-        setupSectionReveal();
-        setupPhotoInteraction();
-        setupImageFallback();
-        setupChaiSteam();
-        setupAirplane();
-        setupFinalEnvelope();
-        setupLetterAnimation();
-        setupPhotoFloat();
-
-        document.body.classList.add("diary-active");
-    }
-
-
-    /* =====================================================
-       20. INITIAL IMAGE SETUP
-    ===================================================== */
-
-    setupImageFallback();
-
-
-    /* =====================================================
-       21. REDUCE MOTION ACCESSIBILITY
-    ===================================================== */
-
-    const reduceMotion =
-        window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
+        heart.style.setProperty(
+            "--x",
+            (Math.random() * 100 - 50) + "px"
         );
 
-    if (reduceMotion.matches) {
-        document.body.classList.add("reduce-motion");
+        heart.style.setProperty(
+            "--y",
+            (Math.random() * 100 - 50) + "px"
+        );
+
+        document.body.appendChild(heart);
+
+        setTimeout(function () {
+            heart.remove();
+        }, 1000);
     }
+});
 
 
-    /* =====================================================
-       22. PAUSE ANIMATIONS WHEN TAB IS HIDDEN
-    ===================================================== */
+// ---------- SMOOTH IMAGE LOADING ----------
+const allImages = document.querySelectorAll("img");
 
-    document.addEventListener("visibilitychange", () => {
+allImages.forEach(function (image) {
 
-        if (document.hidden) {
+    image.addEventListener("load", function () {
+        image.classList.add("loaded");
+    });
 
-            document.body.classList.add("page-paused");
-
-        } else {
-
-            document.body.classList.remove("page-paused");
-        }
+    image.addEventListener("error", function () {
+        image.classList.add("image-missing");
     });
 
 });
+
+
+// ---------- ACTIVE SECTION FEEL ----------
+const sections = document.querySelectorAll("section");
+
+const sectionObserver = new IntersectionObserver(
+    function (entries) {
+        entries.forEach(function (entry) {
+
+            if (entry.isIntersecting) {
+                entry.target.classList.add("section-active");
+            }
+
+        });
+    },
+    {
+        threshold: 0.25
+    }
+);
+
+sections.forEach(function (section) {
+    sectionObserver.observe(section);
+});
+
+
+// ---------- PREVENT EMPTY CODE SUBMISSION ----------
+if (codeInput) {
+
+    codeInput.addEventListener("input", function () {
+
+        if (errorMessage) {
+            errorMessage.textContent = "";
+        }
+
+        // Only numbers
+        this.value = this.value.replace(/\D/g, "");
+
+        // Code length
+        if (this.value.length > 8) {
+            this.value = this.value.slice(0, 8);
+        }
+    });
+
+}
